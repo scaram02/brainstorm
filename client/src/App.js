@@ -1,10 +1,22 @@
+import React from 'react'
+import {Route} from 'react-router-dom'
 import Signup from './components/Signup'
+import Home from './components/Home'
 import './App.css';
 
-function App() {
+const App = props => {
+
+const [user, setUser] = props.user
+
+const setCurrentUser = user => {
+  setUser(user)
+}
+
   return (
     <div className="App">
-     <Signup />
+    <Route exact path='/' component={Home}/>
+    <Route exact path="/signup"
+    render={props => <Signup {...props} setCurrentUser={setCurrentUser} />} />
     </div>
   );
 }

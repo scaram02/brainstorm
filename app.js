@@ -90,8 +90,8 @@ app.locals.title = "wcs";
 const index = require("./routes/index");
 app.use("/", index);
 
-// rename flat route => dashboard route
-
+const authRoutes = require("./routes/auth");
+app.use("/api/auth", authRoutes);
 
 
 app.use((req, res) => {
