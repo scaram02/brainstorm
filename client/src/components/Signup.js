@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { signup } from "../services/auth";
 
-const Signup = () => {
+const Signup = (props) => {
     
     const blankForm = {username: '', password: ''}
     const [user, setUser] = useState(blankForm)
@@ -20,7 +20,7 @@ const Signup = () => {
             if (data.message) {
                 setError(data.message)
             } else {
-                this.props.setCurrentUser(data)
+                props.setCurrentUser(data)
                 console.log(user)
             }
         })
@@ -29,9 +29,9 @@ const Signup = () => {
     return (
         <div>
           <form onSubmit={handleSubmit}>
-        <input type="text" name="username" value={user.username} onChange={handleInputChange}/>
+        <input type="text" name="username" placeholder="usaname" value={user.username} onChange={handleInputChange}/>
         <input type="password" name="password" placeholder="password" value={user.password} onChange={handleInputChange}/>
-
+<button>signeth up</button>
           </form>
         </div>
     )
