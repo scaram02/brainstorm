@@ -1,11 +1,16 @@
 import React, { Component } from 'react'
+import { Link } from "react-router-dom";
 
-export default class Home extends Component {
-    render() {
-        return (
-            <div>
-                i bims, da homepage
-            </div>
-        )
-    }
+
+const Home = () => {
+    return (
+        <div>
+             <h1>home</h1>
+             <Link to='/login'>Log in</Link>
+                <br/>
+                <Link to='/signup'>sign up</Link>
+        </div>
+    )
 }
+
+export default Home

@@ -14,14 +14,13 @@ const Auth = (props) => {
 
     const handleSubmit = e => {
         e.preventDefault()
-        // signup(user.username, user.password)
         props.authFunction(user.username, user.password)
         .then(data => {
             if (data.message) {
                 setError(data.message)
             } else {
                 props.setCurrentUser(data)
-                props.history.push("/")
+                props.history.push("/feed")
                 // console.log(`${user.username} has been logged in`)
             }
         })
@@ -30,8 +29,8 @@ const Auth = (props) => {
 
     return (
         <div>
-            <h1>rendered in Auth.js now</h1>
-            <form onSubmit={handleSubmit}>
+        <h1>rendered in Auth.js now</h1>
+        <form onSubmit={handleSubmit}>
         <input type="text" name="username" placeholder="usaname" value={user.username} onChange={handleInputChange}/>
         <input type="password" name="password" placeholder="password" value={user.password} onChange={handleInputChange}/>
         <button>gooo</button>
