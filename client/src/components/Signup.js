@@ -6,11 +6,12 @@ const Signup = (props) => {
     
 
 const authFunction = signup
+const buttonText = "Sign up"
 
     return (
         <div>
         <h1>sign up</h1>
-         <Auth authFunction={authFunction} setCurrentUser={props.setCurrentUser} history={props.history}/>
+         <Auth authFunction={authFunction} setCurrentUser={props.setCurrentUser} history={props.history} buttonText={buttonText}/>
         </div>
     )
 }

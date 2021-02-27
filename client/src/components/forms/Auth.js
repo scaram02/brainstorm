@@ -29,11 +29,10 @@ const Auth = (props) => {
 
     return (
         <div>
-        <h1>rendered in Auth.js now</h1>
         <form onSubmit={handleSubmit}>
-        <input type="text" name="username" placeholder="usaname" value={user.username} onChange={handleInputChange}/>
+        <input type="text" name="username" placeholder="username" value={user.username} onChange={handleInputChange}/>
         <input type="password" name="password" placeholder="password" value={user.password} onChange={handleInputChange}/>
-        <button>gooo</button>
+        <button>{props.buttonText}</button>
         <div>
               {error && (
                 <p className="alert" variant="danger">
