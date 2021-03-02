@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, {useState, useEffect} from 'react'
+import DeleteThought from './DeleteThought'
 
 const ThoughtList = props => {
 
@@ -15,7 +16,7 @@ useEffect(() => {
         setData(result.data)
     }
     fetchData()
-}, [])
+})
 
     return (
         <div>
@@ -23,7 +24,10 @@ useEffect(() => {
            data
            .map
            ((thought, i) => (
+             <div>
             <h1 key={i}>{thought.thought}</h1>
+            <DeleteThought user={props.user}/>
+            </div>
            ))
        ) : 
        <h1>no thoughts to display</h1>}  

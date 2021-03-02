@@ -10,7 +10,7 @@ const AddThought = props => {
         const {name, value} = e.target;
 
         setThought({...thought, [name]: value})
-        props.setAllThoughts([...props.allThoughts, thought])
+        props.setAllThoughts({...props.allThoughts, thought})
     }
 
     const handleSubmit = e => {
