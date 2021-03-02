@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const Thought = props => {
 
-    const blankThought = {thought: '', numUpvotes: 0}
+    const blankThought = {thought: '', numUpvotes: 0, upvotedBy: []}
     const [thought, setThought] = useState(blankThought)
 
     const handleInputChange = e => {
@@ -19,13 +19,17 @@ const Thought = props => {
         setThought(blankThought)
         console.log(thought)
 
+       
        axios
-       .post(`/api/thought`, {
-           thought, 
+       .post('/api/thought', {
+      // why wouldnt this destructure
+           thought: thought.thought,
+           numUpvotes: thought.numUpvotes,
+           upvotedBy: thought.upvotedBy, 
            user: props.user
        })
        .then(data => {
-           console.log(data)
+           console.log("----SUBMITTED----: ", data.data)
        })
        .catch( err => console.log(err))
     }
