@@ -31,4 +31,11 @@ router.get('/', (req, res) => {
     })
 })
 
+// edit a thought
+router.put('/edit/:id', (req, res) => {
+    const id = req.params.id;
+    console.log("backend id", id)
+    // Thought.findByIdAndUpdate(id, )
+})
+
 module.exports = router
