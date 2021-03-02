@@ -21,4 +21,14 @@ router.post('/', (req, res) => {
     .catch(err => { res.json(err) })
 })
 
+
+// get thoughts
+router.get('/', (req, res) => {
+    Thought.find()
+    .populate('user')
+    .then(thoughts => {
+        res.json(thoughts)
+    })
+})
+
 module.exports = router

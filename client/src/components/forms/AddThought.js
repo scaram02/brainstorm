@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import axios from 'axios'
 
-const Thought = props => {
+const AddThought = props => {
 
     const blankThought = {thought: '', numUpvotes: 0, upvotedBy: []}
     const [thought, setThought] = useState(blankThought)
@@ -10,7 +10,7 @@ const Thought = props => {
         const {name, value} = e.target;
 
         setThought({...thought, [name]: value})
-        
+        props.setAllThoughts([...props.allThoughts, thought])
     }
 
     const handleSubmit = e => {
@@ -50,4 +50,4 @@ const Thought = props => {
     )
 }
 
-export default Thought
+export default AddThought

@@ -1,11 +1,15 @@
 import React from 'react'
-import Thought from "./forms/Thought"
+import AddThought from "./forms/AddThought"
+import ThoughtList from './ThoughtList'
 
 const Feed = props => {
     return (
         <div>
             <h1>welcome, {props.user.username}</h1>
-            <Thought />
+            <AddThought allThoughts={props.allThoughts}
+                  setAllThoughts={props.setAllThoughts}/>
+            <ThoughtList  allThoughts={props.allThoughts}
+                  />
         </div>
     )
 }

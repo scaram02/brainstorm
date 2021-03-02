@@ -15,6 +15,9 @@ const setCurrentUser = user => {
   setUser(user);
 };
 
+
+const [allThoughts, setAllThoughts] = useState([])
+
   return (
     <div className="App">
     <Switch>
@@ -41,6 +44,8 @@ const setCurrentUser = user => {
                 <Feed
                   {...props}
                   user={user}
+                  allThoughts={allThoughts}
+                  setAllThoughts={setAllThoughts}
                   // clearUser={this.setUser} 
               />
               )}/>
