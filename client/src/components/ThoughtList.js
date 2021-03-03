@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
-import DeleteThought from './DeleteThought'
+import DeleteButton from './DeleteButton'
 
 const ThoughtList = props => {
 
@@ -17,7 +17,7 @@ useEffect(() => {
         setData(result.data)
     }
     fetchData()
-}) // currently no props to prevent render
+}) // currently no [] props to prevent render
 
 
 
@@ -29,7 +29,7 @@ useEffect(() => {
            ((thought, i) => (
              <div key={i}>
             <h1>{thought.thought}</h1>
-           <DeleteThought thought={thought}/>
+            <DeleteButton thought={thought} user={props.user}/>
             </div>
            ))
        ) : 

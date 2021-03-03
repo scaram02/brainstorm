@@ -4,7 +4,6 @@ import axios from 'axios'
 const DeleteThought = props => {
 
     const deleteThought = () => {
-    console.log(props.thought._id)
     const thoughtId = props.thought._id
     axios
     .delete(`api/thought/${thoughtId}`)
@@ -14,9 +13,11 @@ const DeleteThought = props => {
     .catch(err => console.log(err))
     }
 
+const deleteButton = (props.user.username === props.thought.user.username) && <button onClick={deleteThought}>Delete this thought</button>
+
     return (
         <div>
-           <button onClick={deleteThought}>Delete this thought</button>
+           {deleteButton}
         </div>
     )
 }
