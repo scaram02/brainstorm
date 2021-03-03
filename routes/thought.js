@@ -31,11 +31,20 @@ router.get('/', (req, res) => {
     })
 })
 
-// edit a thought
-router.put('/edit/:id', (req, res) => {
+// edit a thought. this is not finished
+router.put('/:id', (req, res) => {
     const id = req.params.id;
     console.log("backend id", id)
     // Thought.findByIdAndUpdate(id, )
+})
+
+
+// delete thought
+router.delete('/:id', (req, res, next) => {
+    Thought.findByIdAndRemove(req.params.id, req.body, (err, thought)=> {
+        if (err) return next(err)
+        res.json(thought)
+    })
 })
 
 module.exports = router
