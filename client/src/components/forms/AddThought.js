@@ -3,8 +3,9 @@ import axios from 'axios'
 
 const AddThought = props => {
 
-    const blankThought = {thought: '', numUpvotes: 0, upvotedBy: []}
-    const [thought, setThought] = useState(blankThought)
+    // wed night
+    // const blankThought = {thought: '', numUpvotes: 0, upvotedBy: []}
+    // const [thought, setThought] = useState(blankThought)
 
     const handleInputChange = e => {
         const {name, value} = e.target;
@@ -51,3 +52,15 @@ const AddThought = props => {
 }
 
 export default AddThought
+
+
+
+// this is good leave it alonee
+
+// warning
+
+// do not touch
+
+// leave me alone
+
+// this space intentionally left blank

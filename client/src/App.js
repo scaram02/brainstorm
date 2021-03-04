@@ -4,11 +4,14 @@ import Signup from './components/Signup'
 import Login from './components/Login'
 import Home from './components/Home'
 import Feed from './components/Feed'
+import EditThought from './components/EditThought'
 import './App.css';
+
 
 const App = props => {
 
-
+  const blankThought = {thought: '', numUpvotes: 0, upvotedBy: []}
+  const [thought, setThought] = useState(blankThought)
 const [user, setUser] = useState(props.user)
 
 const setCurrentUser = user => {
@@ -37,6 +40,7 @@ const [allThoughts, setAllThoughts] = useState([])
 <>
 {user?
            (
+             <div>
            <Route
               exact
               path="/feed"
@@ -49,6 +53,13 @@ const [allThoughts, setAllThoughts] = useState([])
                   // clearUser={this.setUser} 
               />
               )}/>
+              <Route exact path="/thought/:id" render={props => (
+                <EditThought {...props} 
+                allThoughts={allThoughts} 
+                setAllThoughts={setAllThoughts} 
+                thought={thought}/> )}/>
+
+              </div>
     )
     : <Redirect to="/" />
   }

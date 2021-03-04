@@ -9,7 +9,7 @@ const buttonText = "Log in"
 
 return (
  <div>
- <h1>hey login page</h1>
+ <h1>log in</h1>
 <Auth authFunction={authFunction} setCurrentUser={props.setCurrentUser} history={props.history} buttonText={buttonText} />
 </div>
     )

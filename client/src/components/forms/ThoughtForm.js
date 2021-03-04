@@ -1,33 +1,33 @@
-// import React from 'react'
+import React from 'react'
 
-// const ThoughtForm = props => {
+const ThoughtForm = props => {
 
-//     const blankThought = {thought: '', numUpvotes: 0, upvotedBy: []}
-//     const [thought, setThought] = useState(blankThought)
+   
 
-//     const handleInputChange = e => {
-//         const {name, value} = e.target;
+    const handleInputChange = e => {
+        const {name, value} = e.target;
 
-//         setThought({...thought, [name]: value})
-//         props.setAllThoughts({...props.allThoughts, thought})
-//     }
+        props.setThought({...props.thought, [name]: value})
+        props.setAllThoughts({...props.allThoughts, ...props.thought})
+    }
 
 
     
-//         return (
-//             <div>
-//             <form onSubmit={props.handleSubmit}>
-//             <textarea 
-//             type="text" 
-//             name="thought" 
-//             value={thought.thought} 
-//             placeholder='add a thought'
-//             onChange={handleInputChange}/>
+        return (
+            <div>
+            <form onSubmit={props.handleSubmit}>
+            <textarea 
+            type="text" 
+            name="thought" 
+            value={props.thought.thought} 
+            placeholder='your thougth here'
+            onChange={handleInputChange}/>
            
-//             <button>{props.submitButton}</button>
-//             </form>
-//             </div>
-//         )
-// }
+            <button>{props.submitButton}</button>
+            {/* <button>submit</button> */}
+            </form>
+            </div>
+        )
+}
 
-// export default ThoughtForm
+export default ThoughtForm

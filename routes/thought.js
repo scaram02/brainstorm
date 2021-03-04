@@ -22,7 +22,7 @@ router.post('/', (req, res) => {
 })
 
 
-// get thoughts
+// get thoughtS
 router.get('/', (req, res) => {
     Thought.find()
     .populate('user')
@@ -31,12 +31,18 @@ router.get('/', (req, res) => {
     })
 })
 
-// edit a thought. this is not finished
-router.put('/:id', (req, res) => {
-    const id = req.params.id;
-    console.log("backend id", id)
-    // Thought.findByIdAndUpdate(id, )
-})
+// get one thought
+router.get('/:id', (req, res, next) => {
+    Thought.findById(req.params.id)
+    .populate('user')
+    // .populate({ path: "comments", populate: { path: "user" } })
+    .then(response => {
+      res.json(response);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+    });
 
 
 // delete thought
@@ -46,5 +52,14 @@ router.delete('/:id', (req, res, next) => {
         res.json(thought)
     })
 })
+
+// edit thought
+router.put('/edit/:id', (req, res, next) => {
+    Thought.findByIdAndUpdate(req.params.id, req.body, (err, thought) =>{
+        if (err) return next(err)
+        res.json(thought)
+    })
+})
+
 
 module.exports = router
