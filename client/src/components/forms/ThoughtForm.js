@@ -20,7 +20,7 @@ const ThoughtForm = props => {
             type="text" 
             name="thought" 
             value={props.thought.thought} 
-            placeholder='your thougth here'
+            placeholder='your thought here'
             onChange={handleInputChange}/>
            
             <button>{props.submitButton}</button>

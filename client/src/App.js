@@ -5,18 +5,30 @@ import Login from './components/Login'
 import Home from './components/Home'
 import Feed from './components/Feed'
 import EditThought from './components/EditThought'
+import ThoughtView from './components/ThoughtView'
+import axios from 'axios'
 import './App.css';
 
 
 const App = props => {
 
-  const blankThought = {thought: '', numUpvotes: 0, upvotedBy: []}
-  const [thought, setThought] = useState(blankThought)
+const blankThought = {thought: '', numUpvotes: 0, upvotedBy: []}
+const [thought, setThought] = useState(blankThought)
 const [user, setUser] = useState(props.user)
 
 const setCurrentUser = user => {
   setUser(user);
 };
+
+// const getTheThought = () => {
+//   // const id = props.match.params.id
+//   console.log("!!!!!!! ID !!!!!", thought._id)
+//   axios
+//   .get(`/api/thought/${thought._id}`)
+//   .then(res => {
+//       setThought(res.data)
+//   })
+// }
 
 
 const [allThoughts, setAllThoughts] = useState([])
@@ -53,12 +65,17 @@ const [allThoughts, setAllThoughts] = useState([])
                   // clearUser={this.setUser} 
               />
               )}/>
-              <Route exact path="/thought/:id" render={props => (
+              <Route exact path="/thought/edit/:id" render={props => (
                 <EditThought {...props} 
                 allThoughts={allThoughts} 
                 setAllThoughts={setAllThoughts} 
                 thought={thought}/> )}/>
 
+              <Route exact path="/thought/:id" render={props => (
+                <ThoughtView {...props} user={user} thought={thought} 
+                // here begin the ones to delete
+                
+                />)}/>
               </div>
     )
     : <Redirect to="/" />

@@ -32,7 +32,6 @@ const AddThought2 = props => {
 
     return (
         <div>
-            <h1 style={{color: "red"}}>add fom</h1>
             <ThoughtForm setAllThoughts={props.setAllThoughts} thought={thought} setThought={setThought} handleSubmit={handleSubmit} submitButton={submitButton}/>
         </div>
     )
