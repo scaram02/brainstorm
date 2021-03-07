@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
+import Comments from './Comments'
 
 const ThoughtView = props => {
 
@@ -21,9 +22,13 @@ useEffect(() => {
 }, [])
     return (
         <div>
+            
            <h1>hey im the thoughtview</h1>
            <h2>{thought.thought}</h2>
            <h3>{thought._id}</h3>
+           {/* put comments file here */}
+           <Comments getTheThought={getTheThought} user={props.user}/>
+            {/* something to oversee addcomment and comment list */}
         </div>
     )
 }

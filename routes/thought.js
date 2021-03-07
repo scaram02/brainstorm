@@ -35,7 +35,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res, next) => {
     Thought.findById(req.params.id)
     .populate('user')
-    // .populate({ path: "comments", populate: { path: "user" } })
+    .populate({ path: "comment", populate: { path: "user" } })
     .then(response => {
       res.json(response);
     })
