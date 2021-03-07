@@ -1,26 +1,17 @@
 import React, {useState} from 'react'
 import axios from 'axios'
+import ThoughtForm from './ThoughtForm'
 
 const AddThought = props => {
 
-    // wed night
-    // const blankThought = {thought: '', numUpvotes: 0, upvotedBy: []}
-    // const [thought, setThought] = useState(blankThought)
-
-    const handleInputChange = e => {
-        const {name, value} = e.target;
-
-        setThought({...thought, [name]: value})
-        props.setAllThoughts({...props.allThoughts, thought})
-    }
-
+    const blankThought = {thought: '', numUpvotes: 0, upvotedBy: []}
+    const [thought, setThought] = useState(blankThought)
+   
     const handleSubmit = e => {
         e.preventDefault()
-        if (!thought) return
+        if (!thought.thought) return
         setThought(blankThought)
-        console.log(thought)
 
-       
        axios
        .post('/api/thought', {
       // why wouldnt this destructure
@@ -35,32 +26,13 @@ const AddThought = props => {
        .catch( err => console.log(err))
     }
 
+    const submitButton = "Submittt"
+
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-            <textarea 
-            type="text" 
-            name="thought" 
-            value={thought.thought} 
-            placeholder='add a thought'
-            onChange={handleInputChange}/>
-           
-            <button>Think!</button>
-            </form>
+        <div style={{backgroundColor: 'yellow'}}>
+            <ThoughtForm setAllThoughts={props.setAllThoughts} thought={thought} setThought={setThought} handleSubmit={handleSubmit} submitButton={submitButton}/>
         </div>
     )
 }
 
 export default AddThought
-
-
-
-// this is good leave it alonee
-
-// warning
-
-// do not touch
-
-// leave me alone
-
-// this space intentionally left blank

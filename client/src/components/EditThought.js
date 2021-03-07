@@ -5,8 +5,7 @@ import axios from 'axios'
 const EditThought = props => {
 
     const [thought, setThought] = useState(props.thought)
-
-console.log('thoughttttttt', thought)
+// console.log('thoughttttttt', thought)
 
 const getTheThought = () => {
     const id = props.match.params.id

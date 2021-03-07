@@ -6,7 +6,7 @@ import DeleteButton from './DeleteButton'
 
 const ThoughtList = props => {
 
-const [data, setData] = useState({allThoughts: []})
+const [allThoughts, setAllThoughts] = useState(props.allThoughts)
 
 // does this go here or like app.jssss
 useEffect(() => {
@@ -14,19 +14,19 @@ useEffect(() => {
         const result = await axios(
             `/api/thought`
         )
-        console.log("result : ", result.data)
-        setData(result.data)
+        // console.log("result : ", result.data)
+        setAllThoughts(result.data)
     }
     fetchData()
 }) 
 // add or take away the [] depending
 
-
+console.log('the data is this', allThoughts)
     return (
         <div>
     {/* fix this styling later re: linkage */}
-       {data.length? (
-           data
+       {allThoughts.length? (
+           allThoughts
            .map
            ((thought, i) => (
              <div key={i} style={{border: "3px solid green"}}>

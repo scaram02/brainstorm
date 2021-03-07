@@ -24,7 +24,6 @@ const ThoughtForm = props => {
             onChange={handleInputChange}/>
            
             <button>{props.submitButton}</button>
-            {/* <button>submit</button> */}
             </form>
             </div>
         )

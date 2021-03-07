@@ -6,7 +6,6 @@ import Home from './components/Home'
 import Feed from './components/Feed'
 import EditThought from './components/EditThought'
 import ThoughtView from './components/ThoughtView'
-import axios from 'axios'
 import './App.css';
 
 
@@ -20,18 +19,10 @@ const setCurrentUser = user => {
   setUser(user);
 };
 
-// const getTheThought = () => {
-//   // const id = props.match.params.id
-//   console.log("!!!!!!! ID !!!!!", thought._id)
-//   axios
-//   .get(`/api/thought/${thought._id}`)
-//   .then(res => {
-//       setThought(res.data)
-//   })
-// }
-
 
 const [allThoughts, setAllThoughts] = useState([])
+
+
 
   return (
     <div className="App">
@@ -69,7 +60,7 @@ const [allThoughts, setAllThoughts] = useState([])
                 <EditThought {...props} 
                 allThoughts={allThoughts} 
                 setAllThoughts={setAllThoughts} 
-                thought={thought}/> )}/>
+                thought={thought} /> )}/>
 
               <Route exact path="/thought/:id" render={props => (
                 <ThoughtView {...props} user={user} thought={thought} 
