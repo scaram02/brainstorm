@@ -1,0 +1,24 @@
+.feed-container {
+   display: flex;
+   flex-direction: column;
+   border: 8px solid orange;
+   height: 100vh;
+   overflow: auto;
+}
+
+.thought-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.thought {
+    border: 3px solid green;
+    width: 70%;
+    border-radius: 6px;
+}
+
+a:hover {
+    text-decoration: none;
+}

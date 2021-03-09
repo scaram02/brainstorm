@@ -25,18 +25,18 @@ useEffect(() => {
 
 console.log('the data is this', allThoughts)
     return (
-        <div>
-    {/* fix this styling later re: linkage */}
+        <div className='thought-container'>
        {allThoughts.length? (
            allThoughts
            .map
            ((thought, i) => (
-             <div key={i} style={{border: "3px solid green"}}>
+             <div key={i} className="thought">
             
             <Link to={`/thought/${thought._id}`}>
             
             <h1>{thought.thought}</h1>
             <h2 style={{color: 'blue'}}>{thought.user.username} thought of this</h2>
+            <h3>{thought.comments.length} comments</h3>
             </Link>
            
            {props.user.username === thought.user.username && 

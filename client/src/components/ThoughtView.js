@@ -27,15 +27,12 @@ useEffect(() => {
 })
     return (
         <div>
-            
-           <h1>hey im the thoughtview</h1>
-           <h2>{thought.thought}</h2>
-           <h3>{thought._id}</h3>
-           {/* put comments file here */}
+           <h1>{thought.thought}</h1>
            <Comments thought={thought} 
            getTheThought={getTheThought} 
-           user={props.user} thought={thought} allThoughts={props.allThoughts} setAllThoughts={props.setAllThoughts}/>
-            {/* something to oversee addcomment and comment list */}
+           user={props.user} thought={thought} 
+           allThoughts={props.allThoughts} 
+           setAllThoughts={props.setAllThoughts}/>
         </div>
     )
 }

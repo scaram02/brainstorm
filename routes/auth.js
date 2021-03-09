@@ -12,12 +12,12 @@ router.post("/signup", (req, res) => {
   if (password.length < 8) {
     return res.status(400).json({ message: "Password is too short" });
   }
-  // added by me in November, delete if necessary
+
   if (username.includes(' ')){
     return res.status(400).json({ message: "Username can't contain spaces"})
   }
-
-  User.findOne({ username: username })
+// checks if existing, now is not case sensitive
+  User.findOne({ username: username.toLowerCase() })
     .then(found => {
       if (found) {
         return res.status(400).json({ message: "Username is already taken" });

@@ -16,7 +16,7 @@ const ThoughtForm = props => {
         return (
             <div>
             <form onSubmit={props.handleSubmit}>
-            <textarea 
+            <input 
             type="text" 
             name="thought" 
             value={props.thought.thought} 

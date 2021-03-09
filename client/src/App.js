@@ -8,6 +8,8 @@ import EditThought from './components/EditThought'
 import ThoughtView from './components/ThoughtView'
 import './App.css';
 import axios from 'axios'
+import DarkModeToggle from "react-dark-mode-toggle";
+
 
 
 const App = props => {
@@ -15,6 +17,7 @@ const App = props => {
 const blankThought = {thought: '', numUpvotes: 0, upvotedBy: [], comments: []}
 const [thought, setThought] = useState(blankThought)
 const [user, setUser] = useState(props.user)
+const [isDarkMode, setIsDarkMode] = useState(() => false);
 
 const setCurrentUser = user => {
   setUser(user);
@@ -27,8 +30,13 @@ const [allThoughts, setAllThoughts] = useState([])
 
   return (
     <div className="App">
+      {/* <DarkModeToggle
+      onChange={setIsDarkMode}
+      checked={isDarkMode}
+      size={80}
+    /> */}
     <Switch>
-
+    
     <Route exact path='/' component={Home}/>
 
     <Route exact path="/signup"

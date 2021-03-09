@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import axios from 'axios'
 import ThoughtForm from './ThoughtForm'
 
+
 const AddThought = props => {
 
     const blankThought = {thought: '', numUpvotes: 0, upvotedBy: [], comments: []}
