@@ -17,11 +17,13 @@ const Comments = props => {
             setAllComments={setAllComments} 
             thought={props.thought}/>
             <CommentList 
+            getTheThought={props.getTheThought}
             allComments={allComments} 
             setAllComments={setAllComments} 
             thought={props.thought} 
             allThoughts={props.allThoughts} 
             setAllThoughts={props.setAllThoughts}
+            user={props.user}
             // getTheThought={props.getTheThought}
             />
         </div>

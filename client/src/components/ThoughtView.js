@@ -33,8 +33,8 @@ useEffect(() => {
            <h3>{thought._id}</h3>
            {/* put comments file here */}
            <Comments thought={thought} 
-        //    getTheThought={getTheThought} 
-           user={props.user} allThoughts={props.allThoughts} setAllThoughts={props.setAllThoughts}/>
+           getTheThought={getTheThought} 
+           user={props.user} thought={thought} allThoughts={props.allThoughts} setAllThoughts={props.setAllThoughts}/>
             {/* something to oversee addcomment and comment list */}
         </div>
     )

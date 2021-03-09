@@ -26,4 +26,25 @@ router.post('/:id', (req, res, next) => {
     })
 })
 
+
+// delete the comment
+router.put('/:id', (req, res, next) => {
+    const commentId = req.body.commentId;
+    console.log("the comment id youredeleteing", commentId)
+    Thought.findByIdAndUpdate(req.params.id, { $pull: {comments: commentId}})
+    .then(theThoughtInQuestion => {
+        res.json(theThoughtInQuestion)
+        return Comment.deleteOne({ _id: commentId}) 
+        .then(data => {
+            console.log("Deleted in comments.js ROUTE: ", data)
+        })
+        .catch(err => {
+            next(err)
+        })
+    })
+    .catch(err => {
+      
+    })
+})
+
 module.exports = router
