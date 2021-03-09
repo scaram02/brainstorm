@@ -7,11 +7,12 @@ import Feed from './components/Feed'
 import EditThought from './components/EditThought'
 import ThoughtView from './components/ThoughtView'
 import './App.css';
+import axios from 'axios'
 
 
 const App = props => {
 
-const blankThought = {thought: '', numUpvotes: 0, upvotedBy: []}
+const blankThought = {thought: '', numUpvotes: 0, upvotedBy: [], comments: []}
 const [thought, setThought] = useState(blankThought)
 const [user, setUser] = useState(props.user)
 
@@ -50,6 +51,7 @@ const [allThoughts, setAllThoughts] = useState([])
               render={props => (
                 <Feed
                   {...props}
+        
                   user={user}
                   allThoughts={allThoughts}
                   setAllThoughts={setAllThoughts}
@@ -60,12 +62,13 @@ const [allThoughts, setAllThoughts] = useState([])
                 <EditThought {...props} 
                 allThoughts={allThoughts} 
                 setAllThoughts={setAllThoughts} 
+                
                 thought={thought} /> )}/>
 
               <Route exact path="/thought/:id" render={props => (
                 <ThoughtView {...props} user={user} thought={thought} 
-                // here begin the ones to delete
-                
+                allThoughts={allThoughts} 
+                setAllThoughts={setAllThoughts}
                 />)}/>
               </div>
     )

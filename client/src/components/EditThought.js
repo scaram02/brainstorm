@@ -28,6 +28,7 @@ const handleSubmit = e => {
         thought: thought.thought,
         numUpvotes: thought.numUpvotes,
         upvotedBy: thought.upvotedBy,
+        comments: thought.comments,
         user: props.user
     })
     // .then((res) => console.log(res.status)) // 200? mmm

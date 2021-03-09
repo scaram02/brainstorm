@@ -6,10 +6,10 @@ const Thought = require('../models/Thought')
 
 // add a thought
 router.post('/', (req, res) => {
-    const {thought, numUpvotes, upvotedBy} = req.body
+    const {thought, numUpvotes, upvotedBy, comments} = req.body
 
     Thought.create({
-        thought, numUpvotes, upvotedBy,
+        thought, numUpvotes, upvotedBy, comments,
         user: [req.user._id]
     })
     .then(
@@ -35,7 +35,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res, next) => {
     Thought.findById(req.params.id)
     .populate('user')
-    .populate({ path: "comment", populate: { path: "user" } })
+    .populate({ path: "comments", populate: { path: "user" } })
     .then(response => {
       res.json(response);
     })

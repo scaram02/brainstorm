@@ -5,6 +5,11 @@ const thoughtSchema = new Schema({
     thought: String,
     numUpvotes: Number,
     upvotedBy: Array,
+    comments: [
+        {
+       type: Schema.Types.ObjectId,
+       ref: "Comment"
+       }],
     user: 
     {
         type: Schema.Types.ObjectId,
@@ -15,3 +20,4 @@ const thoughtSchema = new Schema({
 
 const Thought = mongoose.model("Thought", thoughtSchema);
 module.exports = Thought;
+

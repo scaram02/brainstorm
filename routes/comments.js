@@ -16,7 +16,7 @@ router.post('/:id', (req, res, next) => {
         return Thought.findByIdAndUpdate
         (req.params.id,
             { $push: {comments: theComment._id}}, {new: true})
-            .populate({path: 'comment', populate: {path: "user"}})
+            .populate({path: 'comments', populate: {path: "user"}})
             .then(thought => {
                 res.json(thought)
             })
@@ -25,3 +25,5 @@ router.post('/:id', (req, res, next) => {
             })
     })
 })
+
+module.exports = router

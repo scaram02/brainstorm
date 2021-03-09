@@ -8,6 +8,9 @@ const CommentForm = props => {
         props.setAllComments({...props.allComments, ...props.comment})
     }
 
+console.log("ll comments", props.allComments)
+// allComments is only frontend so what do i do with this
+
 
     return (
         <div>

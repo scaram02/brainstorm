@@ -14,21 +14,19 @@ const handleSubmit = e => {
     setComment(blankComment)
 
     axios
-    .post('/api/comment', {
+    .post(`/api/comments/${props.thought._id}`, {
         comment: comment.comment,
         user: props.user
     })
-    .then(theComment => {
-        console.log('this comment was made', theComment.comment)
-    })
+    .then(setComment(blankComment))
+    //  need to getTheThought, getLlathoughts
     .catch(err => console.log(err))
 }
 
 
-
     return (
         <div>
-           <CommentForm user={props.user} setAllComments={props.setAllComments} comment={comment} setComment={setComment} handleSubmit={handleSubmit}/>
+           <CommentForm user={props.user} allComments={props.allComments} setAllComments={props.setAllComments} comment={comment} setComment={setComment} handleSubmit={handleSubmit}/>
         </div>
     )
 }

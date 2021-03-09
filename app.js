@@ -96,6 +96,9 @@ app.use("/api/auth", authRoutes);
 const thoughtRoutes = require('./routes/thought');
 app.use('/api/thought', thoughtRoutes)
 
+const commentRoutes = require('./routes/comments');
+app.use('/api/comments', commentRoutes)
+
 
 app.use((req, res) => {
   // If no routes match, send them the React HTML.

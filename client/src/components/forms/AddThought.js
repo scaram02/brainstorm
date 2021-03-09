@@ -4,7 +4,7 @@ import ThoughtForm from './ThoughtForm'
 
 const AddThought = props => {
 
-    const blankThought = {thought: '', numUpvotes: 0, upvotedBy: []}
+    const blankThought = {thought: '', numUpvotes: 0, upvotedBy: [], comments: []}
     const [thought, setThought] = useState(blankThought)
    
     const handleSubmit = e => {
@@ -18,6 +18,7 @@ const AddThought = props => {
            thought: thought.thought,
            numUpvotes: thought.numUpvotes,
            upvotedBy: thought.upvotedBy, 
+           comments: thought.comments,
            user: props.user
        })
        .then(data => {
