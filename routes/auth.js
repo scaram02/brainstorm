@@ -76,21 +76,21 @@ router.get("/loggedin", (req, res) => {
 
 
 // get a user by username (not login purposes but profile)
-// router.get("/:username", (req, res) => {
-//   User.findOne({ username: req.params.username })
-//     .populate({
-//       path: "user" // ???
+router.get("/:username", (req, res) => {
+  User.findOne({ username: req.params.username })
+    .populate({
+      path: "user" // ???
 
-//     })
-//     .then(user => {
-//       if (!user) {
-//         res.status(404).json({ message: "This user does not exist" });
-//       } else res.json(user);
-//     })
-//     .catch(err => {
-//       res.status(500).json(err);
-//     });
-// });
+    })
+    .then(user => {
+      if (!user) {
+        res.status(404).json({ message: "This user does not exist" });
+      } else res.json(user);
+    })
+    .catch(err => {
+      res.status(500).json(err);
+    });
+});
 
 
 

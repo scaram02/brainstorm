@@ -9,6 +9,7 @@ import ThoughtView from './components/ThoughtView'
 import './App.css';
 import axios from 'axios'
 import DarkModeToggle from "react-dark-mode-toggle";
+import ProfileView from './components/ProfileView'
 
 
 
@@ -78,6 +79,9 @@ const [allThoughts, setAllThoughts] = useState([])
                 allThoughts={allThoughts} 
                 setAllThoughts={setAllThoughts}
                 />)}/>
+
+                <Route exact path="/user/:username" render={props => (
+                <ProfileView {...props} user={user} />)}/>
               </div>
     )
     : <Redirect to="/" />

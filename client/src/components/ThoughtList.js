@@ -31,11 +31,9 @@ console.log('the data is this', allThoughts)
            .map
            ((thought, i) => (
              <div key={i} className="thought">
-            
+            <Link to={`/user/${thought.user.username}`}>{thought.user.username} thought of this</Link>
             <Link to={`/thought/${thought._id}`}>
-            
             <h1>{thought.thought}</h1>
-            <h2 style={{color: 'blue'}}>{thought.user.username} thought of this</h2>
             <h3>{thought.comments.length} comments</h3>
             </Link>
            
