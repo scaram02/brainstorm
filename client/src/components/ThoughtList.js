@@ -8,20 +8,17 @@ const ThoughtList = props => {
 
 const [allThoughts, setAllThoughts] = useState(props.allThoughts)
 
-//  pls rename
 const getAllThoughts = () => {
     axios.get(`/api/thought`)
             .then(res => setAllThoughts(res.data))
 }
 
-
 useEffect(() => {
-    getAllThoughts()
-    // props.getTheThought()
+ getAllThoughts()
 }) 
 // add or take away the [] depending
 
-console.log('the data is this', allThoughts)
+
     return (
         <div className='thought-container'>
        {allThoughts.length? (

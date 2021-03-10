@@ -1,7 +1,8 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import AddThought from "./forms/AddThought"
 import ThoughtList from './ThoughtList'
 import '../stylesheets/feed.css'
+import axios from 'axios'
 
 
 const Feed = props => {
@@ -12,7 +13,8 @@ const Feed = props => {
             <h1>welcome, {props.user.username}</h1>
             <AddThought 
                   setAllThoughts={props.setAllThoughts} />
-            <ThoughtList setAllThoughts={props.setAllThoughts} allThoughts={props.allThoughts} user={props.user}
+            <ThoughtList 
+            setAllThoughts={props.setAllThoughts} allThoughts={props.allThoughts} user={props.user}
                   />
                   
         </div>

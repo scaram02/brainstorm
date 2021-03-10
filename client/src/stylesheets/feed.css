@@ -10,7 +10,7 @@ form {
     display: flex;
     flex-direction: column;
     border: 3px solid purple;
-    width: 70%;
+    width: 50%;
 
 }
 
@@ -27,7 +27,7 @@ input {
 
 .thought {
     border: 3px solid green;
-    width: 70%;
+    width: 50%;
     border-radius: 6px;
 }
 

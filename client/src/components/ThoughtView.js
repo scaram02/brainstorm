@@ -17,9 +17,6 @@ const getTheThought = () => {
     })
 }
 
-// ON THE TOILETVIEW THE COMMENTS SHOW UP IN WHOLE. NOT JUST ID
-// TAKES 3 RENDERS THOUGH OTHERWISE UNDEFINED
-// need to get all comments and pass commentS to <Comments/>. see toiletview.js in wc
 
 useEffect(() => {
     getTheThought()

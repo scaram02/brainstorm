@@ -4,8 +4,8 @@ import axios from 'axios'
 
 const EditThought = props => {
 
-    const [thought, setThought] = useState(props.thought)
-// console.log('thoughttttttt', thought)
+const [thought, setThought] = useState(props.thought)
+
 
 const getTheThought = () => {
     const id = props.match.params.id
@@ -31,7 +31,7 @@ const handleSubmit = e => {
         comments: thought.comments,
         user: props.user
     })
-    // .then((res) => console.log(res.status)) // 200? mmm
+   .then((res) => console.log(res.status)) // 200? mmm
    .then(props.history.push('/feed'))
    .catch((err) => console.loc(err))
 }

@@ -25,6 +25,10 @@ const setCurrentUser = user => {
   setUser(user);
 };
 
+// const getAllThoughts = () => {
+//   axios.get(`/api/thought`)
+//           .then(res => setAllThoughts(res.data))
+// }
 
 
 
@@ -61,7 +65,6 @@ const setCurrentUser = user => {
               render={props => (
                 <Feed
                   {...props}
-        
                   user={user}
                   allThoughts={allThoughts}
                   setAllThoughts={setAllThoughts}

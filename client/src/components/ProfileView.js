@@ -18,7 +18,6 @@ const ProfileView = props => {
             .then(res => setAllThoughts(res.data))
         )
     }
-    // this is essentially the same as on ThoughtList. Need to redo.
 
     
     useEffect(() => {

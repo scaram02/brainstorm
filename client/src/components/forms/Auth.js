@@ -21,7 +21,6 @@ const Auth = (props) => {
             } else {
                 props.setCurrentUser(data)
                 props.history.push("/feed")
-                // console.log(`${user.username} has been logged in`)
             }
         })
     }
