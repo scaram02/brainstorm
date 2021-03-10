@@ -8,17 +8,15 @@ const ThoughtList = props => {
 
 const [allThoughts, setAllThoughts] = useState(props.allThoughts)
 
-// I think I need to make this a normal const and then just add the funciton into here useEffect
-// at the very least pls rename
+//  pls rename
+const getAllThoughts = () => {
+    axios.get(`/api/thought`)
+            .then(res => setAllThoughts(res.data))
+}
+
+
 useEffect(() => {
-    const fetchData = async() => {
-        const result = await axios(
-            `/api/thought`
-        )
-        // console.log("result : ", result.data)
-        setAllThoughts(result.data)
-      }
-    fetchData()
+    getAllThoughts()
     // props.getTheThought()
 }) 
 // add or take away the [] depending

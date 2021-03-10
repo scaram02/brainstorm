@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {Route, Switch, Redirect} from 'react-router-dom'
+import {Route, Switch, Redirect, Link} from 'react-router-dom'
 import Signup from './components/Signup'
 import Login from './components/Login'
 import Home from './components/Home'
@@ -18,6 +18,7 @@ const App = props => {
 const blankThought = {thought: '', numUpvotes: 0, upvotedBy: [], comments: []}
 const [thought, setThought] = useState(blankThought)
 const [user, setUser] = useState(props.user)
+const [allThoughts, setAllThoughts] = useState([])
 const [isDarkMode, setIsDarkMode] = useState(() => false);
 
 const setCurrentUser = user => {
@@ -25,7 +26,6 @@ const setCurrentUser = user => {
 };
 
 
-const [allThoughts, setAllThoughts] = useState([])
 
 
 
@@ -54,6 +54,7 @@ const [allThoughts, setAllThoughts] = useState([])
 {user?
            (
              <div>
+               <Link to='/feed'>home</Link>
            <Route
               exact
               path="/feed"
@@ -81,7 +82,7 @@ const [allThoughts, setAllThoughts] = useState([])
                 />)}/>
 
                 <Route exact path="/user/:username" render={props => (
-                <ProfileView {...props} user={user} />)}/>
+                <ProfileView {...props} user={user} allThoughts={allThoughts} setAllThoughts={setAllThoughts}/>)}/>
               </div>
     )
     : <Redirect to="/" />

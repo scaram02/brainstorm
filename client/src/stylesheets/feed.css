@@ -6,6 +6,18 @@
    overflow: auto;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid purple;
+    width: 70%;
+
+}
+
+input {
+    height: 70px;
+}
+
 .thought-container {
     display: flex;
     flex-direction: column;
