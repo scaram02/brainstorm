@@ -4,7 +4,7 @@ const User = require("../models/User");
 const bcryptjs = require("bcryptjs");
 
 router.post("/signup", (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, following } = req.body;
 
   if (!username) {
     return res.status(400).json({ message: "Username can't be empty" });
@@ -28,7 +28,7 @@ router.post("/signup", (req, res) => {
           return bcryptjs.hash(password, salt);
         })
         .then(hash => {
-          return User.create({ username: username, password: hash });
+          return User.create({ username: username, password: hash, following: following });
         })
         .then(newUser => {
           // passport login
@@ -79,7 +79,7 @@ router.get("/loggedin", (req, res) => {
 router.get("/:username", (req, res) => {
   User.findOne({ username: req.params.username })
     .populate({
-      path: "user" // ???
+      path: "user" 
 
     })
     .then(user => {
@@ -91,6 +91,15 @@ router.get("/:username", (req, res) => {
       res.status(500).json(err);
     });
 });
+
+// get all users
+router.get('/', (req, res, next) => {
+  User.find()
+  .then(users => {
+    res.json(users)
+    console.log("here are th eusers", users)
+  })
+})
 
 
 

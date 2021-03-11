@@ -86,6 +86,7 @@ const setCurrentUser = user => {
 
                 <Route exact path="/user/:username" render={props => (
                 <ProfileView {...props} user={user} allThoughts={allThoughts} setAllThoughts={setAllThoughts}/>)}/>
+                
               </div>
     )
     : <Redirect to="/" />
