@@ -25,13 +25,6 @@ const setCurrentUser = user => {
   setUser(user);
 };
 
-// const getAllThoughts = () => {
-//   axios.get(`/api/thought`)
-//           .then(res => setAllThoughts(res.data))
-// }
-
-
-
 
   return (
     <div className="App">

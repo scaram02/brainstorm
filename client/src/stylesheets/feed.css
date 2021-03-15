@@ -10,9 +10,11 @@ form {
     display: flex;
     flex-direction: column;
     border: 3px solid purple;
-    width: 50%;
-
+    width: 70%;
+    /* justify-content: center; */
+    /* align-items: center */
 }
+
 
 input {
     height: 70px;
