@@ -15,7 +15,7 @@ const getAllThoughts = () => {
 
 useEffect(() => {
  getAllThoughts()
-}) 
+}, []) 
 // add or take away the [] depending
 
 

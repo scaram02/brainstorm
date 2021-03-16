@@ -98,76 +98,27 @@ router.get('/', (req, res, next) => {
   User.find()
   .then(users => {
     res.json(users)
-    // console.log("here are th eusers", users)
-  })
-})
-
-// hmmm, res.200 was .post though
-router.get('/follow/:id', (req, res) => {
-  User.findByIdAndUpdate(req.body.userId, {
-    $push:{followers: req.user._id}
-  }, 
-  {new: true}, 
-  (err, result) => {
-    if(err){
-      return res.status(422).json({error:err})
-  }
-  console.log('good sof ra')
-// User.findByIdAndUpdate(req.user._id,{
-//     $push:{following: req.params.userId} // body?
-    
-// },{new:true})
-.then(result=>{
-    res.json(result)
-}).catch(err=>{
-    return res.status(422).json({error:err})
-})
   })
 })
 
 
-
-// router.put(`/follow/:id`, (req, res, next) => {
-//   const userId = req.body.userId
-//   console.log("--------the userId", userId)
-//   User.findByIdAndUpdate(
-//     req.params.id, 
-//     {$push: {followers: userId}}, {new: true})
-//     .populate({path: "followers", populate: {path: 'user'}})
-//     .then(user => {
-//       res.json(user)
-//       console.log(res.json)
-//     })
-//     .catch(err => {
-//       next(err)
-
-//     })
-//     // .catch(err => {
-//     //   res.json(err)
-     
-//     // })
-// })
-
-// maybe I .get the user and then .put ???
-// axios.get(`/follow/:id`, (req, res, next) => {
-//   User.findByIdAndUpdate(req.user.id, 
-//     {$push: {followers: req.body.userId}}) /// params? body?
-//  console.log("res.status: ", res.status, "follwowers; ", followers, "req.user.id", req.user.id)
-// next();
-// })
+axios.put('/follow/:id', (req, res, next) => {
+  const userId = req.body.userId
+  User.findByIdAndUpdate(req.params.id, 
+    {$push: {followers: userId}}, {new: true}
+    ) 
+.then(user => {
+  res.json(user)
+})
+})
+.catch(err => {
+  res.json(err)
+})
 
 https://kevinurielfonseca.com/snippets/complex-queries-with-nodejs/
 
 
 
 
-
-// router.put(`/follow/:id`, (req, res, next) => {
-// const userId = req.body.userId;
-// User.findByIdAndUpdate(req.params.id, req.body, {$push: {followers: userId}})
-// .populate({path: "followers", populate: {path: 'user'}})
-// if (err) return next(err)
-// res.json(user)
-// })
 
 module.exports = router;

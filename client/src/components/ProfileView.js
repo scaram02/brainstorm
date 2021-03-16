@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
+import FollowButton from './FollowButton'
 
 const ProfileView = props => {
 
@@ -24,9 +25,11 @@ const ProfileView = props => {
         getTheProfile()
     })
 
+
     return (
         <div>
           <h1>Profile: {profile.username}</h1>
+          {/* <FollowButton user={profile._id}/> */}
           {allThoughts.length? (
               allThoughts.filter((t) => t.user.username === profile.username).map((t, i) => (
                   <div key={i}>
