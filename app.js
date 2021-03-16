@@ -83,7 +83,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // default value for title local
-app.locals.title = "wcs";
+app.locals.title = "posts";
 
 // ROUTES MIDDLEWARE STARTS HERE:
 
@@ -98,6 +98,9 @@ app.use('/api/thought', thoughtRoutes)
 
 const commentRoutes = require('./routes/comments');
 app.use('/api/comments', commentRoutes)
+
+const followRoutes = require('./routes/follow');
+app.use('/api/follow', followRoutes)
 
 
 app.use((req, res) => {

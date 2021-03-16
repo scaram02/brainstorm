@@ -4,21 +4,28 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
     username: String,
     password: String, 
-    following: [
+  //   following: [
+  //   {
+  //       user:{ 
+  //           type: Schema.Types.ObjectId, 
+  //           ref: 'User' 
+  //       }
+  //   }],
+  // followers: [
+  //   {
+  //     user: {
+  //       type: Schema.Types.ObjectId,
+  //       ref: 'User'
+  //     }
+  //   }
+  // ]
+  followInfo: [
     {
-        user:{ 
-            type: Schema.Types.ObjectId, 
-            ref: 'User' 
-        }
-    }],
-  followers: [
-    {
-      user: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-      }
+      type: Schema.Types.ObjectId,
+      ref: "Follow"
     }
-  ]},
+  ]
+},
   {
     timestamps: true
   });

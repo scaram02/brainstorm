@@ -4,7 +4,7 @@ const User = require("../models/User");
 const bcryptjs = require("bcryptjs");
 
 router.post("/signup", (req, res) => {
-  const { username, password, following, followers } = req.body;
+  const { username, password, followInfo } = req.body;
 
   if (!username) {
     return res.status(400).json({ message: "Username can't be empty" });
@@ -28,7 +28,7 @@ router.post("/signup", (req, res) => {
           return bcryptjs.hash(password, salt);
         })
         .then(hash => {
-          return User.create({ username: username, password: hash, following: following, followers: followers });
+          return User.create({ username: username, password: hash, followInfo: followInfo });
         })
         .then(newUser => {
           // passport login
@@ -81,8 +81,8 @@ router.get("/:username", (req, res) => {
   User.findOne({ username: req.params.username })
     .populate({
       path: "user" 
-
     })
+    // .populate({ path: "followInfo", populate: { path: "user" } }) // fix meee
     .then(user => {
       if (!user) {
         res.status(404).json({ message: "This user does not exist" });
@@ -102,21 +102,18 @@ router.get('/', (req, res, next) => {
 })
 
 
-axios.put('/follow/:id', (req, res, next) => {
-  const userId = req.body.userId
-  User.findByIdAndUpdate(req.params.id, 
-    {$push: {followers: userId}}, {new: true}
-    ) 
-.then(user => {
-  res.json(user)
-})
-})
-.catch(err => {
-  res.json(err)
-})
-
-https://kevinurielfonseca.com/snippets/complex-queries-with-nodejs/
-
+// axios.put('/follow/:id', (req, res, next) => {
+//   const {userId, user} = req.body
+//   User.findByIdAndUpdate(req.params.id, 
+//     {$push: {followers: userId}}, {new: true}
+//     ) 
+// .then(user => {
+//   res.json(user)
+// })
+// })
+// .catch(err => {
+//   res.json(err)
+// })
 
 
 
