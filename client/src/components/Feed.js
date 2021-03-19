@@ -13,7 +13,7 @@ const Feed = props => {
     return (
         <div className='feed-container'>
             <h1>welcome, {props.user.username}</h1>
-            <ToFollow/>
+            <ToFollow user={props.user} />
             <AddThought 
                   setAllThoughts={props.setAllThoughts} />
             <ThoughtList 

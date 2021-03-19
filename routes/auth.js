@@ -4,7 +4,7 @@ const User = require("../models/User");
 const bcryptjs = require("bcryptjs");
 
 router.post("/signup", (req, res) => {
-  const { username, password, followInfo } = req.body;
+  const { username, password, following, followers} = req.body;
 
   if (!username) {
     return res.status(400).json({ message: "Username can't be empty" });
@@ -28,7 +28,7 @@ router.post("/signup", (req, res) => {
           return bcryptjs.hash(password, salt);
         })
         .then(hash => {
-          return User.create({ username: username, password: hash, followInfo: followInfo });
+          return User.create({ username: username, password: hash, following: following, followers: followers });
         })
         .then(newUser => {
           // passport login

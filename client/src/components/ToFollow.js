@@ -32,7 +32,7 @@ const ToFollow = props => {
                     <div key={i}>
                         <h4>{user.username}</h4>
                         {/* <button onClick={() => followUser(user._id)}>follow</button>  */}
-                        <FollowButton user={user}/>
+                        <FollowButton userToFollow={user} user={props.user}/>
                       
                     </div>
                 ))
