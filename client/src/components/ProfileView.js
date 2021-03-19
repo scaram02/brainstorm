@@ -23,7 +23,8 @@ const ProfileView = props => {
     
     useEffect(() => {
         getTheProfile()
-    })
+        console.log(profile)
+    }, [])
 
 
     return (

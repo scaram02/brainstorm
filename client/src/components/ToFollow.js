@@ -4,26 +4,26 @@ import FollowButton from './FollowButton'
 
 const ToFollow = props => {
 
+    // rename this to usersToFollow? Or keep as allUses and really make a separate array of ones to follow?
     const [allUsers, setAllUsers] = useState([])
     const [following, setFollowing] = useState([])
 
     const getAllUsers = () => {
         axios.get('api/auth')
-        .then(res => setAllUsers(res.data))
+        // .then(res => setAllUsers(res.data))
+        .then(res => {
+        const needToFollow = res.data.filter((f) => !props.user.following.includes(f._id))
+       setAllUsers(needToFollow)
+    })
     }
 
     useEffect(() => {
         getAllUsers()
+        console.log(allUsers)
     }, [])
-
-    // const followUser = () => {
-    //     axios.put(`/auth/follow`, {followId: userId})
-    //     .then(() => console.log("Folowoing: ", props.following))
-    // }
 
   
     
-// this is currently a list of allusers, need to change it later to just those not following
         return (
             <div>
                 <h1>to follwo</h1>
@@ -31,12 +31,11 @@ const ToFollow = props => {
                 allUsers.map((user, i) => (
                     <div key={i}>
                         <h4>{user.username}</h4>
-                        {/* <button onClick={() => followUser(user._id)}>follow</button>  */}
                         <FollowButton userToFollow={user} user={props.user}/>
-                      
                     </div>
                 ))
-            ) : <h1>no users yet</h1>}
+            ) : <h1>no users to follow</h1>}
+
             </div>
         )
     

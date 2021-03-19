@@ -4,13 +4,6 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
     username: String,
     password: String, 
-  //   followers: [
-  //   {
-  //       user:{ 
-  //           type: Schema.Types.ObjectId, 
-  //           ref: 'User' 
-  //       }
-  //   }],
   following: [
     {
     
@@ -24,12 +17,6 @@ const userSchema = new Schema({
       ref: "User"
     }
   ]
-  // followInfo: [
-  //   {
-  //     type: Schema.Types.ObjectId,
-  //     ref: "Follow"
-  //   }
-  // ]
 },
   {
     timestamps: true

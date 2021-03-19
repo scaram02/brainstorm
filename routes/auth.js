@@ -102,20 +102,6 @@ router.get('/', (req, res, next) => {
 })
 
 
-// axios.put('/follow/:id', (req, res, next) => {
-//   const {userId, user} = req.body
-//   User.findByIdAndUpdate(req.params.id, 
-//     {$push: {followers: userId}}, {new: true}
-//     ) 
-// .then(user => {
-//   res.json(user)
-// })
-// })
-// .catch(err => {
-//   res.json(err)
-// })
-
-
 
 
 module.exports = router;
