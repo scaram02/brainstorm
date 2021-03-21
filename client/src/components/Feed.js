@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import AddThought from "./forms/AddThought"
+import { Link } from 'react-router-dom'
+import AddThought from "./actions/AddThought"
 import ThoughtList from './ThoughtList'
 import ToFollow from './ToFollow'
 
@@ -12,6 +13,7 @@ const Feed = props => {
 
     return (
         <div className='feed-container'>
+             <Link to='/feed'>home</Link>
             <h1>welcome, {props.user.username}</h1>
             <ToFollow user={props.user} />
             <AddThought 

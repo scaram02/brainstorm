@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import axios from 'axios'
-import CommentForm from './CommentForm'
+import CommentForm from '../forms/CommentForm'
 
 
 const AddComment = props => {

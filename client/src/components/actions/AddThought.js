@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import axios from 'axios'
-import ThoughtForm from './ThoughtForm'
+import ThoughtForm from '../forms/ThoughtForm'
 
 
 const AddThought = props => {

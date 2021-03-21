@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import FollowButton from './FollowButton'
 
+
 const ProfileView = props => {
 
     const [profile, setProfile] = useState([])
@@ -24,13 +25,16 @@ const ProfileView = props => {
     useEffect(() => {
         getTheProfile()
         console.log(profile)
-    }, [])
+    })
 
 
     return (
         <div>
           <h1>Profile: {profile.username}</h1>
-          {/* <FollowButton user={profile._id}/> */}
+          { props.user.following.includes(profile._id)? <h1>"You follow"</h1> : 
+          <FollowButton userToFollow={profile} user={props.user}/>
+    }
+         
           {allThoughts.length? (
               allThoughts.filter((t) => t.user.username === profile.username).map((t, i) => (
                   <div key={i}>

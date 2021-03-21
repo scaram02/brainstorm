@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import AddComment from './forms/AddComment'
+import AddComment from './actions/AddComment'
 import CommentList from './CommentList'
 
 const Comments = props => {
