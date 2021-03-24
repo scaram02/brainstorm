@@ -24,8 +24,27 @@ router.post('/:id', (req, res, next) => {
         })
 
 
-
-
+// LAURA
+// router.post('/:id', (req, res, next) => {
+//     const {following, followers} = req.body
+    
+//      User.findByIdAndUpdate
+//         (req.params.id, 
+//             {$push: {followers: followers}}, {new: true})
+//             // .populate("User")
+//             .populate({path: 'followers', populate: {path: "user"}})
+//             // .then(user => {
+//             //  User.findByIdAndUpdate({ _id: followers}, 
+//             //     { $push: {following: user}}, {new: true})
+//             //     // .populate({path: "following", populate: {path: 'user'}})
+//             //     .populate("User")
+//             //     .then(user => {
+//             //         res.json(user)
+//             //     })
+//             // })
+//             .then(data => res.json(data))
+//             .catch(err => res.json(err))
+//         })
 
 
         // TO UNFOLLOW. COME BACK TO THIS

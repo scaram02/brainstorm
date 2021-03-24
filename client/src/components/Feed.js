@@ -15,7 +15,7 @@ const Feed = props => {
         <div className='feed-container'>
              <Link to='/feed'>home</Link>
             <h1>welcome, {props.user.username}</h1>
-            <ToFollow user={props.user} />
+            {/* <ToFollow user={props.user} /> */}
             <AddThought 
                   setAllThoughts={props.setAllThoughts} />
             <ThoughtList 

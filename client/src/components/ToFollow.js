@@ -4,28 +4,47 @@ import FollowButton from './FollowButton'
 
 const ToFollow = props => {
 
-    // rename this to usersToFollow? Or keep as allUses and really make a separate array of ones to follow?
     const [allUsers, setAllUsers] = useState([])
-    const [needToFollow, setNeedToFollow] = useState(allUsers)
 
-    const getAllUsers = () => {
-        axios.get('api/auth')
-        // .then(res => {
-        //     setAllUsers(res.data)
-        // })
-        .then(res => {
-        const notFollowed = res.data.filter((f) => !props.user.following.includes(f._id))
-       setAllUsers(notFollowed)
-  
+// console.log('im the tmpArray', tmpArray)
+
+// setAllUsers(prevValue => {                 return [...prevValue, res.data.info]             })
+
+
+const getAllUsers = () => {
+    axios.get('api/auth')
+    .then(res => {
+        setAllUsers(res.data)
+        // console.log('-----????', allUsers)
     })
-    }
+   
+}
 
+
+//     //RENAME ME
+//     const getAllUsers = () => {
+//         // const username = props.match.params.username
+//         axios.get(`/api/auth/${props.user.username}`)
+//         .then(res => {
+//             console.log(res.data)
+//             //setFollowing(res.data.following)
+//             console.log("are we all the users.following?", res.data.following)
+//             setAllUsers(res.data.following)
+// // GET THE FOLLOwing here, add to the frontend array
+// // on click, you send request to server
+// // get object back, push into local frontend
+//         })
+//     }
+// console.log("I AM THE USER id", props.user._id)
 
     useEffect(() => {
         getAllUsers()
         console.log(allUsers)
     })
+   
+   
 
+    // console.log('AYE FOLOWED', followed)
     
         return (
             <div>
@@ -35,16 +54,18 @@ const ToFollow = props => {
               allUsers.map((user) => (
                     <div key={user._id}>
                         <h4>{user.username}</h4>
-                        <FollowButton userToFollow={user} user={props.user}/>
+                        
+        
+                        <FollowButton  userToFollow={user} user={props.user} allUsers={allUsers} setAllUsers={setAllUsers} getAllUsers={getAllUsers}/>
                     </div>
                 ))
             ) : <h1>no users to follow</h1>}
 
 
-        {/* {allUsers && allUsers.filter((f) => !props.user.following.includes(f._id)).map((user, i) => (
-            <div key={i}>
+        {/* {filtered && filtered.map((user) => (
+            <div key={user._id}>
                 <h4>{user.username}</h4>
-                <FollowButton userToFollow={user} user={props.user}/>
+                <FollowButton userToFollow={user} user={props.user} allUsers={allUsers} setAllUsers={setAllUsers}/>
 
                 </div>
         ))} */}

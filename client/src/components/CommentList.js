@@ -10,7 +10,6 @@ const CommentList = props => {
     const deleteComment = commentId => {
         axios.put(`/api/comments/${props.thought._id}`, {commentId: commentId})
         .then(() => {
-            console.log('hah')
             props.getTheThought()
             // reload all the thoughts here
         })

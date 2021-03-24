@@ -1,18 +1,19 @@
-import React from 'react'
+import React, {useState} from 'react'
 import axios from 'axios'
 
-const FollowButton = props => {
-
-const userToFollow = props.userToFollow;
-const user = props.user
-console.log(user)
+const FollowButton = ({ user, userToFollow, allUsers, setAllUsers}) => {
 
 
 const followUser = userId => {
     axios.post(`/api/follow/${userToFollow._id}`, {followers: userId, following: userToFollow._id})
-    .then(console.log('here we go again, ', userToFollow._id))
+    .then(() => {
+        const newList = allUsers.filter((f) => f !== userToFollow._id)
+        setAllUsers(newList)
+        console.log('aalllll users' , allUsers)
+    })
     .catch(err => console.log(err))
 }
+
 
 // const unfollowUser = userId => {
 //     console.log('frontend userId', userId)
@@ -26,7 +27,9 @@ const followUser = userId => {
 
     return (
         <div>
-    <button onClick={() => followUser(user._id)}>Follow</button>
+    <button onClick={() => {
+        followUser(user._id)
+        }}>Follow</button>
         </div>
     )
 }

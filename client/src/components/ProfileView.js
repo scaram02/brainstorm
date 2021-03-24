@@ -7,6 +7,12 @@ const ProfileView = props => {
 
     const [profile, setProfile] = useState([])
     const [allThoughts, setAllThoughts] = useState([])
+    const [clicked, setClicked] = useState(false)
+
+    const isFollowing = props.user.following.includes(profile._id)
+    // console.log('is the userfollowing? ', isFollowing)
+    const [loggedInUserIsFollowing, setLoggedInUserIsFollowing] = useState(isFollowing)
+
 
     const getTheProfile = () => {
         const username = props.match.params.username
@@ -21,19 +27,26 @@ const ProfileView = props => {
         )
     }
 
+
+    const changeTheFrontend = () => {
+        setClicked(true)
+        setLoggedInUserIsFollowing(true)
+    }
     
     useEffect(() => {
         getTheProfile()
-        console.log(profile)
-    })
+    }, [])
 
 
     return (
         <div>
           <h1>Profile: {profile.username}</h1>
-          { props.user.following.includes(profile._id)? <h1>"You follow"</h1> : 
-          <FollowButton userToFollow={profile} user={props.user}/>
-    }
+          {/* { props.user.following.includes(profile._id)? <h1>"You follow"</h1> : 
+          <FollowButton userToFollow={profile} user={props.user} getAllUsers={getTheProfile}/> // would need to rename getAllUsers but needs to be this for now for the sake of getting to work. make more generic or move later
+    } */}
+    <div onClick={changeTheFrontend}>
+   {(clicked || isFollowing)? <h1>Followed :D</h1> : <FollowButton userToFollow={profile} user={props.user} getAllUsers={getTheProfile}/>}
+    </div>
          
           {allThoughts.length? (
               allThoughts.filter((t) => t.user.username === profile.username).map((t, i) => (
