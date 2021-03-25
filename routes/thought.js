@@ -61,5 +61,10 @@ router.put('/edit/:id', (req, res, next) => {
     })
 })
 
+// experimental: get thoughts only by your followers
+router.get('/following', (req, res, next) => {
+    
+})
+
 
 module.exports = router

@@ -15,8 +15,8 @@ const ThoughtForm = props => {
 
     
         return (
-            <div>
-            <form onSubmit={props.handleSubmit}>
+            <div> 
+            <form className="addThought" onSubmit={props.handleSubmit}>
             <input 
             type="text" 
             name="thought" 
