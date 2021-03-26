@@ -1,24 +1,16 @@
 import React, {useState} from 'react'
 import axios from 'axios'
 
-const FollowButton = ({ user, userToFollow, allUsers, setAllUsers, setProfile, profile, setShowFollow}) => {
+const FollowButton = ({ user, userToFollow, allUsers, setAllUsers, setProfile, profile, setShowFollow, setFollowers}) => {
 
+    
 
 const followUser = userId => {
     axios.post(`/api/follow/${userToFollow._id}`, {followers: userId, following: userToFollow._id})
-    .then(data => {
-    //    const newObj = [...userToFollow.followers, userId]
-        // setAllUsers(newObj)
-
-        // from video
-      setProfile((prevState) => {
-          return {
-              ...prevState, 
-              user: {...prevState.user,
-            followers: [...prevState.user.followers, data._id]} // not sure aou this line
-          }
-      })
-        console.log('---updATED: ' , profile)
+    .then(() => {
+       const newObj = [...userToFollow.followers, userId]
+       setFollowers(newObj)
+// do I need the ShowFollow why or why not (Thusr)
         setShowFollow(false)
     })
     .catch(err => console.log(err))

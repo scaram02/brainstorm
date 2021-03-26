@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import {Link} from 'react-router-dom'
 import axios from 'axios'
 import FollowButton from './FollowButton'
 
@@ -9,6 +10,8 @@ const ProfileView = props => {
     const [allThoughts, setAllThoughts] = useState([])
     const [loading, setLoading] = useState(true)
     const [showFollow, setShowFollow] = useState(true)
+    //test Thurs
+    const [followers, setFollowers] = useState([])
 
 
     const getTheProfile = () => {
@@ -17,6 +20,7 @@ const ProfileView = props => {
         .get(`/api/auth/${username}`)
         .then(res => {
             setProfile(res.data)
+            setFollowers(res.data.followers)
             setLoading(false)
         })
         .then(
@@ -29,6 +33,7 @@ const ProfileView = props => {
         getTheProfile()
         console.log('profile followign: ', profile)
     })
+
 
   
     return (
@@ -44,18 +49,15 @@ const ProfileView = props => {
                       </div>
               ))) : <h1>nothing to display</h1>} 
 
+                
+                <Link to='/feed'>home</Link>
      {showFollow?  
-      <FollowButton userToFollow={profile} user={props.user} getAllUsers={getTheProfile} setShowFollow={setShowFollow} profile={profile} setProfile={setProfile}/> // would need to rename getAllUsers but needs to be this for now for the sake of getting to work. make more generic or move later
+      <FollowButton setFollowers={setFollowers} userToFollow={profile} user={props.user} getAllUsers={getTheProfile} setShowFollow={setShowFollow} profile={profile} setProfile={setProfile}/> // would need to rename getAllUsers but needs to be this for now for the sake of getting to work. make more generic or move later
  : <h1>unfollow here later</h1>}
+
+ {followers.includes(props.user._id)? <h1>yes following</h1> : <h1>lol nope</h1>}
         </div>
-
-
-    /* 
-    //       { props.user.following.includes(profile._id)? <h1>"You follow"</h1> : 
-    //       <FollowButton userToFollow={profile} user={props.user} getAllUsers={getTheProfile}/> // would need to rename getAllUsers but needs to be this for now for the sake of getting to work. make more generic or move later
-    // }
-    */}
-    
+}
         </div>
     )
 }
