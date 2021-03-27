@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import FollowButton from './FollowButton'
+import UnfollowButton from './UnfollowButton'
 
 
 const ProfileView = props => {
@@ -9,8 +10,6 @@ const ProfileView = props => {
     const [profile, setProfile] = useState([])
     const [allThoughts, setAllThoughts] = useState([])
     const [loading, setLoading] = useState(true)
-    const [showFollow, setShowFollow] = useState(true)
-    //test Thurs
     const [followers, setFollowers] = useState([])
 
 
@@ -32,7 +31,7 @@ const ProfileView = props => {
     useEffect(() => {
         getTheProfile()
         console.log('profile followign: ', profile)
-    })
+    }, [])
 
 
   
@@ -41,7 +40,7 @@ const ProfileView = props => {
             {loading? <h1>loading...</h1> : 
             <div>
                 <h1>Profile: {profile.username}</h1>
-                <h2> {profile.followers.length} followers</h2>
+                <h2> {followers.length} followers</h2>
               {allThoughts.length? (
               allThoughts.filter((t) => t.user.username === profile.username).map((t, i) => (
                   <div key={i}>
@@ -51,11 +50,12 @@ const ProfileView = props => {
 
                 
                 <Link to='/feed'>home</Link>
-     {showFollow?  
-      <FollowButton setFollowers={setFollowers} userToFollow={profile} user={props.user} getAllUsers={getTheProfile} setShowFollow={setShowFollow} profile={profile} setProfile={setProfile}/> // would need to rename getAllUsers but needs to be this for now for the sake of getting to work. make more generic or move later
- : <h1>unfollow here later</h1>}
 
- {followers.includes(props.user._id)? <h1>yes following</h1> : <h1>lol nope</h1>}
+
+ {followers.includes(props.user._id)? 
+ <UnfollowButton setFollowers={setFollowers} userToFollow={profile} user={props.user} /> 
+//  <h1>lol, unfollwoing doesnt wrok yet</h1>
+ : <FollowButton setFollowers={setFollowers} userToFollow={profile} user={props.user} />}
         </div>
 }
         </div>
