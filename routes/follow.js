@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const User = require("../models/User");
-const Follow = require('../models/Follow')
+
 
 
 // follow a user, you are now also their follower
@@ -30,16 +30,14 @@ router.post('/:id', (req, res, next) => {
                 (req.params.id, 
                     {$pull: {followers: followers}}, {new: true})
                     .then(user => {
-                        User.findByIdAndUpdate({ _id: followers}, 
-                            { $pull: {following: user}}, {new: true})
-                            // console.log('the use u unfllowing', user) // correct i think
-
-                            // does this DOT THEN GO HERE OR BELOW THE PARENTH?
+                        console.log('this is you who you clicked on', user)
+                        return User.findByIdAndUpdate({ _id: followers}, 
+                            { $pull: {following: req.params.id}}, {new: true})
+                            // console.log("BLAAHHH set the return User as const blah to check hthis", blah)
                     .then(user => {
                         console.log("is this undefined", user)
                        res.json(user)})
                     })
-                    
                     .catch(err => res.json(err))
                 })
         

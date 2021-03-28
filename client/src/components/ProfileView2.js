@@ -53,8 +53,7 @@ const ProfileView = props => {
 
 
  {followers.includes(props.user._id)? 
- <UnfollowButton setFollowers={setFollowers} userToFollow={profile} user={props.user} /> 
-//  <h1>lol, unfollwoing doesnt wrok yet</h1>
+ <UnfollowButton followers={followers} setFollowers={setFollowers} userToFollow={profile} user={props.user} /> 
  : <FollowButton setFollowers={setFollowers} userToFollow={profile} user={props.user} />}
         </div>
 }

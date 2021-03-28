@@ -1,15 +1,16 @@
 import React, {useState} from 'react'
 import axios from 'axios'
 
-const UnfollowButton = ({ user, userToFollow, setFollowers}) => {
+const UnfollowButton = ({ user, userToFollow, setFollowers, followers}) => {
 
 
 // unfollow
-const [unfollowed, setUnfollowed] = useState(false)
+
 const unfollowUser = userId => {
     axios.post(`/api/follow/unfollow/${userToFollow._id}`, {followers: userId, following: userToFollow._id})
     .then(() => {
-        setUnfollowed(true)
+        const filteredOut = followers.filter((f) => f != userId)
+        setFollowers(filteredOut)
     })
     .catch(err => console.log(err))
 }
