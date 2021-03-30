@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
-import FollowButton from './FollowButton'
-import UnfollowButton from './UnfollowButton'
+import FollowButton from './buttons/FollowButton'
+import UnfollowButton from './buttons/UnfollowButton'
 
 
 const ProfileView = props => {

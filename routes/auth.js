@@ -82,7 +82,6 @@ router.get("/:username", (req, res) => {
     .populate({
       path: "user" 
     })
-    // .populate({ path: "followInfo", populate: { path: "user" } }) // fix meee
     .then(user => {
       if (!user) {
         res.status(404).json({ message: "This user does not exist" });

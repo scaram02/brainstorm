@@ -22,7 +22,7 @@ router.post('/', (req, res) => {
 })
 
 
-// get thoughtS
+// get ALL the thoughtS
 router.get('/', (req, res) => {
     Thought.find()
     .populate('user')
@@ -61,6 +61,18 @@ router.put('/edit/:id', (req, res, next) => {
     })
 })
 
+// get the posts from people you follow only
+router.get('/followed', (req, res) => {
+    Thought.find({user: {$in: req.user.following}})
+    .populate('user')
+    .then(thoughts => {
+        console.log('here be the followed thoughts', thoughts)
+        res.json(thoughts)
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
 
 
 

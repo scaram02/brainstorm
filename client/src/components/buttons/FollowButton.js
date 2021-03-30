@@ -17,9 +17,7 @@ const followUser = userId => {
 
     return (
         <div>
-    <button onClick={() => {
-        followUser(user._id)
-        }}>Follow</button>
+    <button onClick={() => followUser(user._id)}>Follow</button>
         </div>
     )
 }

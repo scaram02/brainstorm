@@ -23,36 +23,23 @@ router.post('/:id', (req, res, next) => {
             .catch(err => res.json(err))
         })
 
-        // WIP UNFOLLOW
-        router.post('/unfollow/:id', (req, res, next) => {
-            const {following, followers} = req.body
-             User.findByIdAndUpdate
-                (req.params.id, 
-                    {$pull: {followers: followers}}, {new: true})
-                    .then(user => {
-                        console.log('this is you who you clicked on', user)
-                        return User.findByIdAndUpdate({ _id: followers}, 
-                            { $pull: {following: req.params.id}}, {new: true})
+     // UNFOLLOW
+   router.post('/unfollow/:id', (req, res, next) => {
+     const {following, followers} = req.body
+         User.findByIdAndUpdate
+           (req.params.id, 
+             {$pull: {followers: followers}}, {new: true})
+               .then(user => {
+                        // console.log('this is you who you clicked on', user)
+                 return User.findByIdAndUpdate({ _id: followers}, 
+                  { $pull: {following: req.params.id}}, {new: true})
                             // console.log("BLAAHHH set the return User as const blah to check hthis", blah)
                     .then(user => {
-                        console.log("is this undefined", user)
+                        // console.log("is this undefined", user)
                        res.json(user)})
                     })
                     .catch(err => res.json(err))
                 })
-        
-
-        // This works partially but does not remove from Following
-        // router.post('/unfollow/:id', (req, res, next) => {
-        //     const {following, followers} = req.body
-        //      User.findByIdAndUpdate
-        //         (req.params.id, 
-        //             {$pull: {followers: followers}})
-        //             .then(user => {
-        //                 res.json(user)
-        //             })
-        //             .catch(err => res.json(err))
-        //         })
 
    
         

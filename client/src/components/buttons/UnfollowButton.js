@@ -4,8 +4,6 @@ import axios from 'axios'
 const UnfollowButton = ({ user, userToFollow, setFollowers, followers}) => {
 
 
-// unfollow
-
 const unfollowUser = userId => {
     axios.post(`/api/follow/unfollow/${userToFollow._id}`, {followers: userId, following: userToFollow._id})
     .then(() => {
@@ -17,9 +15,7 @@ const unfollowUser = userId => {
 
     return (
         <div>
-    <button onClick={() => {
-        unfollowUser(user._id)
-        }}>Unfollow</button>
+    <button onClick={() => unfollowUser(user._id)}>Unfollow</button>
         </div>
     )
 }

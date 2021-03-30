@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
-import DeleteButton from './DeleteButton'
+import DeleteButton from './buttons/DeleteButton'
 
 
 const ThoughtList = props => {
@@ -10,7 +10,9 @@ const [allThoughts, setAllThoughts] = useState(props.allThoughts)
 
 const getAllThoughts = () => {
     axios.get(`/api/thought`)
-            .then(res => setAllThoughts(res.data))
+            .then(res => {
+                console.log("res.data", res.data)
+                setAllThoughts(res.data)})
 }
 
 useEffect(() => {
