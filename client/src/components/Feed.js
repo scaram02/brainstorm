@@ -9,6 +9,11 @@ import '../stylesheets/feed.css'
 
 const Feed = props => {
 
+    const [clicked, setClicked] = useState(false)
+
+    const loadFeed = () => {
+        setClicked(!clicked)
+    }
 
     return (
         <div className='feed-container'>
@@ -16,10 +21,14 @@ const Feed = props => {
             <h1>welcome, {props.user.username}</h1>
             <AddThought 
                   setAllThoughts={props.setAllThoughts} />
-            <ThoughtList 
+                  <div style={{backgroundColor: 'pink'}}>
+                      <p onClick={loadFeed}>HEY I'M A CLICKABLE DIV!</p>
+                      </div>
+            {clicked? <ThoughtList 
             setAllThoughts={props.setAllThoughts} allThoughts={props.allThoughts} user={props.user}
-                  />
-            <FollowedFeed userId={props.user._id}/>
+                  />:  <FollowedFeed user={props.user}/>}
+            
+           
                   
         </div>
     )

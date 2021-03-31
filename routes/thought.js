@@ -62,16 +62,15 @@ router.put('/edit/:id', (req, res, next) => {
 })
 
 // get the posts from people you follow only
-// get logged in user, then get the thoughts
+// (get logged in user, then get the thoughts)
 router.get('/followed/:id', (req, res) => {
-    const id = req.params.id.slice(1)
+    const id = req.params.id.slice(1) // ?
     User.findOne({_id: id})
       .then(user => {
           console.log("UUUUSSSEEERRR", user)
           Thought.find({user: {$in: user.following}})
           .populate('user')
           .then(thoughts => {
-              console.log('thoughts part ii bakcend', thoughts)
               res.json(thoughts)
           })
           .catch(err => {
