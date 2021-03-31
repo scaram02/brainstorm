@@ -30,7 +30,6 @@ router.post('/:id', (req, res, next) => {
            (req.params.id, 
              {$pull: {followers: followers}}, {new: true})
                .then(user => {
-                        // console.log('this is you who you clicked on', user)
                  return User.findByIdAndUpdate({ _id: followers}, 
                   { $pull: {following: req.params.id}}, {new: true})
                             // console.log("BLAAHHH set the return User as const blah to check hthis", blah)

@@ -19,7 +19,7 @@ const Feed = props => {
             <ThoughtList 
             setAllThoughts={props.setAllThoughts} allThoughts={props.allThoughts} user={props.user}
                   />
-            <FollowedFeed/>
+            <FollowedFeed userId={props.user._id}/>
                   
         </div>
     )
