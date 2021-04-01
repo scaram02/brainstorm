@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import AddThought from "./actions/AddThought"
-import ThoughtList from './ThoughtList'
+import AllThoughts from './AllThoughts'
 import FollowedFeed from './FollowedFeed'
 import '../stylesheets/feed.css'
 
@@ -22,11 +22,15 @@ const Feed = props => {
             <AddThought 
                   setAllThoughts={props.setAllThoughts} />
                   <div style={{backgroundColor: 'pink'}}>
-                      <p onClick={loadFeed}>HEY I'M A CLICKABLE DIV!</p>
+                      <p onClick={loadFeed}>Toggle Feed!</p>
                       </div>
-            {clicked? <ThoughtList 
-            setAllThoughts={props.setAllThoughts} allThoughts={props.allThoughts} user={props.user}
-                  />:  <FollowedFeed user={props.user}/>}
+
+            {clicked? 
+            <FollowedFeed user={props.user}/> : 
+            <AllThoughts allThoughts={props.allThoughts}
+            setAllThoughts={props.setAllThoughts} 
+            user={props.user}
+                  /> }
             
            
                   

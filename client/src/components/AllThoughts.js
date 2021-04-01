@@ -2,15 +2,31 @@ import axios from 'axios'
 import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import DeleteButton from './buttons/DeleteButton'
+import Hm from './ThoughtList'
 
-const Hm = ({user, thoughtList}) => {
+
+const AllThoughts = ({user, allThoughts, setAllThoughts}) => {
+
+
+const getAllThoughts = () => {
+    axios.get(`/api/thought`)
+            .then(res => {
+                console.log("res.data", res.data)
+                setAllThoughts(res.data)})
+}
+
+useEffect(() => {
+ getAllThoughts()
+}, []) 
+
 
 
     return (
         <div>
-{thoughtList && 
-thoughtList
-           .map
+       <h1>main feed</h1>
+       {/* Hm = ThoughtList */}
+       {/* <Hm thoughtList={allThoughts} user={user}/> */}
+       {allThoughts.length && allThoughts.map
            ((thought, i) => (
              <div key={i} className="thought">
             <Link to={`/user/${thought.user.username}`}>{thought.user.username} thought of this</Link>
@@ -27,8 +43,9 @@ thoughtList
           
            ))
       }  
+
         </div>
     )
 }
 
-export default Hm
+export default AllThoughts

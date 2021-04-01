@@ -9,7 +9,7 @@ const ThoughtForm = props => {
         const {name, value} = e.target;
 
         props.setThought({...props.thought, [name]: value})
-        props.setAllThoughts({...props.allThoughts, ...props.thought})
+        // props.setAllThoughts({...props.allThoughts, ...props.thought})
     }
 
 

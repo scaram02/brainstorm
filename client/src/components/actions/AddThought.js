@@ -24,6 +24,7 @@ const AddThought = props => {
        })
        .then(data => {
            console.log("----SUBMITTED----: ", data.data)
+           props.setAllThoughts(...props.allThoughts, data.data)
        })
        .catch( err => console.log(err))
     }

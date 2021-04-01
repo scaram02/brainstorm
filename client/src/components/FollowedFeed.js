@@ -1,7 +1,9 @@
-import axios from 'axios'
+import axios from 'axios';
 import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import DeleteButton from './buttons/DeleteButton'
+import Hm from './ThoughtList'
+
 
 
 const FollowedFeed = ({user}) => {
@@ -21,17 +23,11 @@ const FollowedFeed = ({user}) => {
     }, [])
 
 
+
     return (
-        <div style={{backgroundColor: "green"}}>
-            {feedThoughts? (
-                feedThoughts.map((t) => (
-                    <div key={t._id}>
-                        <h1>{t.thought}</h1>
-                        <DeleteButton thought={t} user={user}/>
-                        <h2>hey this is reusing code, can you fix this or nah?</h2>
-                        </div> 
-                ))
-            ) : <h1>nope not yet</h1>}
+        <div>
+            <h1>folloed feed</h1>
+            <Hm user={user} thoughtList={feedThoughts} />
         </div>
     )
 }
