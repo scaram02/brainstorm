@@ -19,7 +19,7 @@ thoughtList
             <h1>{thought.thought}</h1>
             <h3>{thought.comments.length} comments</h3>
             </Link>
-           <LikeButton thoughtToLike={thought._id} user={user} />
+           <LikeButton thoughtToLike={thought} user={user} />
            {user.username === thought.user.username && 
            <Link to={`/thought/edit/${thought._id}`}>Having second thoughts?</Link>}
 

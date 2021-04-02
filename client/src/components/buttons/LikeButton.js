@@ -6,7 +6,7 @@ const LikeButton = ({user, thoughtToLike}) => {
 
 
     const likeThought = userId => {
-        axios.post(`/api/like/${thoughtToLike}`, {likes: userId})
+        axios.post(`/api/like/${thoughtToLike._id}`, {likes: userId})
         .then(() => {
             console.log('fix this later')
         })
@@ -16,16 +16,21 @@ const LikeButton = ({user, thoughtToLike}) => {
     // this could be made logical but later
 
     const unlikeThought = userId => {
-        axios.post(`/api/like/unlike/${thoughtToLike}`, {likes: userId})
+        axios.post(`/api/like/unlike/${thoughtToLike._id}`, {likes: userId})
         .then(() => {
             console.log('also fix this lol')
         })
         .catch(err => console.log(err))
     }
 
+
+
     return (
         <div>
-<button onClick={() => likeThought(user._id)}>Like</button>
+{/* {thoughtToLike.likes.includes(user._id)? 
+<button onClick={() => likeThought(user._id)}>Like</button>  : 
+<button onClick={() => unlikeThought(user._id)}>Un the like</button>    }  */}
+<button onClick={() => likeThought(user._id)}>Like</button> 
 <button onClick={() => unlikeThought(user._id)}>Un the like</button>
 
         </div>
