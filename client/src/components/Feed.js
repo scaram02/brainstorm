@@ -3,17 +3,20 @@ import { Link } from 'react-router-dom'
 import AddThought from "./actions/AddThought"
 import AllThoughts from './AllThoughts'
 import FollowedFeed from './FollowedFeed'
-import '../stylesheets/feed.css'
+// import '../stylesheets/feed.css'
 
 
 
 const Feed = props => {
 
     const [clicked, setClicked] = useState(false)
+    
 
     const loadFeed = () => {
         setClicked(!clicked)
     }
+
+   
 
     return (
         <div className='feed-container'>
@@ -31,6 +34,7 @@ const Feed = props => {
             setAllThoughts={props.setAllThoughts} 
             user={props.user}
                   /> }
+                  {/* {clicked? <FollowedFeed user={props.user}/> : <h1>nooo</h1>} */}
             
            
                   

@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import '../../stylesheets/profile.css'
 
 const FollowButton = ({ user, userToFollow, setFollowers}) => {
 
@@ -10,14 +11,15 @@ const followUser = userId => {
     .then(() => {
        const newObj = [...userToFollow.followers, userId]
        setFollowers(newObj)
+       console.log(newObj)
     })
     .catch(err => console.log(err))
 }
-
+// can I make this one buttoNn with unfollow? 
 
     return (
         <div>
-    <button onClick={() => followUser(user._id)}>Follow</button>
+    <button className="followButton" onClick={() => followUser(user._id)}>Follow</button>
         </div>
     )
 }

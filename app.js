@@ -102,6 +102,9 @@ app.use('/api/comments', commentRoutes)
 const followRoutes = require('./routes/follow');
 app.use('/api/follow', followRoutes)
 
+const likeRoutes = require('./routes/like');
+app.use('/api/like', likeRoutes)
+
 
 app.use((req, res) => {
   // If no routes match, send them the React HTML.

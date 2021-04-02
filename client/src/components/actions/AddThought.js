@@ -5,7 +5,7 @@ import ThoughtForm from '../forms/ThoughtForm'
 
 const AddThought = props => {
 
-    const blankThought = {thought: '', numUpvotes: 0, upvotedBy: [], comments: []}
+    const blankThought = {thought: '', likes: [], comments: []}
     const [thought, setThought] = useState(blankThought)
    
     const handleSubmit = e => {
@@ -17,9 +17,8 @@ const AddThought = props => {
        .post('/api/thought', {
       // why wouldnt this destructure
            thought: thought.thought,
-           numUpvotes: thought.numUpvotes,
-           upvotedBy: thought.upvotedBy, 
            comments: thought.comments,
+           likes: thought.likes,
            user: props.user
        })
        .then(data => {

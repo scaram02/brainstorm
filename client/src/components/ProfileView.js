@@ -32,8 +32,9 @@ const ProfileView = props => {
         getTheProfile()
         console.log('profile followign: ', profile)
     }, [])
-
-
+// this is actually glitchy 
+// try following and unfollowing a user a coulpe times/switching to the timeline and back to unfollow or follow
+// might be an issue with following, not profile tho
   
     return (
         <div>

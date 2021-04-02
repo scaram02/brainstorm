@@ -26,10 +26,8 @@ const handleSubmit = e => {
     axios
     .put(`/api/thought/edit/${thought._id}`, {
         thought: thought.thought,
-        numUpvotes: thought.numUpvotes,
-        upvotedBy: thought.upvotedBy,
-        comments: thought.comments,
-        user: props.user
+        // comments: thought.comments, // commented out in April
+        // user: props.user
     })
    .then((res) => console.log(res.status)) // 200? mmm
    .then(props.history.push('/feed'))

@@ -40,9 +40,5 @@ router.post('/:id', (req, res, next) => {
                     .catch(err => res.json(err))
                 })
 
-   
-        
-// get all users following then get their posts
-// to add alter for feed
 
 module.exports = router

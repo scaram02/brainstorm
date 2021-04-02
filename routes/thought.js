@@ -6,10 +6,10 @@ const Thought = require('../models/Thought')
 
 // add a thought
 router.post('/', (req, res) => {
-    const {thought, numUpvotes, upvotedBy, comments} = req.body
+    const {thought, likes, comments} = req.body
 
     Thought.create({
-        thought, numUpvotes, upvotedBy, comments,
+        thought, likes, comments,
         user: [req.user._id]
     })
     .then(

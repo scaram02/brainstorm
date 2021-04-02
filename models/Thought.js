@@ -3,8 +3,10 @@ const Schema = mongoose.Schema;
 
 const thoughtSchema = new Schema({
     thought: String,
-    numUpvotes: Number,
-    upvotedBy: Array,
+    likes: [{
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    }],
     comments: [
         {
        type: Schema.Types.ObjectId,

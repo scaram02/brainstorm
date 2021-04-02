@@ -8,13 +8,13 @@ import EditThought from './components/EditThought'
 import ThoughtView from './components/ThoughtView'
 import './App.css';
 import axios from 'axios'
-import ProfileView2 from './components/ProfileView2'
+import ProfileView2 from './components/ProfileView'
 
 
 
 const App = props => {
 
-const blankThought = {thought: '', numUpvotes: 0, upvotedBy: [], comments: []}
+const blankThought = {thought: '', comments: []}
 const [thought, setThought] = useState(blankThought)
 const [user, setUser] = useState(props.user)
 const [allThoughts, setAllThoughts] = useState([])

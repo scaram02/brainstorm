@@ -3,12 +3,12 @@ import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import DeleteButton from './buttons/DeleteButton'
 
-const Hm = ({user, thoughtList}) => {
+const ThoughtList = ({user, thoughtList, message}) => {
 
 
     return (
         <div>
-{thoughtList && 
+{thoughtList.length? 
 thoughtList
            .map
            ((thought, i) => (
@@ -25,10 +25,10 @@ thoughtList
            <DeleteButton thought={thought} user={user}/>
             </div>
           
-           ))
+           )) : <h1>{message}</h1>
       }  
         </div>
     )
 }
 
-export default Hm
+export default ThoughtList
