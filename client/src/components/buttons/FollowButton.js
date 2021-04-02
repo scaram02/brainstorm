@@ -10,8 +10,9 @@ const followUser = userId => {
     axios.post(`/api/follow/${userToFollow._id}`, {followers: userId, following: userToFollow._id})
     .then(() => {
        const newObj = [...userToFollow.followers, userId]
-       setFollowers(newObj)
-       console.log(newObj)
+    //    can you make NewObj = followers obj
+       setFollowers(newObj) 
+       console.log('followers on FollowButton', newObj)
     })
     .catch(err => console.log(err))
 }

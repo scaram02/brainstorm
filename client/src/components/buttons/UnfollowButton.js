@@ -9,6 +9,7 @@ const unfollowUser = userId => {
     .then(() => {
         const filteredOut = followers.filter((f) => f != userId)
         setFollowers(filteredOut)
+        console.log('are these filtered out', filteredOut)
     })
     .catch(err => console.log(err))
 }
