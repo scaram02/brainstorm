@@ -9,9 +9,10 @@ const FollowButton = ({ user, userToFollow, setFollowers}) => {
 const followUser = userId => {
     axios.post(`/api/follow/${userToFollow._id}`, {followers: userId, following: userToFollow._id})
     .then(() => {
-       const newObj = [...userToFollow.followers, userId]
-    //    can you make NewObj = followers obj
-       setFollowers(newObj) 
+    const newObj = [...userToFollow.followers, userId]
+    // solves for the problem of following then going back, unfollowing then refollowing -> puts userId into array twice until component completely remounted 
+    userToFollow.followers.includes(userId)? setFollowers(userToFollow.followers) : setFollowers(newObj)
+    //    setFollowers(newObj)
        console.log('followers on FollowButton', newObj)
     })
     .catch(err => console.log(err))

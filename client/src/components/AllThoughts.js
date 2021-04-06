@@ -12,7 +12,8 @@ const getAllThoughts = () => {
     axios.get(`/api/thought`)
             .then(res => {
                 console.log("res.data", res.data)
-                setAllThoughts(res.data)})
+                setAllThoughts(res.data)
+            })
 }
 
 useEffect(() => {

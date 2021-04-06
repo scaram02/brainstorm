@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import DeleteButton from './buttons/DeleteButton'
 import LikeButton from './buttons/LikeButton'
+// import UnlikeButton from './buttons/UnlikeButton'
 
 const ThoughtList = ({user, thoughtList, message}) => {
 
@@ -19,7 +20,9 @@ thoughtList
             <h1>{thought.thought}</h1>
             <h3>{thought.comments.length} comments</h3>
             </Link>
-           <LikeButton thoughtToLike={thought} user={user} />
+
+            <LikeButton thoughtToLike={thought} user={user} />
+
            {user.username === thought.user.username && 
            <Link to={`/thought/edit/${thought._id}`}>Having second thoughts?</Link>}
 

@@ -4,11 +4,13 @@ import axios from 'axios'
 const LikeButton = ({user, thoughtToLike}) => {
 
 
-
     const likeThought = userId => {
         axios.post(`/api/like/${thoughtToLike._id}`, {likes: userId})
         .then(() => {
-            console.log('fix this later')
+            console.log('fix me')
+
+            // const newLikes = [...thoughtToLike.likes, userId]
+            // thoughtToLike.likes.includes(userId)? setLikes(thoughtToLike.likes) : setLikes(newLikes)
         })
         .catch(err => console.log(err))
     }
@@ -19,6 +21,9 @@ const LikeButton = ({user, thoughtToLike}) => {
         axios.post(`/api/like/unlike/${thoughtToLike._id}`, {likes: userId})
         .then(() => {
             console.log('also fix this lol')
+            // const filteredLikes = likes.filter((l) => l != userId)
+            // setLikes(filteredLikes)
+
         })
         .catch(err => console.log(err))
     }
@@ -27,10 +32,8 @@ const LikeButton = ({user, thoughtToLike}) => {
 
     return (
         <div>
-{/* {thoughtToLike.likes.includes(user._id)? 
-<button onClick={() => likeThought(user._id)}>Like</button>  : 
-<button onClick={() => unlikeThought(user._id)}>Un the like</button>    }  */}
-<button onClick={() => likeThought(user._id)}>Like</button> 
+
+<button onClick={() => likeThought(user._id)}>Like</button>  
 <button onClick={() => unlikeThought(user._id)}>Un the like</button>
 
         </div>

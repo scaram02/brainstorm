@@ -5,12 +5,14 @@ import FollowButton from './buttons/FollowButton'
 import UnfollowButton from './buttons/UnfollowButton'
 
 
+
 const ProfileView = props => {
 
     const [profile, setProfile] = useState([])
     const [allThoughts, setAllThoughts] = useState([])
     const [loading, setLoading] = useState(true)
     const [followers, setFollowers] = useState([])
+    const [message, setMessage] = useState('follow')
 
 
     const getTheProfile = () => {
@@ -32,10 +34,8 @@ const ProfileView = props => {
         getTheProfile()
         console.log('profile followign: ', profile)
     }, [])
-// this is actually glitchy 
-// try following and unfollowing a user a coulpe times/switching to the timeline and back to unfollow or follow
-// might be an issue with following, not profile tho
-  
+
+
     return (
         <div>
             {loading? <h1>loading...</h1> : 
@@ -54,8 +54,9 @@ const ProfileView = props => {
 
 
  {followers.includes(props.user._id)? 
- <UnfollowButton followers={followers} setFollowers={setFollowers} userToFollow={profile} user={props.user} /> 
+ <UnfollowButton  followers={followers} setFollowers={setFollowers} userToFollow={profile} user={props.user} /> 
  : <FollowButton setFollowers={setFollowers} userToFollow={profile} user={props.user} />}
+
         </div>
 }
         </div>
