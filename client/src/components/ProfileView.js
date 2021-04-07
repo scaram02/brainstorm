@@ -12,7 +12,6 @@ const ProfileView = props => {
     const [allThoughts, setAllThoughts] = useState([])
     const [loading, setLoading] = useState(true)
     const [followers, setFollowers] = useState([])
-    const [message, setMessage] = useState('follow')
 
 
     const getTheProfile = () => {

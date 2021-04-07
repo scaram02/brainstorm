@@ -9,6 +9,7 @@ import ThoughtList from './ThoughtList'
 const FollowedFeed = ({user}) => {
 
     const userId = user._id
+    const [likes, setLikes] = useState([])
 
         // make this one object later
     const [feedThoughts, setFeedThoughts] = useState([])
@@ -34,7 +35,7 @@ const FollowedFeed = ({user}) => {
              {loading? <h1 style={{color: "red"}}>uhhhhhhh</h1> :
              <div>
             <h1>folloed feed</h1>
-            <ThoughtList user={user} thoughtList={feedThoughts} message={message}/>
+            <ThoughtList user={user} thoughtList={feedThoughts} message={message}  likes={likes} setLikes={setLikes}/>
         </div>}
         </div> 
     )

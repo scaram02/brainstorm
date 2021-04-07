@@ -3,9 +3,13 @@ import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import DeleteButton from './buttons/DeleteButton'
 import LikeButton from './buttons/LikeButton'
-// import UnlikeButton from './buttons/UnlikeButton'
+import UnlikeButton from './buttons/UnlikeButton'
 
-const ThoughtList = ({user, thoughtList, message}) => {
+const ThoughtList = ({user, thoughtList, message, likes, setLikes}) => {
+
+  // likes by user for each Thought. rename this later
+  // a user's liked posts?
+  // const [likes, setLikes] = useState(okok)
 
 
     return (
@@ -21,8 +25,8 @@ thoughtList
             <h3>{thought.comments.length} comments</h3>
             </Link>
 
-            <LikeButton thoughtToLike={thought} user={user} />
-
+            {(likes.includes(thought._id))? <UnlikeButton setLikes={setLikes} likes={likes} thoughtToLike={thought} user={user} /> : <LikeButton setLikes={setLikes} likes={likes} thoughtToLike={thought} user={user} />}
+            <p>{thought.likes.length} likes</p>
            {user.username === thought.user.username && 
            <Link to={`/thought/edit/${thought._id}`}>Having second thoughts?</Link>}
 

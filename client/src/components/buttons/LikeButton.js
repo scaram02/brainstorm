@@ -1,14 +1,14 @@
 import React, {useState} from 'react'
 import axios from 'axios'
 
-const LikeButton = ({user, thoughtToLike}) => {
+const LikeButton = ({user, thoughtToLike, likes, setLikes}) => {
 
 
     const likeThought = userId => {
         axios.post(`/api/like/${thoughtToLike._id}`, {likes: userId})
         .then(() => {
-            console.log('fix me')
-
+            // console.log('fix me')
+            setLikes([...likes, thoughtToLike._id])
             // const newLikes = [...thoughtToLike.likes, userId]
             // thoughtToLike.likes.includes(userId)? setLikes(thoughtToLike.likes) : setLikes(newLikes)
         })
@@ -34,7 +34,7 @@ const LikeButton = ({user, thoughtToLike}) => {
         <div>
 
 <button onClick={() => likeThought(user._id)}>Like</button>  
-<button onClick={() => unlikeThought(user._id)}>Un the like</button>
+{/* <button onClick={() => unlikeThought(user._id)}>Un the like</button> */}
 
         </div>
     )
