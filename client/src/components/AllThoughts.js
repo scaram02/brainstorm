@@ -5,17 +5,17 @@ import DeleteButton from './buttons/DeleteButton'
 import ThoughtList from './ThoughtList'
 
 
-const AllThoughts = ({user, allThoughts, setAllThoughts}) => {
+const AllThoughts = ({user, allThoughts, setAllThoughts, likes, setLikes}) => {
 
-const [likes, setLikes] = useState([])
+
 
 const getAllThoughts = () => {
     axios.get(`/api/thought`)
             .then(res => {
                 console.log("res.data", res.data)
                 setAllThoughts(res.data)
-                const likedPosts = allThoughts.filter((p) => p.likes.includes(user._id))
-                setLikes(likedPosts)
+                const likedPosts = res.data.filter((t) => t.likes.includes(user._id)).map((t) => t._id)
+                setLikes(likedPosts)                
             })
 }
 

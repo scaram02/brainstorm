@@ -20,7 +20,6 @@ const getTheThought = () => {
 
 useEffect(() => {
     getTheThought()
-    console.log('the thouhts comments', thought.comments)
 })
     return (
         <div>

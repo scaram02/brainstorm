@@ -11,6 +11,7 @@ const UnlikeButton = ({user, thoughtToLike, likes, setLikes}) => {
         //    console.log('fix me')
         const hm = likes.filter((l) => l != thoughtToLike._id)
         setLikes(hm)
+
         })
         .catch(err => console.log(err))
     }

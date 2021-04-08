@@ -10,7 +10,8 @@ import FollowedFeed from './FollowedFeed'
 const Feed = props => {
 
     const [clicked, setClicked] = useState(false)
-    
+    // likes is an array of all the Thoughts a user has liked, in order to render the right like/unlike button for that user
+    const [likes, setLikes] = useState([])
 
     const loadFeed = () => {
         setClicked(!clicked)
@@ -29,12 +30,11 @@ const Feed = props => {
                       </div>
 
             {clicked? 
-            <FollowedFeed user={props.user}/> : 
-            <AllThoughts allThoughts={props.allThoughts}
+            <FollowedFeed likes={likes} setLikes={setLikes} user={props.user}/> : 
+            <AllThoughts likes={likes} setLikes={setLikes} allThoughts={props.allThoughts}
             setAllThoughts={props.setAllThoughts} 
             user={props.user}
                   /> }
-                  {/* {clicked? <FollowedFeed user={props.user}/> : <h1>nooo</h1>} */}
             
            
                   
