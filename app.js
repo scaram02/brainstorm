@@ -93,6 +93,9 @@ app.use("/", index);
 const authRoutes = require("./routes/auth");
 app.use("/api/auth", authRoutes);
 
+const userRoutes = require("./routes/user");
+app.use("/api/user", userRoutes)
+
 const thoughtRoutes = require('./routes/thought');
 app.use('/api/thought', thoughtRoutes)
 

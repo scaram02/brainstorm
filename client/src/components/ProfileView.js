@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import axios from 'axios'
 import FollowButton from './buttons/FollowButton'
 import UnfollowButton from './buttons/UnfollowButton'
+import EditUserInfo from './actions/EditUserInfo'
 
 
 
@@ -35,11 +36,14 @@ const ProfileView = props => {
     }, [])
 
 
+    const isSameUser = profile.username === props.user.username
+
     return (
         <div>
             {loading? <h1>loading...</h1> : 
             <div>
                 <h1>Profile: {profile.username}</h1>
+               {isSameUser && <EditUserInfo profile={profile}/>}
                 <h2> {followers.length} followers</h2>
               {allThoughts.length? (
               allThoughts.filter((t) => t.user.username === profile.username).map((t, i) => (
