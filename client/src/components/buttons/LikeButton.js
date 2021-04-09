@@ -7,7 +7,8 @@ const LikeButton = ({user, thoughtToLike, likes, setLikes}) => {
     const likeThought = userId => {
         axios.post(`/api/like/${thoughtToLike._id}`, {likes: userId})
         .then(() => {
-            setLikes([...likes, thoughtToLike._id])
+            const newObj = [...thoughtToLike.likes, userId]
+            thoughtToLike.likes.includes(userId)? setLikes(thoughtToLike.likes) : setLikes(newObj)
         })
         .catch(err => console.log(err))
     }

@@ -8,10 +8,8 @@ const UnlikeButton = ({user, thoughtToLike, likes, setLikes}) => {
     const unlikeThought = userId => {
         axios.post(`/api/like/unlike/${thoughtToLike._id}`, {likes: userId})
         .then(() => {
-        //    console.log('fix me')
-        const hm = likes.filter((l) => l != thoughtToLike._id)
+        const hm = likes.filter((l) => l != userId)
         setLikes(hm)
-
         })
         .catch(err => console.log(err))
     }

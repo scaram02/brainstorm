@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import DeleteButton from './buttons/DeleteButton'
-import ThoughtList from './ThoughtList'
+import ThoughtList from './ThoughtList2'
 import Loading from './Loading'
 
 
@@ -20,15 +20,17 @@ const FollowedFeed = ({user, likes, setLikes}) => {
         axios.get(`/api/thought/followed/:${userId}`)
         .then(res => {
             setFeedThoughts(res.data)
-            const likedPosts = res.data.filter((t) => t.likes.includes(user._id)).map((t) => t._id)
-            setLikes(likedPosts)
+            // const likedPosts = res.data.filter((t) => t.likes.includes(user._id)).map((t) => t._id)
+            // setLikes(likedPosts)
         })
         .then(setLoading(false))
     }
 
     useEffect(() => {
         getFollowedFeed(userId)
-    }, [])
+    },[])
+
+
 
     const message = " "
 
@@ -39,7 +41,7 @@ const FollowedFeed = ({user, likes, setLikes}) => {
              {loading? <Loading/> :
              <div>
             <h1>folloed feed</h1>
-            <ThoughtList user={user} thoughtList={feedThoughts} message={message}  likes={likes} setLikes={setLikes}/>
+            <ThoughtList user={user} thoughtList={feedThoughts} message={message}/>
         </div>}
         </div> 
     )

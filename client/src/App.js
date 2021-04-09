@@ -8,7 +8,7 @@ import EditThought from './components/EditThought'
 import ThoughtView from './components/ThoughtView'
 import './App.css';
 import axios from 'axios'
-import ProfileView2 from './components/ProfileView'
+import ProfileView from './components/ProfileView'
 
 
 
@@ -71,7 +71,7 @@ const setCurrentUser = user => {
                 />)}/>
 
                 <Route exact path="/user/:username" render={props => (
-                <ProfileView2 {...props} user={user} allThoughts={allThoughts} setAllThoughts={setAllThoughts}/>)}/>
+                <ProfileView {...props} user={user} allThoughts={allThoughts} setAllThoughts={setAllThoughts}/>)}/>
                 
               </div>
     )
