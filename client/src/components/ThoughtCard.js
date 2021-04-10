@@ -9,7 +9,7 @@ const ThoughtCard = ({thought, user}) => {
 
     const [likes, setLikes] = useState([...thought.likes]) // users who liked this Thought
     
-
+console.log('gehts?', likes)
     return (
         <div style={{border: "4px solid gray"}}>
             <h1>hm</h1>
