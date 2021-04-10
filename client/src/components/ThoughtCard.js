@@ -4,7 +4,8 @@ import LikeButton from './buttons/LikeButton'
 import UnlikeButton from './buttons/UnlikeButton'
 import DeleteButton from './buttons/DeleteButton'
 
-const Hm = ({thought, user}) => {
+const ThoughtCard = ({thought, user}) => {
+    // formerly known as Hm
 
     const [likes, setLikes] = useState([...thought.likes]) // users who liked this Thought
     
@@ -31,4 +32,4 @@ const Hm = ({thought, user}) => {
     )
 }
 
-export default Hm
+export default ThoughtCard

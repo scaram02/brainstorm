@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import DeleteButton from './buttons/DeleteButton'
 
-import Hm from './Hm'
+import Hm from './ThoughtCard'
 
 
 const ThoughtList2 = ({user, thoughtList, message,}) => {
