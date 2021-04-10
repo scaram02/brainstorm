@@ -5,11 +5,10 @@ import UnlikeButton from './buttons/UnlikeButton'
 import DeleteButton from './buttons/DeleteButton'
 
 const ThoughtCard = ({thought, user}) => {
-    // formerly known as Hm
 
-    const [likes, setLikes] = useState([...thought.likes]) // users who liked this Thought
+    // userIds who liked this thought
+    const [likes, setLikes] = useState([...thought.likes])
     
-console.log('gehts?', likes)
     return (
         <div style={{border: "4px solid gray"}}>
             <h1>hm</h1>

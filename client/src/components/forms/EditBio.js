@@ -1,12 +1,14 @@
-import React, { Profiler } from 'react'
+import React, { useState } from 'react'
 
 
 const EditBio = ({handleSubmit, profile}) => {
 
+    const [bio, setBio] = useState('') // ?
+
     const handleInputChange = e => {
         const {name, value} = e.target;
 
-        // not done with this, add setter here
+        setBio({...bio, [name]: value})
     }
 
     return (

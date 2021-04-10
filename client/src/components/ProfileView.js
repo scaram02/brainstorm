@@ -13,6 +13,7 @@ const ProfileView = props => {
     const [allThoughts, setAllThoughts] = useState([])
     const [loading, setLoading] = useState(true)
     const [followers, setFollowers] = useState([])
+    const [showEdit, setShowEdit] = useState(false)
 
 
     const getTheProfile = () => {
@@ -30,6 +31,10 @@ const ProfileView = props => {
         )
     }
 
+    const toggleEdit = () => {
+        setShowEdit(!showEdit)
+    }
+
     useEffect(() => {
         getTheProfile()
         console.log('profile followign: ', profile)
@@ -43,8 +48,12 @@ const ProfileView = props => {
             {loading? <h1>loading...</h1> : 
             <div>
                 <h1>Profile: {profile.username}</h1>
-               {isSameUser && <EditUserInfo profile={profile}/>}
+                <h1 onClick={toggleEdit}>Toggle Edit </h1>
+                <div style={{backgroundColor: 'tan'}}>
+               {isSameUser && showEdit && <EditUserInfo profile={profile}/>}
+               </div>
                 <h2> {followers.length} followers</h2>
+                <h1>bio: {profile.bio}</h1>
               {allThoughts.length? (
               allThoughts.filter((t) => t.user.username === profile.username).map((t, i) => (
                   <div key={i}>

@@ -4,7 +4,7 @@ import EditBio from '../forms/EditBio'
 
 const EditUserInfo = ({profile}) => {
 
-// but if im going to move this i should move it now so can render properly
+// why is there no backend bio
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -19,7 +19,6 @@ const EditUserInfo = ({profile}) => {
     return (
         <div style={{border: "3px solid blue"}}>
             <h1>EditUserInfo component</h1>
-            <h2>move me later to separate link/page</h2>
             <EditBio handleSubmit={handleSubmit} profile={profile}/>
         </div>
     )
