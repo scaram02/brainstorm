@@ -108,6 +108,9 @@ app.use('/api/follow', followRoutes)
 const likeRoutes = require('./routes/like');
 app.use('/api/like', likeRoutes)
 
+const photoRoutes = require('./routes/photo');
+app.use('/api/photo', photoRoutes)
+
 
 app.use((req, res) => {
   // If no routes match, send them the React HTML.

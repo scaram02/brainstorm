@@ -4,6 +4,7 @@ import axios from 'axios'
 import FollowButton from './buttons/FollowButton'
 import UnfollowButton from './buttons/UnfollowButton'
 import EditUserInfo from './actions/EditUserInfo'
+import UploadPhoto from './actions/UploadPhoto'
 
 
 
@@ -47,6 +48,7 @@ const ProfileView = props => {
         <div>
             {loading? <h1>loading...</h1> : 
             <div>
+                <UploadPhoto/>
                 <h1>Profile: {profile.username}</h1>
                 <h1 onClick={toggleEdit}>Toggle Edit </h1>
                 <div style={{backgroundColor: 'tan'}}>
