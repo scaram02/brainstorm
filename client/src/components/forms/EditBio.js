@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
 
-const EditBio = ({handleSubmit, profile}) => {
+const EditBio = ({handleSubmit, profile, setBio, bio}) => {
 
-    const [bio, setBio] = useState('') // ?
+
 
     const handleInputChange = e => {
         const {name, value} = e.target;
@@ -14,7 +14,7 @@ const EditBio = ({handleSubmit, profile}) => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <input type="text" name="bio" value={profile.bio} placeholder="your bio here" onChange={handleInputChange}/>
+                <input type="text" name="bio" value={bio.bio} placeholder="your bio here" onChange={handleInputChange}/>
                 <button>Edit bio</button>
             </form>
         </div>

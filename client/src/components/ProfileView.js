@@ -38,7 +38,7 @@ const ProfileView = props => {
     useEffect(() => {
         getTheProfile()
         console.log('profile followign: ', profile)
-    }, [])
+    },[])
 
 
     const isSameUser = profile.username === props.user.username
