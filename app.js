@@ -108,8 +108,8 @@ app.use('/api/follow', followRoutes)
 const likeRoutes = require('./routes/like');
 app.use('/api/like', likeRoutes)
 
-const photoRoutes = require('./routes/photo');
-app.use('/api/photo', photoRoutes)
+// const photoRoutes = require('./routes/photo');
+// app.use('/api/photo', photoRoutes)
 
 
 app.use((req, res) => {

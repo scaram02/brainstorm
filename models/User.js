@@ -5,6 +5,7 @@ const userSchema = new Schema({
     username: String,
     password: String, 
     bio: String,
+    imageUrl: String,
   following: [
     {
     
