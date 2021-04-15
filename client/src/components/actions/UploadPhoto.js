@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 
-const UploadPhoto = () => {
+const UploadPhoto = ({user}) => {
 
 
     const [photoToUpload, setPhotoToUpload] = useState()
@@ -17,7 +17,7 @@ const UploadPhoto = () => {
         
 
     const handleUpload = theImage => {
-        axios.post('api/user/photo/upload', theImage)
+        axios.put(`api/user/photo/upload/${user._id}`, theImage)
         .then(res => res.data)
         .catch((err => {
             console.log(err)
@@ -25,13 +25,13 @@ const UploadPhoto = () => {
     }
 
   handleUpload(imageUpload)
-        // .then((res) =>{
-        //     setImageUrl(res.secure_url)
-        //     // console.log('resss', res)
-        // })
+//         .then((res) =>{
+//         //     setImageUrl(res.secure_url)
+//             console.log('resss', res)
+//         })
       }
 
-      
+
 
     return (
         <div style={{backgroundColor: 'violet'}}>

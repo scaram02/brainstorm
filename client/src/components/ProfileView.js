@@ -48,7 +48,7 @@ const ProfileView = props => {
         <div>
             {loading? <h1>loading...</h1> : 
             <div>
-                <UploadPhoto/>
+                <UploadPhoto user={props.user}/>
                 <h1>Profile: {profile.username}</h1>
                 <h1 onClick={toggleEdit}>Toggle Edit </h1>
                 <div style={{backgroundColor: 'tan'}}>

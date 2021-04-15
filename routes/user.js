@@ -16,14 +16,19 @@ router.put('/edit/:id', (req, res, next) => {
 })
 
 // upload photo?
-// router.post('./photo/upload', (req, res) => {
-//     if (!req.file){
-//         res.status(404).json({message: 'no photo hath been uplaoded'})
-//     } else {
-//         res.json({message: "successful upload bro!"})
-//     }
+router.put('/photo/upload/:id', (req, res) => {
+    if (!req.file){
+        res.status(404).json({message: 'no photo hath been uplaoded'})
+    } else {
+        const {theImage} = req.body
+        User.findByIdAndUpdate(req.params.id, theImage, (err, user) => {
+            if (err) return next(err)
+            res.json(user)
+        })
+        // res.json({message: "successful upload bro!"})
+    }
     
-// })
+})
 
 
 
