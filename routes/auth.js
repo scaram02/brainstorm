@@ -3,6 +3,8 @@ const router = express.Router();
 const User = require("../models/User");
 const bcryptjs = require("bcryptjs");
 
+const testinggg = ['"test test", "test", "test 123"']
+
 router.post("/signup", (req, res) => {
   const { username, password, following, followers} = req.body;
 
@@ -32,7 +34,8 @@ router.post("/signup", (req, res) => {
             username: username, 
             password: hash, 
             following: following, 
-            followers: followers
+            followers: followers,
+            imageUrl: testinggg[Math.floor(Math.random() * testinggg.length)]
           });
         })
         .then(newUser => {
