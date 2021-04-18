@@ -5,8 +5,7 @@ import FollowButton from './buttons/FollowButton'
 import UnfollowButton from './buttons/UnfollowButton'
 import EditUserInfo from './actions/EditUserInfo'
 import UploadPhoto from './actions/UploadPhoto'
-
-
+// import brain from '../assets/profile-icons/brain.png'
 
 const ProfileView = props => {
 
@@ -15,7 +14,8 @@ const ProfileView = props => {
     const [loading, setLoading] = useState(true)
     const [followers, setFollowers] = useState([])
     const [showEdit, setShowEdit] = useState(false)
-
+    const [profilePic, setProfilePic] = useState('brain')
+    // const [path, setPath] = useState('../assets/profile-icons/')
 
     const getTheProfile = () => {
         const username = props.match.params.username
@@ -24,6 +24,7 @@ const ProfileView = props => {
         .then(res => {
             setProfile(res.data)
             setFollowers(res.data.followers)
+            setProfilePic(res.data.imageUrl)
             setLoading(false)
         })
         .then(
@@ -32,22 +33,25 @@ const ProfileView = props => {
         )
     }
 
+
     const toggleEdit = () => {
         setShowEdit(!showEdit)
     }
 
     useEffect(() => {
         getTheProfile()
-        console.log('profile followign: ', profile)
     },[])
 
+    const yes = require(`../assets/profile-icons/brain.png`)
 
     const isSameUser = profile.username === props.user.username
-
     return (
         <div>
             {loading? <h1>loading...</h1> : 
             <div>
+                <img src={yes} style={{height: '50'}, {width: '50'}} alt="oh no"/>
+                {/* <img src={require(`../images/profile-icons/${profilePic}.png`)} alt="uh"/> */}
+                <h1>{profile.imageUrl}</h1>
                 <UploadPhoto user={props.user}/>
                 <h1>Profile: {profile.username}</h1>
                 <h1 onClick={toggleEdit}>Toggle Edit </h1>

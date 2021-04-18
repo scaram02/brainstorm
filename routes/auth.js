@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require("../models/User");
 const bcryptjs = require("bcryptjs");
 
-const testinggg = ['"test test", "test", "test 123"']
+const testinggg = ['lightning', 'brain']
 
 router.post("/signup", (req, res) => {
   const { username, password, following, followers} = req.body;

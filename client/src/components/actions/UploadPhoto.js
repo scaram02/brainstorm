@@ -4,47 +4,51 @@ import axios from 'axios'
 const UploadPhoto = ({user}) => {
 
 
-   const [imageUrl, setImageUrl] = useState()
-   const [image, setImage] = useState("");
+const [fileInput, setFileInput] = useState('')
+const [selectedFile, setSelectedFile] = useState('')
+const [previewSource, setPreviewSource] = useState()
 
-   const handleChange = e => {
-       setImageUrl(e.target.files[0])
-       console.log(e.target.files[0])
+const handleFileChange = e => {
+    const file = e.target.files[0]
+    previewFile(file)
+}
+
+// show the user they selected the file
+// built in js essentially
+const previewFile = file => {
+    const reader = new FileReader()
+    reader.readAsDataURL(file) // converts image to a url string?
+    reader.onloadend = () => {
+        setPreviewSource(reader.result)
+    }
+}
 
 
-//        axios.post(`/api/user/photo`, imageUrl)
-//        .then((res) => setImageUrl(res.data.name))
-//        .catch((err) => console.log(err))
-   }
-
-
-
-
-
-
-   const handleUploadSubmit = (e, imageUrl) => {
+const handleSubmit = e => {
     e.preventDefault()
 
+    if (!previewSource) return;
 
-    const formData = new FormData()
-    formData.append("imageUrl", imageUrl)
-    // hwhat is being done with this. there is a disconnecg
+    uploadImage(previewSource) // remember that at this point the previewSource is the reader/data as url
+}
 
-    axios.put(`/api/user/photo/upload/${user._id}`, {imageUrl: imageUrl})
-      .then((res) => {
-          setImageUrl(res.data.imageUrl)
-      })
-   }
+const uploadImage = theImage => {
+    console.log('theImage ur uploading', theImage)
 
-
+    axios.post('/api/user/photo/upload', {imageUrl: theImage})
+    .catch(err => console.log(err))
+}
 
 
     return (
         <div style={{backgroundColor: 'violet'}}>
-            <form onSubmit={handleUploadSubmit}>
+            <form onSubmit={handleSubmit}>
            <h1>upload foto</h1>
-           <input type="file" onChange={handleChange} accept="image/*"/>
+           <input type="file" onChange={handleFileChange} value={fileInput} accept="image/*"/>
+           <button type='submit'>submit</button>
            </form>
+           {/* show preview string of selected foto */}
+           {previewSource && <img src={previewSource} alt="image preview" style={{height: "150px"}}/>}
         </div>
     )
 }

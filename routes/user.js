@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
+const {cloudinary} = require('../utils/cloudinary.js')
 
 
 // need to move stuff from auth route here eventually!!!!! check it out
@@ -16,18 +17,19 @@ router.put('/edit/:id', (req, res, next) => {
 })
 
 // upload photo?
-router.post('/photo/upload/:id', (req, res) => {
-    if (!req.file){
-        res.status(404).json({message: 'no photo hath been uplaoded'})
-    } else {
-        const {imageUrl} = req.body
-        User.findByIdAndUpdate(req.params.id, imageUrl, { new: true }, (err, user) => {
-            if (err) return next(err)
-            res.json(user)
-        })
-        // res.json({message: "successful upload bro!"})
-    }
+router.post('/photo/upload/', async (req, res) => {
+    const imageUrl = req.body.imageUrl
+    // console.log('-------', req.body.imageUrl)
+    const uploadResponse = await cloudinary.uploader.upload(imageUrl, {
+        upload_preset: 'ml_default',
+    })
+    .catch((err) => {
+        console.log(err)
+        // res.status(500).json({err: "uhhhh"})
+    })
     
+    console.log("uplooad resuponse", uploadResponse);
+    res.json({ msg: 'done ' });
 })
 
 

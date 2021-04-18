@@ -7,6 +7,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
+// const {cloudinary} = require('./utils/cloudinary.js')
 
 // WHEN INTRODUCING USERS DO THIS:
 // INSTALL THESE DEPENDENCIES: passport-local, passport, bcryptjs, express-session, connect-mongo
@@ -42,8 +43,8 @@ const app = express();
 
 // Middleware Setup
 app.use(logger("dev"));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(cookieParser());
 
 // Express View engine setup
