@@ -5,9 +5,13 @@ import FollowButton from './buttons/FollowButton'
 import UnfollowButton from './buttons/UnfollowButton'
 import EditUserInfo from './actions/EditUserInfo'
 import UploadPhoto from './actions/UploadPhoto'
-// import brain from '../assets/profile-icons/brain.png'
+import brain from '../assets/profile-icons/brain.png'
 
 const ProfileView = props => {
+
+
+// maybe the profile image needs to be a child component with props
+
 
     const [profile, setProfile] = useState([])
     const [allThoughts, setAllThoughts] = useState([])
@@ -42,14 +46,13 @@ const ProfileView = props => {
         getTheProfile()
     },[])
 
-    const yes = require(`../assets/profile-icons/brain.png`)
 
     const isSameUser = profile.username === props.user.username
     return (
         <div>
             {loading? <h1>loading...</h1> : 
             <div>
-                <img src={yes} style={{height: '50'}, {width: '50'}} alt="oh no"/>
+                <img src={brain} style={{height: '50'}, {width: '50'}} alt="oh no"/>
                 {/* <img src={require(`../images/profile-icons/${profilePic}.png`)} alt="uh"/> */}
                 <h1>{profile.imageUrl}</h1>
                 <UploadPhoto user={props.user}/>
