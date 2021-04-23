@@ -19,15 +19,11 @@ router.put('/edit/:id', (req, res, next) => {
 // upload photo to Cloudinary
 // https://www.youtube.com/watch?v=Rw_QeJLnCK4
 // https://github.com/jamesqquick/cloudinary-react-and-node/blob/master/server/server.js
-router.post('/photo/upload/', async (req, res) => {
-    const {data} = req.body
+router.post('/photo/upload', async (req, res) => {
+    const {imageUrl} = req.body
     // console.log('-------', req.body.imageUrl)
-    const uploadResponse = await cloudinary.uploader.upload(data, {
+    const uploadResponse = await cloudinary.uploader.upload(imageUrl, {
         upload_preset: 'ml_default' // set folder name/presets on Cloudinary
-    })
-    .catch((err) => {
-        console.log(err)
-        res.status(500).json({err: "uhhhh"})
     })
     
     console.log("uplooad resuponse", uploadResponse);
@@ -35,6 +31,18 @@ router.post('/photo/upload/', async (req, res) => {
 })
 
 
+
+
+
+// photo => user
+router.put('/photo/:username', (req, res) => {
+    const {imageUrl} = req.body
+    console.log("usr", req.params.username)
+    // console.log('backend imageurl only shows if already preview image though hm ---> : ', imageUrl)
+    User.findOneAndUpdate({username: req.params.username},{imageUrl: req.body.imageUrl}, {new: true })
+    .then((user) => res.json(user))
+        // .catch(err => res.status(500).json(err))
+})
 
 
 module.exports = router;

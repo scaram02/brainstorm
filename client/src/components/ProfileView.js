@@ -28,7 +28,7 @@ const ProfileView = props => {
         .then(res => {
             setProfile(res.data)
             setFollowers(res.data.followers)
-            setProfilePic(res.data.imageUrl)
+            // setProfilePic(res.data.imageUrl)
             setLoading(false)
         })
         .then(
@@ -48,14 +48,14 @@ const ProfileView = props => {
 
 
     const isSameUser = profile.username === props.user.username
+
     return (
         <div>
             {loading? <h1>loading...</h1> : 
             <div>
                 <img src={brain} style={{height: '50'}, {width: '50'}} alt="oh no"/>
-                {/* <img src={require(`../images/profile-icons/${profilePic}.png`)} alt="uh"/> */}
                 <h1>{profile.imageUrl}</h1>
-                <UploadPhoto user={props.user}/>
+                {/* <UploadPhoto user={props.user}/> */}
                 <h1>Profile: {profile.username}</h1>
                 <h1 onClick={toggleEdit}>Toggle Edit </h1>
                 <div style={{backgroundColor: 'tan'}}>

@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, {useState, useEffect} from 'react'
 import EditBio from '../forms/EditBio'
+import UploadPhoto from './UploadPhoto'
 
 const EditUserInfo = ({profile}) => {
 
@@ -20,6 +21,7 @@ const [bio, setBio] = useState({bio: ''})
     return (
         <div style={{border: "3px solid blue"}}>
             <h1>EditUserInfo component</h1>
+            <UploadPhoto user={profile}/>
             <EditBio handleSubmit={handleSubmit} profile={profile} bio={bio} setBio={setBio}/>
         </div>
     )
