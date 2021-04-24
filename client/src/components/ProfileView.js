@@ -18,8 +18,9 @@ const ProfileView = props => {
     const [loading, setLoading] = useState(true)
     const [followers, setFollowers] = useState([])
     const [showEdit, setShowEdit] = useState(false)
-    const [profilePic, setProfilePic] = useState('brain')
-    // const [path, setPath] = useState('../assets/profile-icons/')
+    const [profilePic, setProfilePic] = useState('')
+    // const [bio, setBio] = useState({bio: ''})
+
 
     const getTheProfile = () => {
         const username = props.match.params.username
@@ -28,7 +29,8 @@ const ProfileView = props => {
         .then(res => {
             setProfile(res.data)
             setFollowers(res.data.followers)
-            // setProfilePic(res.data.imageUrl)
+            setProfilePic(res.data.imageUrl)
+            // setBio(res.data.bio)
             setLoading(false)
         })
         .then(
@@ -53,13 +55,13 @@ const ProfileView = props => {
         <div>
             {loading? <h1>loading...</h1> : 
             <div>
-                <img src={brain} style={{height: '50'}, {width: '50'}} alt="oh no"/>
-                <h1>{profile.imageUrl}</h1>
-                {/* <UploadPhoto user={props.user}/> */}
+                <img src={profilePic} style={{height: '150'}} alt="Error: Try submitting your profile pic again"/>
+
                 <h1>Profile: {profile.username}</h1>
-                <h1 onClick={toggleEdit}>Toggle Edit </h1>
+                {/* <h1 onClick={toggleEdit}>Toggle Edit </h1> */}
                 <div style={{backgroundColor: 'tan'}}>
-               {isSameUser && showEdit && <EditUserInfo profile={profile}/>}
+                    {isSameUser && <button onClick={toggleEdit}>edit profile</button>}
+               {showEdit && <EditUserInfo profile={profile} profilePic={profilePic} setProfilePic={setProfilePic}/>}
                </div>
                 <h2> {followers.length} followers</h2>
                 <h1>bio: {profile.bio}</h1>
@@ -73,7 +75,7 @@ const ProfileView = props => {
                 
                 <Link to='/feed'>home</Link>
 
-
+{/* show follow/unfollow button */}
  {followers.includes(props.user._id)? 
  <UnfollowButton  followers={followers} setFollowers={setFollowers} userToFollow={profile} user={props.user} /> 
  : <FollowButton setFollowers={setFollowers} userToFollow={profile} user={props.user} />}

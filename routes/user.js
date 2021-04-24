@@ -19,18 +19,15 @@ router.put('/edit/:id', (req, res, next) => {
 // upload photo to Cloudinary
 // https://www.youtube.com/watch?v=Rw_QeJLnCK4
 // https://github.com/jamesqquick/cloudinary-react-and-node/blob/master/server/server.js
-router.post('/photo/upload', async (req, res) => {
+router.post('/photo/upload', async (req, res, next) => {
     const {imageUrl} = req.body
     // console.log('-------', req.body.imageUrl)
     const uploadResponse = await cloudinary.uploader.upload(imageUrl, {
         upload_preset: 'ml_default' // set folder name/presets on Cloudinary
     })
-    
     console.log("uplooad resuponse", uploadResponse);
-    res.json({ msg: 'done ', secure_url: uploadResponse.secure_url  });
+    res.json({secure_url: uploadResponse.secure_url  });
 })
-
-
 
 
 
