@@ -53,13 +53,13 @@ const uploadImage = theImage => {
 }
 
 
-
+console.log(imageUrl)
 
     return (
         <div style={{backgroundColor: 'violet'}}>
             <form onSubmit={handleSubmit}>
             <img src={imageUrl} alt="profile picture" style={{height: "300px"}}/>
-
+        <h1 style={{color: "gray"}}>the photo thing is broken, it uploads te last thing selected (preview doc) but never the current</h1>
            <h1>upload foto</h1>
            {/* <button onClick={setUserPic(imageUrl)}> clicke me last</button> */}
            <h2>image url : {imageUrl}</h2>
@@ -75,5 +75,3 @@ const uploadImage = theImage => {
 }
 
 export default UploadPhoto
-
-
