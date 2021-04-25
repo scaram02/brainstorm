@@ -1,7 +1,20 @@
 import React, { useState } from 'react'
+import axios from 'axios'
+
+const EditBio = ({getTheProfile, profile, setBio, bio}) => {
 
 
-const EditBio = ({handleSubmit, profile, setBio, bio}) => {
+
+    const handleSubmit = e => {
+        e.preventDefault()
+        
+        if (!bio.bio)return;
+
+        axios.put(`/api/user/edit/${profile._id}`, {
+            bio: bio
+        })
+        .then((res) => getTheProfile())
+    }
 
 
 
@@ -10,6 +23,8 @@ const EditBio = ({handleSubmit, profile, setBio, bio}) => {
 
         setBio({...bio.bio, [name]: value})
     }
+
+    
 
     return (
         <div>

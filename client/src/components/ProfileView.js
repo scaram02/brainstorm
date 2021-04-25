@@ -9,10 +9,6 @@ import brain from '../assets/profile-icons/brain.png'
 
 const ProfileView = props => {
 
-
-// maybe the profile image needs to be a child component with props
-
-
     const [profile, setProfile] = useState([])
     const [allThoughts, setAllThoughts] = useState([])
     const [loading, setLoading] = useState(true)
@@ -20,7 +16,7 @@ const ProfileView = props => {
     const [showEdit, setShowEdit] = useState(false)
     const [profilePic, setProfilePic] = useState('')
     const [bio, setBio] = useState('')
-    // const [bio, setBio] = useState({bio: ''})
+
 
 
     const getTheProfile = () => {
@@ -32,7 +28,6 @@ const ProfileView = props => {
             setFollowers(res.data.followers)
             setProfilePic(res.data.imageUrl)
             setBio({bio: res.data.bio})
-            // setBio(res.data.bio)
             setLoading(false)
         })
         .then(
@@ -41,7 +36,6 @@ const ProfileView = props => {
         )
     }
 
-console.log("bio: ", bio)
     const toggleEdit = () => {
         setShowEdit(!showEdit)
     }
@@ -66,8 +60,10 @@ console.log("bio: ", bio)
                </div>
                 <h2> {followers.length} followers</h2>
                 <h1>bio: {profile.bio}</h1>
+
               {allThoughts.length? (
-              allThoughts.filter((t) => t.user.username === profile.username).map((t, i) => (
+              allThoughts.filter((t) => t.user.username === profile.username)
+              .map((t, i) => (
                   <div key={i}>
                 <h1>{t.thought}</h1>
                       </div>
@@ -78,8 +74,15 @@ console.log("bio: ", bio)
 
 {/* show follow/unfollow button */}
  {followers.includes(props.user._id)? 
- <UnfollowButton  followers={followers} setFollowers={setFollowers} userToFollow={profile} user={props.user} /> 
- : <FollowButton setFollowers={setFollowers} userToFollow={profile} user={props.user} />}
+ <UnfollowButton  
+ followers={followers} 
+ setFollowers={setFollowers} 
+ userToFollow={profile} 
+ user={props.user} /> 
+ : <FollowButton 
+ setFollowers={setFollowers} 
+ userToFollow={profile} 
+ user={props.user} />}
 
         </div>
 }
