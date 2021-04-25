@@ -15,7 +15,7 @@ import ProfileView from './components/ProfileView'
 const App = props => {
 
 const blankThought = {thought: '', comments: []}
-const [thought, setThought] = useState(blankThought)
+const [thought, setThought] = useState(blankThought) // isnt thsi just passing a blank thought to editthought
 const [user, setUser] = useState(props.user)
 const [allThoughts, setAllThoughts] = useState([])
 

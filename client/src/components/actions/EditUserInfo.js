@@ -3,10 +3,10 @@ import React, {useState, useEffect} from 'react'
 import EditBio from '../forms/EditBio'
 import UploadPhoto from './UploadPhoto'
 
-const EditUserInfo = ({profile, profilePic, setProfilePic}) => {
+const EditUserInfo = ({profile, profilePic, setProfilePic, bio, setBio, getTheProfile}) => {
 
 
-    const [bio, setBio] = useState({bio: ''})
+    
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -14,7 +14,7 @@ const EditUserInfo = ({profile, profilePic, setProfilePic}) => {
         axios.put(`/api/user/edit/${profile._id}`, {
             bio: bio
         })
-        .then((res) => console.log("change me frontend"))
+        .then((res) => getTheProfile())
     }
 
 

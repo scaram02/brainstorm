@@ -19,6 +19,7 @@ const ProfileView = props => {
     const [followers, setFollowers] = useState([])
     const [showEdit, setShowEdit] = useState(false)
     const [profilePic, setProfilePic] = useState('')
+    const [bio, setBio] = useState('')
     // const [bio, setBio] = useState({bio: ''})
 
 
@@ -30,6 +31,7 @@ const ProfileView = props => {
             setProfile(res.data)
             setFollowers(res.data.followers)
             setProfilePic(res.data.imageUrl)
+            setBio({bio: res.data.bio})
             // setBio(res.data.bio)
             setLoading(false)
         })
@@ -39,7 +41,7 @@ const ProfileView = props => {
         )
     }
 
-
+console.log("bio: ", bio)
     const toggleEdit = () => {
         setShowEdit(!showEdit)
     }
@@ -58,10 +60,9 @@ const ProfileView = props => {
                 <img src={profilePic} style={{height: '150'}} alt="Error: Try submitting your profile pic again"/>
 
                 <h1>Profile: {profile.username}</h1>
-                {/* <h1 onClick={toggleEdit}>Toggle Edit </h1> */}
                 <div style={{backgroundColor: 'tan'}}>
                     {isSameUser && <button onClick={toggleEdit}>edit profile</button>}
-               {showEdit && <EditUserInfo profile={profile} profilePic={profilePic} setProfilePic={setProfilePic}/>}
+               {showEdit && <EditUserInfo profile={profile} profilePic={profilePic} setProfilePic={setProfilePic} bio={bio} setBio={setBio} getTheProfile={getTheProfile}/>}
                </div>
                 <h2> {followers.length} followers</h2>
                 <h1>bio: {profile.bio}</h1>

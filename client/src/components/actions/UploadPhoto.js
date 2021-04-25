@@ -58,7 +58,7 @@ const handleSubmit = e => {
 }
 
 
-console.log(imageUrl)
+// console.log(imageUrl)
 
     return (
         <div style={{backgroundColor: 'violet'}}>
