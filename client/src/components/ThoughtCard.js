@@ -6,6 +6,11 @@ import DeleteButton from './buttons/DeleteButton'
 
 const ThoughtCard = ({thought, user}) => {
 
+const photos = ['../profile-icons/brain.png', '../profile-icons/book.png', '../profile-icons/lightbulb.png', '../profile-icons/lightning.png', '../profile-icons/thought.png', '../profile-icons/key.png']
+const randomIcon = photos[Math.floor(Math.random() * photos.length)]
+const photo = thought.user.imageUrl? thought.user.imageUrl: randomIcon
+
+
     // userIds who liked this thought
     const [likes, setLikes] = useState([...thought.likes])
     
@@ -13,6 +18,7 @@ const ThoughtCard = ({thought, user}) => {
         <div style={{border: "4px solid gray"}}>
             <h1>hm</h1>
             <Link to={`/user/${thought.user.username}`}>{thought.user.username} thought of this</Link>
+            <img src={photo} style={{height: '100px'}} alt="Error: Try submitting your profile pic again"/>
             <Link to={`/thought/${thought._id}`}>
             <h1>{thought.thought}</h1>
             <h3>{thought.comments.length} comments</h3>

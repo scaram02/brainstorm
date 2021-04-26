@@ -5,9 +5,13 @@ import FollowButton from './buttons/FollowButton'
 import UnfollowButton from './buttons/UnfollowButton'
 import EditUserInfo from './actions/EditUserInfo'
 import UploadPhoto from './actions/UploadPhoto'
-import brain from '../assets/profile-icons/brain.png'
+// import brain from '../assets/profile-icons/brain.png'
 
 const ProfileView = props => {
+
+const photos = ['../profile-icons/brain.png', '../profile-icons/book.png', '../profile-icons/lightbulb.png', '../profile-icons/lightning.png', '../profile-icons/thought.png', '../profile-icons/key.png']
+const randomIcon = photos[Math.floor(Math.random() * photos.length)]
+
 
     const [profile, setProfile] = useState([])
     const [allThoughts, setAllThoughts] = useState([])
@@ -16,7 +20,6 @@ const ProfileView = props => {
     const [showEdit, setShowEdit] = useState(false)
     const [profilePic, setProfilePic] = useState('')
     const [bio, setBio] = useState('')
-
 
 
     const getTheProfile = () => {
@@ -46,12 +49,14 @@ const ProfileView = props => {
 
 
     const isSameUser = profile.username === props.user.username
+    const photo = profilePic? profilePic: randomIcon
 
     return (
         <div>
             {loading? <h1>loading...</h1> : 
             <div>
-                <img src={profilePic} style={{height: '150'}} alt="Error: Try submitting your profile pic again"/>
+                <img src={photo} style={{height: '450px'}} alt="Error: Try submitting your profile pic again"/>
+                {/* <img src= style={{height: '450px'}} alt="nopeee"/> */}
 
                 <h1>Profile: {profile.username}</h1>
                 <div style={{backgroundColor: 'tan'}}>
