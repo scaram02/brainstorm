@@ -34,11 +34,10 @@ router.post('/photo/upload', async (req, res, next) => {
 // photo => user
 router.put('/photo/:username', (req, res) => {
     const {imageUrl} = req.body
-    console.log("usr", req.params.username)
-    // console.log('backend imageurl only shows if already preview image though hm ---> : ', imageUrl)
+
     User.findOneAndUpdate({username: req.params.username},{imageUrl: req.body.imageUrl}, {new: true })
     .then((user) => res.json(user))
-        // .catch(err => res.status(500).json(err))
+    .catch(err => res.status(500).json(err))
 })
 
 
