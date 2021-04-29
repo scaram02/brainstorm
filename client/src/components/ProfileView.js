@@ -4,10 +4,9 @@ import axios from 'axios'
 import FollowButton from './buttons/FollowButton'
 import UnfollowButton from './buttons/UnfollowButton'
 import EditUserInfo from './actions/EditUserInfo'
-import UploadPhoto from './actions/UploadPhoto'
-// import brain from '../assets/profile-icons/brain.png'
 
 const ProfileView = props => {
+
 
 const photos = ['../profile-icons/brain.png', '../profile-icons/book.png', '../profile-icons/lightbulb.png', '../profile-icons/lightning.png', '../profile-icons/thought.png', '../profile-icons/key.png']
 const randomIcon = photos[Math.floor(Math.random() * photos.length)]
@@ -20,6 +19,7 @@ const randomIcon = photos[Math.floor(Math.random() * photos.length)]
     const [showEdit, setShowEdit] = useState(false)
     const [profilePic, setProfilePic] = useState('')
     const [bio, setBio] = useState('')
+
 
 
     const getTheProfile = () => {
@@ -57,7 +57,7 @@ const randomIcon = photos[Math.floor(Math.random() * photos.length)]
             <div>
                 <img src={photo} style={{height: '450px'}} alt="Error: Try submitting your profile pic again"/>
                 {/* <img src= style={{height: '450px'}} alt="nopeee"/> */}
-
+               
                 <h1>Profile: {profile.username}</h1>
                 <div style={{backgroundColor: 'tan'}}>
                     {isSameUser && <button onClick={toggleEdit}>edit profile</button>}

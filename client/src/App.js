@@ -12,6 +12,7 @@ import ProfileView from './components/ProfileView'
 
 
 
+
 const App = props => {
 
 const blankThought = {thought: '', comments: []}
@@ -45,6 +46,7 @@ const setCurrentUser = user => {
 {user?
            (
              <div>
+
            <Route
               exact
               path="/feed"

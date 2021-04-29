@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import axios from 'axios'
+import {Button} from 'react-bootstrap'
 
 const UnlikeButton = ({user, thoughtToLike, likes, setLikes}) => {
 
@@ -19,7 +20,7 @@ const UnlikeButton = ({user, thoughtToLike, likes, setLikes}) => {
     return (
         <div>
 
-<button onClick={() => unlikeThought(user._id)}>Un the like</button>
+<Button onClick={() => unlikeThought(user._id)}>Un the like</Button>
 
         </div>
     )

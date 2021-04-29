@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import axios from 'axios'
+import {Button} from 'react-bootstrap'
 
 const LikeButton = ({user, thoughtToLike, likes, setLikes}) => {
 
@@ -14,24 +15,26 @@ const LikeButton = ({user, thoughtToLike, likes, setLikes}) => {
     }
 
 
-    const unlikeThought = userId => {
-        axios.post(`/api/like/unlike/${thoughtToLike._id}`, {likes: userId})
-        .then(() => {
-            console.log('also fix this lol')
-            // const filteredLikes = likes.filter((l) => l != userId)
-            // setLikes(filteredLikes)
+    // const unlikeThought = userId => {
+    //     axios.post(`/api/like/unlike/${thoughtToLike._id}`, {likes: userId})
+    //     .then(() => {
+    //         console.log('also fix this lol')
+    //         // const filteredLikes = likes.filter((l) => l != userId)
+    //         // setLikes(filteredLikes)
 
-        })
-        .catch(err => console.log(err))
-    }
+    //     })
+    //     .catch(err => console.log(err))
+    // }
 
 
+
+
+// this could 100% be combined with UnlikeButton
 
     return (
         <div>
 
-<button onClick={() => likeThought(user._id)}>Like</button>  
-{/* <button onClick={() => unlikeThought(user._id)}>Un the like</button> */}
+<Button onClick={() => likeThought(user._id)}>Like</Button>  
 
         </div>
     )
