@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import Comments from './Comments'
+import Loading from "./Loading"
 
 const ThoughtView = props => {
 
 const [thought, setThought] = useState(props.thought)
+const [loading, setLoading] = useState(true)
 
 console.log('thoughttttttt', thought)
 
@@ -15,21 +17,32 @@ const getTheThought = () => {
     .then(res => {
         setThought(res.data)
     })
+    .then(() => setLoading(false))
 }
 
+console.log("thought", thought)
 
 useEffect(() => {
     getTheThought()
 })
+
     return (
         <div>
+            {loading? <Loading /> : 
+            <div>
+        <img src={thought.user.imageUrl} alt=""/>
+          <h1>{thought.user.username}</h1>
            <h1>{thought.thought}</h1>
+           {/* <h2>{thought.likes.length} likes</h2> */}
            <Comments thought={thought} 
            getTheThought={getTheThought} 
            user={props.user} thought={thought} 
            allThoughts={props.allThoughts} 
            setAllThoughts={props.setAllThoughts}/>
         </div>
+}
+        </div>
+           
     )
 }
 

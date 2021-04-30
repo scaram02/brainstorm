@@ -1,42 +1,17 @@
-.feed-container {
-   display: flex;
-   flex-direction: column;
-   border: 8px solid orange;
-   height: 100vh;
-   overflow: auto;
+.thought-card {
+    margin: 20px;
 }
 
-.renameMe {
-    width: 70%;
+.profile-pic {
+    height: 80px;
+    width: 80px
 }
 
-.addThought {
-    display: flex;
-    flex-direction: column;
-    border: 3px solid purple;
-    width: 100%;
-    /* justify-content: center; */
-    /* align-items: center */
+.thought-link{
+    color: green;
 }
 
-
-input {
-    height: 70px;
-}
-
-.thought-container {
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
-}
-
-.thought {
-    border: 3px solid green;
-    width: 50%;
-    border-radius: 6px;
-}
-
-a:hover {
-    text-decoration: none;
+.thought-link:hover {
+    color: purple;
+    text-decoration: none;;
 }

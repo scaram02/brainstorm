@@ -9,6 +9,7 @@ import ThoughtView from './components/ThoughtView'
 import './App.css';
 import axios from 'axios'
 import ProfileView from './components/ProfileView'
+import Nav from './components/Nav'
 
 
 
@@ -46,7 +47,7 @@ const setCurrentUser = user => {
 {user?
            (
              <div>
-
+           <Nav />
            <Route
               exact
               path="/feed"

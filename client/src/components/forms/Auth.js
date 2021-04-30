@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {Alert} from 'react-bootstrap'
 
 const Auth = (props) => {
 
@@ -34,9 +35,9 @@ const Auth = (props) => {
         <button>{props.buttonText}</button>
         <div>
               {error && (
-                <p className="alert" variant="danger">
+                <Alert className="alert" variant="danger">
                   {error}
-                </p>
+                </Alert>
               )}
             </div>
           </form>

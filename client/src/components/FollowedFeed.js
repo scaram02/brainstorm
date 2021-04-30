@@ -20,8 +20,6 @@ const FollowedFeed = ({user, likes, setLikes}) => {
         axios.get(`/api/thought/followed/:${userId}`)
         .then(res => {
             setFeedThoughts(res.data)
-            // const likedPosts = res.data.filter((t) => t.likes.includes(user._id)).map((t) => t._id)
-            // setLikes(likedPosts)
         })
         .then(setLoading(false))
     }
@@ -38,6 +36,7 @@ const FollowedFeed = ({user, likes, setLikes}) => {
     return (
        
         <div>
+            {/* <Loading/> */}
              {loading? <Loading/> :
              <div>
             <h1>folloed feed</h1>

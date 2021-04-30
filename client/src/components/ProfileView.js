@@ -31,12 +31,12 @@ const randomIcon = photos[Math.floor(Math.random() * photos.length)]
             setFollowers(res.data.followers)
             setProfilePic(res.data.imageUrl)
             setBio({bio: res.data.bio})
-            setLoading(false)
         })
         .then(
             axios.get(`/api/thought`)
             .then(res => setAllThoughts(res.data))
         )
+        .then(() => setLoading(false))
     }
 
     const toggleEdit = () => {
@@ -58,7 +58,7 @@ const randomIcon = photos[Math.floor(Math.random() * photos.length)]
                 <img src={photo} style={{height: '450px'}} alt="Error: Try submitting your profile pic again"/>
                 {/* <img src= style={{height: '450px'}} alt="nopeee"/> */}
                
-                <h1>Profile: {profile.username}</h1>
+                {/* <h1>Profile: {profile.username}</h1> */}
                 <div style={{backgroundColor: 'tan'}}>
                     {isSameUser && <button onClick={toggleEdit}>edit profile</button>}
                {showEdit && <EditUserInfo profile={profile} profilePic={profilePic} setProfilePic={setProfilePic} bio={bio} setBio={setBio} getTheProfile={getTheProfile}/>}

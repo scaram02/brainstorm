@@ -17,7 +17,10 @@ const thoughtSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "User"
     }
-}
+},
+{
+    timestamps: true
+  }
 );
 
 const Thought = mongoose.model("Thought", thoughtSchema);
