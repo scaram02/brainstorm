@@ -9,7 +9,7 @@ const EditUserInfo = ({profile, profilePic, setProfilePic, bio, setBio, getThePr
     return (
         <div style={{border: "3px solid blue"}}>
             <h1>EditUserInfo component</h1>
-            <UploadPhoto user={profile} profilePic={profilePic} setProfilePic={setProfilePic}/>
+            <UploadPhoto user={profile} getTheProfile={getTheProfile} />
             <EditBio getTheProfile={getTheProfile} profile={profile} bio={bio} setBio={setBio}/>
         </div>
     )

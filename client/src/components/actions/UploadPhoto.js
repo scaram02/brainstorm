@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 
-const UploadPhoto = ({user, profilePic, setProfilePic}) => {
+const UploadPhoto = ({user, getTheProfile}) => {
 
 
 const [fileInput, setFileInput] = useState('')
@@ -53,7 +53,7 @@ const handleSubmit = e => {
     
     axios.put(`/api/user/photo/${user.username}`,
         {imageUrl: imageUrl})
-        .then(res => setProfilePic(res.data.imageUrl))
+        .then(() => getTheProfile())
         .catch(err => console.log(err))
 }
 

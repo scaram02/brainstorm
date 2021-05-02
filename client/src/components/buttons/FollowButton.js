@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import '../../stylesheets/profile.css'
+// import '../../stylesheets/profile.css'
 
 const FollowButton = ({ user, userToFollow, setFollowers}) => {
 

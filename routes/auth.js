@@ -3,6 +3,10 @@ const router = express.Router();
 const User = require("../models/User");
 const bcryptjs = require("bcryptjs");
 
+const photos = ['../profile-icons/brain.png', '../profile-icons/book.png', '../profile-icons/lightbulb.png', '../profile-icons/lightning.png', '../profile-icons/thought.png', '../profile-icons/key.png']
+
+
+
 
 router.post("/signup", (req, res) => {
   const { username, password, following, followers} = req.body;
@@ -29,11 +33,14 @@ router.post("/signup", (req, res) => {
           return bcryptjs.hash(password, salt);
         })
         .then(hash => {
+          const randomIcon = photos[Math.floor(Math.random() * photos.length)]
+          
           return User.create({ 
             username: username, 
             password: hash, 
             following: following, 
             followers: followers,
+            imageUrl: randomIcon
           });
         })
         .then(newUser => {

@@ -8,8 +8,8 @@ import EditUserInfo from './actions/EditUserInfo'
 const ProfileView = props => {
 
 
-const photos = ['../profile-icons/brain.png', '../profile-icons/book.png', '../profile-icons/lightbulb.png', '../profile-icons/lightning.png', '../profile-icons/thought.png', '../profile-icons/key.png']
-const randomIcon = photos[Math.floor(Math.random() * photos.length)]
+// const photos = ['../profile-icons/brain.png', '../profile-icons/book.png', '../profile-icons/lightbulb.png', '../profile-icons/lightning.png', '../profile-icons/thought.png', '../profile-icons/key.png']
+// const randomIcon = photos[Math.floor(Math.random() * photos.length)]
 
 
     const [profile, setProfile] = useState([])
@@ -17,7 +17,7 @@ const randomIcon = photos[Math.floor(Math.random() * photos.length)]
     const [loading, setLoading] = useState(true)
     const [followers, setFollowers] = useState([])
     const [showEdit, setShowEdit] = useState(false)
-    const [profilePic, setProfilePic] = useState('')
+    // const [profilePic, setProfilePic] = useState('')
     const [bio, setBio] = useState('')
 
 
@@ -29,7 +29,7 @@ const randomIcon = photos[Math.floor(Math.random() * photos.length)]
         .then(res => {
             setProfile(res.data)
             setFollowers(res.data.followers)
-            setProfilePic(res.data.imageUrl)
+            // setProfilePic(res.data.imageUrl)
             setBio({bio: res.data.bio})
         })
         .then(
@@ -49,19 +49,21 @@ const randomIcon = photos[Math.floor(Math.random() * photos.length)]
 
 
     const isSameUser = profile.username === props.user.username
-    const photo = profilePic? profilePic: randomIcon
+    // const photo = profilePic? profilePic: randomIcon
+
+// hey maybe the list of thougthts should be another component and then importbootstrap for card
 
     return (
         <div>
             {loading? <h1>loading...</h1> : 
             <div>
-                <img src={photo} style={{height: '450px'}} alt="Error: Try submitting your profile pic again"/>
+                <img src={profile.imageUrl} style={{height: '450px'}} alt="Error: Try submitting your profile pic again"/>
                 {/* <img src= style={{height: '450px'}} alt="nopeee"/> */}
                
                 {/* <h1>Profile: {profile.username}</h1> */}
                 <div style={{backgroundColor: 'tan'}}>
                     {isSameUser && <button onClick={toggleEdit}>edit profile</button>}
-               {showEdit && <EditUserInfo profile={profile} profilePic={profilePic} setProfilePic={setProfilePic} bio={bio} setBio={setBio} getTheProfile={getTheProfile}/>}
+               {showEdit && <EditUserInfo profile={profile} getTheProfile={getTheProfile}  bio={bio} setBio={setBio} getTheProfile={getTheProfile}/>}
                </div>
                 <h2> {followers.length} followers</h2>
                 <h1>bio: {profile.bio}</h1>
