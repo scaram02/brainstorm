@@ -7,7 +7,7 @@ import Loading from './Loading'
 
 
 
-const AllThoughts = ({user, allThoughts, setAllThoughts}) => {
+const AllThoughts = ({user, allThoughts, setAllThoughts,}) => {
 
     const [loading, setLoading] = useState(true)
 

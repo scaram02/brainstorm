@@ -15,20 +15,18 @@ const AddThought = props => {
 
        axios
        .post('/api/thought', {
-      // why wouldnt this destructure
            thought: thought.thought,
            comments: thought.comments,
            likes: thought.likes,
            user: props.user
        })
        .then(data => {
-           console.log("----SUBMITTED----: ", data.data)
            props.setAllThoughts(...props.allThoughts, data.data)
        })
        .catch( err => console.log(err))
     }
 
-    const submitButton = "Submittt"
+    const submitButton = "Add thought!"
 
     return (
         <div className='renameMe'>

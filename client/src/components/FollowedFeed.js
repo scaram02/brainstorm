@@ -4,10 +4,10 @@ import {Link} from 'react-router-dom'
 import DeleteButton from './buttons/DeleteButton'
 import ThoughtList from './ThoughtList'
 import Loading from './Loading'
+import '../stylesheets/feed.css'
 
 
-
-const FollowedFeed = ({user, likes, setLikes}) => {
+const FollowedFeed = ({user, likes, setLikes, }) => {
 
     const userId = user._id
 

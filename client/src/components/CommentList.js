@@ -32,7 +32,7 @@ const CommentList = props => {
         </>
     )
 
-    return props.thought? <div>{commentList}</div> : <div>nope</div>
+    return props.thought? <div>{commentList}</div> : <div>No commments yet</div>
 }
 
 export default CommentList

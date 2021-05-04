@@ -13,7 +13,7 @@ const DeleteThought = props => {
     .catch(err => console.log(err))
     }
 
-const deleteButton = (props.user.username === props.thought.user.username) && <button onClick={deleteThought}>Delete this thought</button>
+const deleteButton = (props.user.username === props.thought.user.username) && <button className="button" onClick={deleteThought}>Delete this thought</button>
 
     return (
         <div>

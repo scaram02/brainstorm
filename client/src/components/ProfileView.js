@@ -4,6 +4,11 @@ import axios from 'axios'
 import FollowButton from './buttons/FollowButton'
 import UnfollowButton from './buttons/UnfollowButton'
 import EditUserInfo from './actions/EditUserInfo'
+import ThoughtCard from './ThoughtCard'
+import ThoughtForm from './forms/ThoughtForm'
+import ProfileNav from './ProfileNav'
+import '../stylesheets/feed.css'
+
 
 const ProfileView = props => {
 
@@ -49,14 +54,14 @@ const ProfileView = props => {
 
 
     const isSameUser = profile.username === props.user.username
-    // const photo = profilePic? profilePic: randomIcon
 
-// hey maybe the list of thougthts should be another component and then importbootstrap for card
+// make the classes for the thoughts lsit the same as those on the Feed so they can be stolen from feed.css, then rename feed.css
 
     return (
         <div>
             {loading? <h1>loading...</h1> : 
             <div>
+                <ProfileNav username={profile.username}/>
                 <img src={profile.imageUrl} style={{height: '450px'}} alt="Error: Try submitting your profile pic again"/>
                 {/* <img src= style={{height: '450px'}} alt="nopeee"/> */}
                
@@ -71,7 +76,8 @@ const ProfileView = props => {
               {allThoughts.length? (
               allThoughts.filter((t) => t.user.username === profile.username)
               .map((t, i) => (
-                  <div key={i}>
+                  <div key={i} className="thought-card-container">
+                {/* <ThoughtCard user={t.user} thought={t}/> */}
                 <h1>{t.thought}</h1>
                       </div>
               ))) : <h1>nothing to display</h1>} 

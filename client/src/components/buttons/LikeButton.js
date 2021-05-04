@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import axios from 'axios'
-import {Button} from 'react-bootstrap'
 
 const LikeButton = ({user, thoughtToLike, likes, setLikes}) => {
 
@@ -30,11 +29,12 @@ const LikeButton = ({user, thoughtToLike, likes, setLikes}) => {
 
 
 // this could 100% be combined with UnlikeButton
+// move button styles to their own stylesheet?
 
     return (
         <div>
 
-<Button onClick={() => likeThought(user._id)}>Like</Button>  
+<button className="button"  onClick={() => likeThought(user._id)}>Like</button>  
 
         </div>
     )

@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import Comments from './Comments'
 import Loading from "./Loading"
+import ProfileNav from './ProfileNav'
+import '../stylesheets/thought-view.css'
 
 const ThoughtView = props => {
 
@@ -30,7 +32,8 @@ useEffect(() => {
         <div>
             {loading? <Loading /> : 
             <div>
-        <img src={thought.user.imageUrl} alt=""/>
+                <ProfileNav user={props.user.username}/>
+        <img src={thought.user.imageUrl} alt="profile picture" className='profile-pic'/>
           <h1>{thought.user.username}</h1>
            <h1>{thought.thought}</h1>
            {/* <h2>{thought.likes.length} likes</h2> */}

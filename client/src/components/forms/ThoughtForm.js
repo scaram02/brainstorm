@@ -1,4 +1,5 @@
 import React from 'react'
+import '../../stylesheets/feed.css'
 
 
 const ThoughtForm = props => {
@@ -24,7 +25,7 @@ const ThoughtForm = props => {
             placeholder='your thought here'
             onChange={handleInputChange}/>
            
-            <button>{props.submitButton}</button>
+            <button className="button">{props.submitButton}</button>
             </form>
             </div>
         )

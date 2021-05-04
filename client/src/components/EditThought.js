@@ -29,12 +29,12 @@ const handleSubmit = e => {
         // comments: thought.comments, // commented out in April
         // user: props.user
     })
-   .then((res) => console.log(res.status)) // 200? mmm
+   .then(props.setAllThoughts()) 
    .then(props.history.push('/feed'))
    .catch((err) => console.loc(err))
 }
 
-const submitButton = "edit"
+const submitButton = "Edit thought!"
 
 return (
     <div>
