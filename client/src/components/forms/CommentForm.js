@@ -1,4 +1,5 @@
 import React from 'react'
+import '../../stylesheets/comments.css'
 
 const CommentForm = props => {
 
@@ -22,7 +23,7 @@ console.log("ll comments", props.allComments)
             placeholder='comment'
             onChange={handleInputChange}/>
            
-            <button>coment</button>
+            <button>Add comment</button>
             </form>
         </div>
     )
