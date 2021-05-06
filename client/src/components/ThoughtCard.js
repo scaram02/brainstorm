@@ -5,6 +5,7 @@ import UnlikeButton from './buttons/UnlikeButton'
 import DeleteButton from './buttons/DeleteButton'
 import {Card} from 'react-bootstrap'
 import '../stylesheets/feed.css'
+import like from '../images/brainlike.png'
 
 const ThoughtCard = ({thought, user}) => {
 
@@ -25,6 +26,7 @@ const ThoughtCard = ({thought, user}) => {
         <div className="thought-card-container">
 
             <img src={thought.user.imageUrl} className='profile-pic' alt="Profile picture"/>
+            <img src={like} alt="like"/>
             <Link to={`/user/${thought.user.username}`} className="profile-link">{thought.user.username} thought of this</Link>
          
             <Link to={`/thought/${thought._id}`} className="thought-link">

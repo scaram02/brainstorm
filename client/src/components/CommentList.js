@@ -11,21 +11,21 @@ const CommentList = props => {
         axios.put(`/api/comments/${props.thought._id}`, {commentId: commentId})
         .then(() => {
             props.getTheThought()
-            // reload all the thoughts here
+            // reload all the thoughts here?
         })
     }
 
-
+  
 
     const commentList = (
         <>
         {props.thought.comments && props.thought.comments.map((c) => {
- 
+              const sameUserMadeComment = props.user.username == c.user.username
             return (
                 <div key={c._id}>
                     <h1>{c.comment}</h1>
-                    <h4 style={{color: "green"}}>{props.user.username == c.user.username? "You" : c.user.username} made this</h4>
-                    {props.user.username === c.user.username? <button onClick={()=> deleteComment(c._id)}>delete me</button> : <div/>}
+                    <h4 style={{color: "green"}}>{sameUserMadeComment? "You" : c.user.username} made this</h4>
+                    {sameUserMadeComment? <button onClick={()=> deleteComment(c._id)}>delete me</button> : <div/>}
                 </div>
             )
         })}
