@@ -1,0 +1,16 @@
+.nav-container {
+    height: 50px;
+    width: 100vw;
+    background-color: darkslategray;
+}
+
+.welcome {
+    float: right;
+    color: navy;
+    font-size: 18px;
+}
+
+.welcome:hover {
+    text-decoration: none;
+    color: navy;
+}

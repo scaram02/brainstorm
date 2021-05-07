@@ -61,11 +61,11 @@ const ProfileView = props => {
         <div>
             {loading? <h1>loading...</h1> : 
             <div>
-                <ProfileNav username={profile.username}/>
+                <ProfileNav username={props.user.username}/>
                 <img src={profile.imageUrl} style={{height: '450px'}} alt="Error: Try submitting your profile pic again"/>
                 {/* <img src= style={{height: '450px'}} alt="nopeee"/> */}
                
-                {/* <h1>Profile: {profile.username}</h1> */}
+                <h1>Profile: {profile.username}</h1>
                 <div style={{backgroundColor: 'tan'}}>
                     {isSameUser && <button onClick={toggleEdit}>edit profile</button>}
                {showEdit && <EditUserInfo profile={profile} getTheProfile={getTheProfile}  bio={bio} setBio={setBio} getTheProfile={getTheProfile}/>}

@@ -10,7 +10,7 @@ return (
         {/* <Link to='/feed'>home</Link> */}
         
         <p onClick={loadFeed}>{feedToggle}</p>
-        <h1>Welcome, {username}</h1>
+        <Link to={`/user/${username}`}>Welcome, {username}</Link>
 
     </div>
 )
