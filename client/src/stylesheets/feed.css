@@ -46,6 +46,10 @@
     text-decoration: none;;
 }  */
 
+.likebulb {
+    height: 45px
+}
+
 .button {
     border: none;
     background-color: rgb(80, 96, 134);

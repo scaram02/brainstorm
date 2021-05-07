@@ -24,7 +24,7 @@ const ProfileView = props => {
     const [showEdit, setShowEdit] = useState(false)
     // const [profilePic, setProfilePic] = useState('')
     const [bio, setBio] = useState('')
-
+    // const [likes, setLikes] = useState()
 
 
     const getTheProfile = () => {
@@ -75,10 +75,10 @@ const ProfileView = props => {
 
               {allThoughts.length? (
               allThoughts.filter((t) => t.user.username === profile.username)
-              .map((t, i) => (
-                  <div key={i} className="thought-card-container">
+              .map((t) => (
+                  <div key={t._id} className="thought-card-container">
                 {/* <ThoughtCard user={t.user} thought={t}/> */}
-                <h1>{t.thought}</h1>
+                <Link to={`/thought/${t._id}`}>{t.thought}</Link>
                       </div>
               ))) : <h1>nothing to display</h1>} 
 

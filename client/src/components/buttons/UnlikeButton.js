@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import axios from 'axios'
+import like from '../../images/like.png'
 
 
 const UnlikeButton = ({user, thoughtToLike, likes, setLikes}) => {
@@ -20,8 +21,8 @@ const UnlikeButton = ({user, thoughtToLike, likes, setLikes}) => {
     return (
         <div>
 
-<button className="button" onClick={() => unlikeThought(user._id)}>Un the like</button>
-
+{/* <button className="button" >Un the like</button> */}
+<img src={like} alt="" onClick={() => unlikeThought(user._id)} className="likebulb"/>
         </div>
     )
 }

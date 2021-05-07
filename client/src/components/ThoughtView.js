@@ -10,7 +10,7 @@ const ThoughtView = props => {
 const [thought, setThought] = useState(props.thought)
 const [loading, setLoading] = useState(true)
 
-console.log('thoughttttttt', thought)
+
 
 const getTheThought = () => {
     const id = props.match.params.id
@@ -32,7 +32,7 @@ useEffect(() => {
         <div>
             {loading? <Loading /> : 
             <div>
-                <ProfileNav user={props.user.username}/>
+                <ProfileNav username={props.user.username}/>
         <img src={thought.user.imageUrl} alt="profile picture" className='profile-pic'/>
           <h1>{thought.user.username}</h1>
            <h1>{thought.thought}</h1>
