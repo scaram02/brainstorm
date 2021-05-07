@@ -4,6 +4,14 @@
     height: 100vh
 } */
 
+.feed-container {
+    background-image: url('../images/beepbeepboop.jpg');
+    /* background-image: url('../images/blueprint.jpg'); */
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+}
+
 .thought-card-container {
     margin: 20px;
     background-color: rgb(189, 186, 186);

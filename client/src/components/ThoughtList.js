@@ -3,7 +3,6 @@ import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import DeleteButton from './buttons/DeleteButton'
 
-
 import ThoughtCard from './ThoughtCard'
 
 

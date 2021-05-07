@@ -1,11 +1,14 @@
 .nav-container {
     height: 50px;
-    width: 100vw;
+    max-width: 100vw;
     background-color: darkslategray;
+
 }
 
 .welcome {
-    float: right;
+    /* float: right; */
+    position: absolute;
+    right: 45px;
     color: navy;
     font-size: 18px;
 }
@@ -14,3 +17,4 @@
     text-decoration: none;
     color: navy;
 }
+
