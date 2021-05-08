@@ -5,6 +5,7 @@ import AllThoughts from './AllThoughts'
 import FollowedFeed from './FollowedFeed'
 import FeedNav from './FeedNav'
 import '../stylesheets/feed.css'
+import Loading from './Loading'
 
 
 
@@ -35,7 +36,9 @@ const Feed = props => {
             user={props.user}
                   /> 
                   : 
-            <FollowedFeed  user={props.user}/>  }
+            <FollowedFeed  user={props.user}/>  
+            // <Loading />
+            }
             
            
                   

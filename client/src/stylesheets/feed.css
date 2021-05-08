@@ -5,16 +5,18 @@
 } */
 
 .feed-container {
-    background-image: url('../images/beepbeepboop.jpg');
-    /* background-image: url('../images/blueprint.jpg'); */
-    height: 100vh;
-    background-position: center;
-    background-size: cover;
+    /* background-image: url('../images/beepbeepboop.jpg'); */
+    /* height: 100vh; */
+    /* background-position: center; */
+    /* background-size: cover; */
+    
 }
 
+
+
 .thought-card-container {
-    margin: 20px;
-    background-color: rgb(189, 186, 186);
+    margin: 20px 50px;
+    background-color: rgb(172, 169, 169);
     /* border-radius: 5px; */
 }
 
@@ -32,13 +34,13 @@
 .profile-pic {
     /* height: 60px;
     width: 60px; */
-    margin: 20px 10px
+    margin: 10px
 }
 
 .profile-link  {
     color: rgb(80, 96, 134);
     text-decoration: none;
-    font-size: 18px
+    font-size: 20px
 }
 
 .profile-link:hover {
@@ -66,7 +68,7 @@
 }
 
 .footer {
-    background-color: rgb(156, 154, 154);
+    background-color: rgba(139, 138, 138, 0.9);
     height: 40px;
     color: rgb(95, 93, 93)
 }
