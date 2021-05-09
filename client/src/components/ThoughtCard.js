@@ -5,7 +5,7 @@ import UnlikeButton from './buttons/UnlikeButton'
 import DeleteButton from './buttons/DeleteButton'
 import {Card} from 'react-bootstrap'
 import '../stylesheets/feed.css'
-import like from '../images/like.png'
+import edit from '../images/edit.png'
 
 const ThoughtCard = ({thought, user}) => {
 
@@ -24,29 +24,36 @@ const ThoughtCard = ({thought, user}) => {
     
     return (
         <div className="thought-card-container">
-
+            <div className='thought-card-all'>
             <img src={thought.user.imageUrl} className='profile-pic' alt="Profile picture"/>
-           
+            <div className="main-content" >
             <Link to={`/user/${thought.user.username}`} className="profile-link">{thought.user.username} thought of this</Link>
          
             <Link to={`/thought/${thought._id}`} className="thought-link">
-           <h1>{thought.thought}</h1>
+           <p>{thought.thought}</p>
             </Link>
 
-
+            <div  className="button-container">
             {(likes.includes(user._id))? <UnlikeButton setLikes={setLikes} likes={likes} thoughtToLike={thought} user={user} /> : 
             <LikeButton setLikes={setLikes} likes={likes} thoughtToLike={thought} user={user} />}
             
           {user.username === thought.user.username && 
-           <Link to={`/thought/edit/${thought._id}`}>Having second thoughts?</Link>}
+           <Link to={`/thought/edit/${thought._id}`}> 
+           <img src={edit} alt="" className="delete-button"/></Link>
+           }
+          
+           
 
            <DeleteButton thought={thought} user={user}/>
+          </div>
+          </div> 
+          </div>
          <div className="footer">
          <Link to={`/thought/${thought._id}`}>{thought.comments.length} {commentWordS} | {likes.length} {likesWordS}</Link> 
          <p>{datePosted} </p>
-
-         </div>
-           
+        </div>
+         
+         
       
         </div>
     )

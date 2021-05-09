@@ -1,9 +1,21 @@
-import React from 'react'
+import React, {useState} from 'react'
 import axios from 'axios'
+import blackTrash from '../../images/trash-black.png'
+import redTrash from '../../images/trash-red.png'
 
 const DeleteThought = props => {
 
-    const deleteThought = () => {
+const [isHovered, setIsHovered] = useState(false)
+
+const setTrashColor = () => {
+    setIsHovered(!isHovered)
+}
+
+
+
+
+ const deleteThought = () => {
+
     const thoughtId = props.thought._id
     axios
     .delete(`api/thought/${thoughtId}`)
@@ -11,13 +23,26 @@ const DeleteThought = props => {
         console.log("deleted: ", thoughtId)
     })
     .catch(err => console.log(err))
-    }
+}
 
-const deleteButton = (props.user.username === props.thought.user.username) && <button className="button" onClick={deleteThought}>Delete this thought</button>
+
+
+
+
+const isSameUser = props.user.username === props.thought.user.username
+
+// const deleteButton = isSameUser && <img src={isHovered? redTrash : blackTrash} alt="delete button" onMouseOver={setTrashColor} onMouseOut={setTrashColor} onClick={deleteThought}/>
 
     return (
         <div>
-           {deleteButton}
+           {isSameUser && 
+           <img src={isHovered? redTrash : blackTrash} 
+           alt="delete button" 
+           onMouseOver={setTrashColor} 
+           onMouseOut={setTrashColor} 
+           onClick={deleteThought}
+           className="delete-button"/>
+}
         </div>
     )
 }
