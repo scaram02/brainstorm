@@ -22,7 +22,6 @@ const getTheThought = () => {
     .then(() => setLoading(false))
 }
 
-console.log("thought", thought)
 
 useEffect(() => {
     getTheThought()
@@ -32,9 +31,12 @@ useEffect(() => {
         <div>
             {loading? <Loading /> : 
             <div>
+               
                 <ProfileNav username={props.user.username}/>
-        <img src={thought.user.imageUrl} alt="profile picture" className='profile-pic'/>
+                <div className="author-container">
+          <img src={thought.user.imageUrl} alt="profile picture" className='profile-pic'/>
           <h1>{thought.user.username}</h1>
+          </div>
            <h1>{thought.thought}</h1>
            {/* <h2>{thought.likes.length} likes</h2> */}
            <Comments thought={thought} 

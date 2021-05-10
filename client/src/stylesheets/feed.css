@@ -86,10 +86,11 @@
 
 .button-container {
     display: flex;
+    justify-content: space-between;
 }
 
 .likebulb {
-    height: 50px;
+    height: 40px;
     margin-bottom: 10px;
     /* border: 1px solid green */
 }
@@ -102,7 +103,7 @@
 }
 
 .delete-button {
-    height: 40px;
+    height: 30px;
     /* width: 35px; */
     /* border: 1px solid green; */
     margin-top: 7px
