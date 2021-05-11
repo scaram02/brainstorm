@@ -39,7 +39,7 @@ const ThoughtCard = ({thought, user}) => {
             
           {user.username === thought.user.username && 
            <Link to={`/thought/edit/${thought._id}`}> 
-           <img src={edit} alt="" className="delete-button"/></Link>
+           <img src={edit} alt="" className="action-button"/></Link>
            }
           
            

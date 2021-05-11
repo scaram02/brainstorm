@@ -13,8 +13,7 @@ const setTrashColor = () => {
 
 
 
-
- const deleteThought = () => {
+const deleteThought = () => {
 
     const thoughtId = props.thought._id
     axios
@@ -27,11 +26,8 @@ const setTrashColor = () => {
 
 
 
-
-
 const isSameUser = props.user.username === props.thought.user.username
 
-// const deleteButton = isSameUser && <img src={isHovered? redTrash : blackTrash} alt="delete button" onMouseOver={setTrashColor} onMouseOut={setTrashColor} onClick={deleteThought}/>
 
     return (
         <div>
@@ -41,7 +37,7 @@ const isSameUser = props.user.username === props.thought.user.username
            onMouseOver={setTrashColor} 
            onMouseOut={setTrashColor} 
            onClick={deleteThought}
-           className="delete-button"/>
+           className="action-button"/>
 }
         </div>
     )

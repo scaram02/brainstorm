@@ -6,7 +6,7 @@ import DeleteButton from './buttons/DeleteButton'
 import ThoughtCard from './ThoughtCard'
 
 
-const ThoughtList2 = ({user, thoughtList, message}) => {
+const ThoughtList2 = ({user, thoughtList}) => {
 
 
 return (
@@ -15,7 +15,7 @@ return (
             <div key={thought._id}>
                 <ThoughtCard thought={thought} user={user} /> 
             </div>
-        )) : <h1>You are not following anyone yet</h1>}
+        )) : <h1>Nothing here yet</h1>}
     </div>
 )
 }

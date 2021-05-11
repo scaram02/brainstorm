@@ -15,7 +15,6 @@ const AllThoughts = ({user, allThoughts, setAllThoughts,}) => {
 const getAllThoughts = () => {
     axios.get(`/api/thought`)
             .then(res => {
-                console.log("res.data", res.data)
                 setAllThoughts(res.data)
 }).then(() => setLoading(false))}
 
@@ -29,7 +28,7 @@ const message = "Be the first to share your thoughts"
         <div>
             {loading? <Loading /> : 
             <div>
-       <h1>main feed</h1>
+       <h1>Explore Thoughts</h1>
        <ThoughtList thoughtList={allThoughts} user={user} message={message} />
        </div>
             }

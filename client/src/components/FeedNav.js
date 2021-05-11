@@ -8,13 +8,13 @@ const FeedNav = ({username, loadFeed, clicked}) => {
 
 const icon = clicked? following : explore
 const alt = clicked? "following icon" : 'explore icon'
+// const text = clicked? "Followed Thoughts" : "Explore"
 
 return (
     <div className="nav-container">
-        {/* <Link to='/feed'>home</Link> */}
-        
-        {/* <p onClick={loadFeed}>{feedToggle}</p> */}
+      
         <img className="feed-icon" src={icon} alt={alt} onClick={loadFeed}/>
+        {/* <p>{text}</p> */}
         <Link to={`/user/${username}`} className="welcome">Welcome, {username}</Link>
 
     </div>
