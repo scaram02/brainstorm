@@ -15,21 +15,6 @@ const LikeButton = ({user, thoughtToLike, likes, setLikes}) => {
     }
 
 
-    // const unlikeThought = userId => {
-    //     axios.post(`/api/like/unlike/${thoughtToLike._id}`, {likes: userId})
-    //     .then(() => {
-    //         console.log('also fix this lol')
-    //         // const filteredLikes = likes.filter((l) => l != userId)
-    //         // setLikes(filteredLikes)
-
-    //     })
-    //     .catch(err => console.log(err))
-    // }
-
-
-
-
-// this could 100% be combined with UnlikeButton
 // move button styles to their own stylesheet?
 
     return (

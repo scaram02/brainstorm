@@ -7,7 +7,9 @@ import EditUserInfo from './actions/EditUserInfo'
 import ThoughtCard from './ThoughtCard'
 import ThoughtForm from './forms/ThoughtForm'
 import ProfileNav from './ProfileNav'
-import '../stylesheets/feed.css'
+// import '../stylesheets/feed.css'
+import '../stylesheets/profile.css'
+import edit from '../images/edit.png'
 
 
 const ProfileView = props => {
@@ -62,12 +64,12 @@ const ProfileView = props => {
             {loading? <h1>loading...</h1> : 
             <div>
                 <ProfileNav username={props.user.username}/>
-                <img src={profile.imageUrl} style={{height: '450px'}} alt="Error: Try submitting your profile pic again"/>
+                <img className="profile-picture" src={profile.imageUrl} style={{height: '450px'}} alt="Error: Try submitting your profile pic again"/>
                 {/* <img src= style={{height: '450px'}} alt="nopeee"/> */}
                
                 <h1>Profile: {profile.username}</h1>
                 <div style={{backgroundColor: 'tan'}}>
-                    {isSameUser && <button onClick={toggleEdit}>edit profile</button>}
+                    {isSameUser && <img src={edit} onClick={toggleEdit} alt="edit button" className="edit-button"/>}
                {showEdit && <EditUserInfo profile={profile} getTheProfile={getTheProfile}  bio={bio} setBio={setBio} getTheProfile={getTheProfile}/>}
                </div>
                 <h2> {followers.length} followers</h2>

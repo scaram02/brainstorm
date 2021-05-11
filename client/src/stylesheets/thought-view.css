@@ -3,7 +3,12 @@
     justify-content: center;
 }
 
-/* .profile-pic {
-    height: 100px;
-    width: 100px
+.profile-pic {
+    height: 120px;
+    width: 120px
+}
+
+/* textarea {
+    margin: 20%;
+
 } */
