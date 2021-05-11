@@ -19,12 +19,12 @@ const Feed = props => {
     }
 
 
-   const feedToggle = clicked? "Followed feed" : "Explore all"
+//    const feedToggle = clicked? "following" : "Explore all"
 
 
     return (
         <div className='feed-container'>
-            <FeedNav loadFeed={loadFeed} feedToggle={feedToggle} username={props.user.username}/>
+            <FeedNav loadFeed={loadFeed} clicked={clicked} username={props.user.username}/>
             <AddThought setAllThoughts={props.setAllThoughts} />
                  <div style={{backgroundColor: 'pink'}}>
                 {/* <p onClick={loadFeed}>{hm}</p> */}

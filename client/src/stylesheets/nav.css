@@ -1,17 +1,22 @@
 .nav-container {
     height: 50px;
-    max-width: 100vw;
     width: 100vw;
-    background-color: darkslategray;
+    background-color: rgb(211, 216, 216);
     display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    align-items: center
 }
 
 .welcome {
-    /* float: right; */
-    position: absolute;
-    right: 45px;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
     color: navy;
     font-size: 18px;
+    margin-right: 15px;
+    font-weight: bold
 }
 
 .welcome:hover {
@@ -19,3 +24,8 @@
     color: navy;
 }
 
+
+.feed-icon {
+    height: 45px;
+    margin-left: 5px
+}
