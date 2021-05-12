@@ -52,7 +52,7 @@ const ProfileView = props => {
 
     useEffect(() => {
         getTheProfile()
-    },[])
+    },[profile])
 
 
     const isSameUser = profile.username === props.user.username
@@ -63,7 +63,7 @@ const ProfileView = props => {
         <div>
             {loading? <h1>loading...</h1> : 
             <div>
-                <ProfileNav username={props.user.username}/>
+                <ProfileNav username={props.user.username} getTheProfile={getTheProfile}/>
                 <img className="profile-picture" src={profile.imageUrl} style={{height: '450px'}} alt="Error: Try submitting your profile pic again"/>
                 {/* <img src= style={{height: '450px'}} alt="nopeee"/> */}
                

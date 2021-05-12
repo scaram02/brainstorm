@@ -1,10 +1,9 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import '../stylesheets/nav.css'
 import feedIcon from '../images/following.png'
 
 const ProfileNav = ({username}) => {
-
 
 
 return (
