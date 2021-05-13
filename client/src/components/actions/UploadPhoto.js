@@ -61,7 +61,7 @@ const handleSubmit = e => {
 // console.log(imageUrl)
 
     return (
-        <div style={{backgroundColor: 'violet'}}>
+        <div>
             <form onSubmit={handleSubmit}>
            <h1>upload foto component</h1>
         

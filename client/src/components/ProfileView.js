@@ -10,6 +10,7 @@ import ProfileNav from './ProfileNav'
 // import '../stylesheets/feed.css'
 import '../stylesheets/profile.css'
 import edit from '../images/edit.png'
+import Loading from './Loading'
 
 
 const ProfileView = props => {
@@ -61,26 +62,30 @@ const ProfileView = props => {
 
     return (
         <div>
-            {loading? <h1>loading...</h1> : 
+            {loading? <Loading/> : 
             <div>
                 <ProfileNav username={props.user.username} getTheProfile={getTheProfile}/>
                 <img className="profile-picture" src={profile.imageUrl} style={{height: '450px'}} alt="Error: Try submitting your profile pic again"/>
-                {/* <img src= style={{height: '450px'}} alt="nopeee"/> */}
-               
+       
+       
+               <div className="profile-toggle-container">
                 <h1>Profile: {profile.username}</h1>
-                <div style={{backgroundColor: 'tan'}}>
-                    {isSameUser && <img src={edit} onClick={toggleEdit} alt="edit button" className="edit-button"/>}
+                {isSameUser && <img src={edit} onClick={toggleEdit} alt="edit button" className="edit-button"/>}
+                </div>
+
+                <div>
                {showEdit && <EditUserInfo profile={profile} getTheProfile={getTheProfile}  bio={bio} setBio={setBio} getTheProfile={getTheProfile}/>}
                </div>
+
                 <h2> {followers.length} followers</h2>
                 <h1>bio: {profile.bio}</h1>
 
               {allThoughts.length? (
               allThoughts.filter((t) => t.user.username === profile.username)
               .map((t) => (
-                  <div key={t._id} className="thought-card-container">
-                {/* <ThoughtCard user={t.user} thought={t}/> */}
-                <Link to={`/thought/${t._id}`}>{t.thought}</Link>
+                  <div key={t._id} >
+                <ThoughtCard user={props.user} thought={t}/>
+                {/* <Link to={`/thought/${t._id}`}>{t.thought}</Link> */}
                       </div>
               ))) : <h1>nothing to display</h1>} 
 

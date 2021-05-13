@@ -2,6 +2,13 @@
     margin-top: 5%;
 }
 
+.profile-toggle-container {
+    background-color: green;
+    display: flex;
+    justify-content: center;
+}
+
 .edit-button {
-    height: 40px;
+    height: 30px;
+    margin: 10px
 }
