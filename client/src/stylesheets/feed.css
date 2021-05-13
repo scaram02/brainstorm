@@ -120,7 +120,8 @@
 .footer {
     background-color: rgba(139, 138, 138, 0.9);
     height: 40px;
-    color: rgb(95, 93, 93)
+    color: rgb(95, 93, 93);
+    width: 100%;
 }
 
 .footer a {
