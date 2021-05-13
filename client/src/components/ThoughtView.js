@@ -34,7 +34,7 @@ useEffect(() => {
                
             <Nav username={props.user.username}/>
             <div className="author-container">
-          <img src={thought.user.imageUrl} alt="profile picture" className='profile-pic'/>
+          <img src={thought.user.imageUrl} alt="profile picture" className='thought-profile-pic'/>
           <h1>{thought.user.username}</h1>
           </div>
            <h1>{thought.thought}</h1>

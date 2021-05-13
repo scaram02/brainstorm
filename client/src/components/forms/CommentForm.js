@@ -15,15 +15,15 @@ console.log("ll comments", props.allComments)
 
     return (
         <div>
-            <form onSubmit={props.handleSubmit}>
-            <textarea 
+            <form className="add-comment" onSubmit={props.handleSubmit}>
+            <input
             type="text" 
             name="comment" 
             value={props.comment.comment} 
-            placeholder='comment'
+            placeholder='Comment'
             onChange={handleInputChange}/>
            
-            <button>Add comment</button>
+            <button>Add comment!</button>
             </form>
         </div>
     )

@@ -3,12 +3,43 @@
     justify-content: center;
 }
 
-.profile-pic {
-    height: 120px;
-    width: 120px
+.author-container h1 {
+    margin-top: 100px;
+    margin-left: 20px
 }
 
-/* textarea {
-    margin: 20%;
+.thought-profile-pic {
+    margin-top: 70px;
+    height: 120px;
+    width: 120px;
+    overflow: hidden;
+    position: relative;
+}
 
-} */
+.add-comment {
+
+    border: 2px solid blue;
+    /* width: 100vw; */
+    display: flex;
+    flex-direction: column;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 70px;
+}
+
+
+.add-comment input {
+    height: 100px;
+    width: 100%;
+    padding: 20px;
+    padding-bottom: 75px;
+    font-size: 1.1em;
+    color: rgb(80, 96, 134);
+}
+
+
+.add-comment input::placeholder {
+    /* padding-left: 10px; */
+    padding-top: 0px;
+
+}

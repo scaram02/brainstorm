@@ -24,7 +24,7 @@ const CommentList = props => {
             return (
                 <div key={c._id}>
                     <h1>{c.comment}</h1>
-                    <h4 style={{color: "green"}}>{sameUserMadeComment? "You" : c.user.username} made this</h4>
+                    <h4>{sameUserMadeComment? "You" : c.user.username} made this</h4>
                     {sameUserMadeComment? <button onClick={()=> deleteComment(c._id)}>delete me</button> : <div/>}
                 </div>
             )
