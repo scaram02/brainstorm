@@ -26,7 +26,7 @@ const AddThought = props => {
        .catch( err => console.log(err))
     }
 
-    const submitButton = "Add thought!"
+    const submitButton = "Brainstorm!"
 
     return (
         <div className='renameMe'>

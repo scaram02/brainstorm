@@ -34,7 +34,7 @@ const FollowedFeed = ({user, likes, setLikes, }) => {
         <div>
              {loading? <Loading/> :
              <div>
-            <h1>Followed Thoughts</h1>
+            <h1 className="header">Followed thoughts</h1>
             <ThoughtList user={user} thoughtList={feedThoughts}/>
         </div>}
         </div> 

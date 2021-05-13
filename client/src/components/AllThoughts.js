@@ -28,7 +28,7 @@ const message = "Be the first to share your thoughts"
         <div>
             {loading? <Loading /> : 
             <div>
-       <h1>Explore Thoughts</h1>
+       <h1 className="header">Thoughts to explore</h1>
        <ThoughtList thoughtList={allThoughts} user={user} message={message} />
        </div>
             }

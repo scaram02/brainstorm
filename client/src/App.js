@@ -58,14 +58,14 @@ const setCurrentUser = user => {
                   user={user}
                   allThoughts={allThoughts}
                   setAllThoughts={setAllThoughts}
-                  // clearUser={this.setUser} 
+                 
               />
               )}/>
               <Route exact path="/thought/edit/:id" render={props => (
                 <EditThought {...props} 
                 allThoughts={allThoughts} 
                 setAllThoughts={setAllThoughts} 
-                
+                username={user.username}
                 thought={thought} /> )}/>
 
               <Route exact path="/thought/:id" render={props => (
@@ -75,7 +75,7 @@ const setCurrentUser = user => {
                 />)}/>
 
                 <Route exact path="/user/:username" render={props => (
-                <ProfileView {...props} user={user} allThoughts={allThoughts} setAllThoughts={setAllThoughts}/>)}/>
+                <ProfileView {...props} user={user} allThoughts={allThoughts} setAllThoughts={setAllThoughts}  clearUser={setCurrentUser} />)}/>
                 
               </div>
     )

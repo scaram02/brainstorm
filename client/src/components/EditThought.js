@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import ThoughtForm from './forms/ThoughtForm'
 import axios from 'axios'
+import Nav from './ProfileNav'
 
 const EditThought = props => {
 
@@ -38,7 +39,7 @@ const submitButton = "Edit thought!"
 
 return (
     <div>
-        <h1>hi edit me</h1>
+<Nav username={props.username}/>
 <ThoughtForm setAllThoughts={props.setAllThoughts} thought={thought} setThought={setThought} handleSubmit={handleSubmit} submitButton={submitButton}/>
     </div>
 )

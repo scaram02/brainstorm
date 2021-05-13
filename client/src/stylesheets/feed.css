@@ -1,8 +1,4 @@
-/* .feed-container {
-    background-color: rgb(95, 93, 93);
-    overflow: auto;
-    height: 100vh
-} */
+
 
 .feed-container {
     /* background-image: url('../images/beepbeepboop.jpg'); */
@@ -12,6 +8,11 @@
     
 }
 
+.header {
+    font-size: 2em;
+    margin-top: 15px;
+    color: rgb(219, 241, 119)
+}
 
 
 .thought-card-container {
@@ -42,20 +43,30 @@
     flex-direction: column;
     margin-left: 20%;
     margin-right: 20%;
-    margin-top: 70px
+    margin-top: 70px;
 }
+
 
 .addThought input {
     height: 100px;
     width: 100%;
-    /* margin: auto */
-    
+    padding: 20px;
+    padding-bottom: 75px;
+    font-size: 1.1em;
+    color: rgb(80, 96, 134);
 }
 
 
+.addThought input::placeholder {
+    /* padding-left: 10px; */
+    padding-top: 0px;
+
+}
+
 .profile-pic {
-    /* height: 60px;*/
+    /* fix this */
     min-width: 100px; 
+    max-height: 100px;
     width: 100px;
     height: 100px;
     margin: 20px;
@@ -107,7 +118,8 @@
     border: none;
     background-color: rgb(80, 96, 134);
     padding: 10px 15px;
-    color: rgb(219, 241, 119)
+    color: rgb(219, 241, 119);
+    font-size: 1.1em
 }
 
 .action-button {
