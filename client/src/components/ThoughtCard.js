@@ -6,6 +6,8 @@ import DeleteButton from './buttons/DeleteButton'
 import {Card} from 'react-bootstrap'
 import '../stylesheets/feed.css'
 import edit from '../images/edit.png'
+import axios from 'axios'
+
 
 const ThoughtCard = ({thought, user}) => {
 
@@ -21,6 +23,18 @@ const ThoughtCard = ({thought, user}) => {
 
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     const datePosted = `${months[parseInt(thought.updatedAt.slice(5,7))-1]} ${parseInt(thought.updatedAt.slice(8, 10))}, ${thought.updatedAt.slice(0, 4)}`
+
+    // const deleteThought = () => {
+
+    //     const thoughtId = thought._id
+    //     axios
+    //     .delete(`api/thought/${thoughtId}`)
+    //     .then(() => {
+    //         console.log("deleted: ", thoughtId)
+    //     })
+    //     .catch(err => console.log(err))
+    // }
+    
     
     return (
         <div className="thought-card-container">
@@ -44,7 +58,7 @@ const ThoughtCard = ({thought, user}) => {
           
            
 
-           <DeleteButton thought={thought} user={user}/>
+           <DeleteButton thought={thought} user={user} />
           </div>
           </div> 
           </div>

@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import axios from 'axios'
+// import DeleteButton from './DeleteButton'
+
 
 
 
@@ -22,9 +24,9 @@ const CommentList = props => {
         {props.thought.comments && props.thought.comments.map((c) => {
               const sameUserMadeComment = props.user.username == c.user.username
             return (
-                <div key={c._id}>
-                    <h1>{c.comment}</h1>
-                    <h4>{sameUserMadeComment? "You" : c.user.username} made this</h4>
+                <div key={c._id} className="comment">
+                    <h3>{sameUserMadeComment? "You" : c.user.username} commented:</h3>
+                    <h2>{c.comment}</h2>
                     {sameUserMadeComment? <button onClick={()=> deleteComment(c._id)}>delete me</button> : <div/>}
                 </div>
             )

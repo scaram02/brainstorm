@@ -64,7 +64,7 @@ const ProfileView = props => {
             {loading? <Loading/> : 
             <div>
                 <Nav username={props.user.username} getTheProfile={getTheProfile}  clearUser={props.clearUser} isSameUser={isSameUser}/>
-                <img className="profile-picture" src={profile.imageUrl} style={{height: '450px'}} alt="Error: Try submitting your profile pic again"/>
+                <img className="p-profile-picture" src={profile.imageUrl} alt="Error: Try submitting your profile pic again"/>
        
        
                <div className="profile-toggle-container">
@@ -102,9 +102,6 @@ const ProfileView = props => {
                 {/* <Link to={`/thought/${t._id}`}>{t.thought}</Link> */}
                       </div>
               ))) : <h1>nothing to display</h1>} 
-
-                
-                <Link to='/feed'>home</Link>
 
 
 
