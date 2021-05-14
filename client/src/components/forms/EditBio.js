@@ -29,7 +29,7 @@ const [bio, setBio] = useState(profile.bio)
  // richtig bio.bio
 
     return (
-        <div>
+        <div className="edit-bio">
             <form onSubmit={handleSubmit}>
                 <input type="text" name="bio" value={bio.bio || ''} placeholder="your bio here" onChange={handleInputChange}/>
                 {/* <input type="text" name="fake" value={fake.fake} placeholder="fake" onChange={handleInputChange}/> */}

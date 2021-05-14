@@ -19,11 +19,30 @@
 	opacity: 0;
 	overflow: hidden;
 	position: absolute;
-	z-index: -1; */
+	z-index: -1; */ 
+}
 
+.edit-bio {
+    border: 3px solid snow;
+    width: 100%;
+    /* display: flex;
+    justify-content: center;
+    align-items: center */
+}
 
-  
-    
+.edit-bio form{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    border: 2px solid gold;
+    /* justify-content: center;
+    justify-items: center; */
+}
+
+.edit-bio input {
+/* margin-right: 160px; */
+height: 50px;
+
 }
 
 
