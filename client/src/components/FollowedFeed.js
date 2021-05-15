@@ -19,7 +19,8 @@ const FollowedFeed = ({user, likes, setLikes, }) => {
     const getFollowedFeed = userId => {
         axios.get(`/api/thought/followed/:${userId}`)
         .then(res => {
-            setFeedThoughts(res.data)
+            const sortedThoughts = res.data.sort((a,b) => a.updatedAt - b.updatedAt).reverse()
+            setFeedThoughts(sortedThoughts)
         })
         .then(setLoading(false))
     }

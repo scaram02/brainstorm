@@ -15,7 +15,8 @@ const AllThoughts = ({user, allThoughts, setAllThoughts,}) => {
 const getAllThoughts = () => {
     axios.get(`/api/thought`)
             .then(res => {
-                setAllThoughts(res.data)
+                const sortedThoughts = res.data.sort((a,b) => a.updatedAt - b.updatedAt).reverse()
+                setAllThoughts(sortedThoughts)
 }).then(() => setLoading(false))}
 
 useEffect(() => {
