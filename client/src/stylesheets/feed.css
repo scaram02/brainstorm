@@ -83,6 +83,7 @@
 
 }
 
+
 .profile-link  {
     color: rgb(80, 96, 134);
     text-decoration: none;
@@ -91,6 +92,8 @@
 
 .profile-link:hover {
     text-decoration: none;
+    font-weight: bold;
+    color: rgb(80, 96, 134);
 }
 
 .thought-link{
@@ -98,10 +101,11 @@
     font-size: 28px
 }
 
-/* .thought-link:hover {
-    color: purple;
+.thought-link:hover {
+    /* font-weight: bold; */
+    color: rgb(80, 96, 134);
     text-decoration: none;;
-}  */
+} 
 
 .button-container {
     display: flex;
@@ -137,6 +141,10 @@
     padding: 10px;
     color: rgb(95, 93, 93);
     width: 100%;
+    display: flex;
+    justify-content: center;
+    /* justify-items: center; */
+    align-items: center;
 }
 
 .footer a {

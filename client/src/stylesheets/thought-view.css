@@ -7,7 +7,7 @@
     margin-top: 100px;
     margin-left: 20px;
     color: rgb(120, 144, 201);
-    font-size: 2em
+    font-size: 1.7em
 }
 
 .thought-profile-pic {
@@ -50,8 +50,19 @@
     margin: 20px 20%;
     justify-content: center;
     /* border: 2px solid blue */
-
+    font-size: 2em;
     color: rgb(219, 241, 119)
+}
+
+.trashio {
+    height: 30px;
+    width: 20px;
+    margin-left: 15px
+}
+
+.comment-by {
+    display: flex;
+    justify-content: center;
 }
 
 .comment {
@@ -61,6 +72,7 @@
 .comment h3 {
     color: rgb(172, 169, 169);
     font-size: 1em;
+    margin-top: 5px
 }
 
 .comment h2 {

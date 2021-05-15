@@ -22,26 +22,30 @@
 	z-index: -1; */ 
 }
 
+.bio {
+    font-size: 2em;
+    margin-top: 10px
+}
+
 .edit-bio {
-    border: 3px solid snow;
     width: 100%;
-    /* display: flex;
+     display: flex;
     justify-content: center;
-    align-items: center */
+    align-items: center 
 }
 
 .edit-bio form{
     display: flex;
     flex-direction: column;
     width: 50%;
-    border: 2px solid gold;
-    /* justify-content: center;
-    justify-items: center; */
+    /* border: 6px solid gold; */
+
 }
 
 .edit-bio input {
 /* margin-right: 160px; */
-height: 50px;
+height: 70px;
+margin-top: 30px;
 
 }
 
@@ -49,4 +53,5 @@ height: 50px;
 .profile-info {
     display: flex;
     justify-content: center;
+    margin-bottom: 10px;
 }

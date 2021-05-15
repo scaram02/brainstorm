@@ -77,22 +77,23 @@ const ProfileView = props => {
                </div>
 
                 <div className="profile-info">
-                <h2>{filteredThoughtsByAuthor.length} thought{s} |</h2>
-                <h2>{followers.length} followers</h2>
+                <h3>{filteredThoughtsByAuthor.length} thought{s} |</h3>
+                <h3>{followers.length} followers</h3>
                 </div>
+
                 {/* show follow/unfollow button */}
                 {followers.includes(props.user._id)? 
                 <UnfollowButton  
                  followers={followers} 
                  setFollowers={setFollowers} 
-                userToFollow={profile} 
+                 userToFollow={profile} 
                  user={props.user} /> 
                  : <FollowButton 
                  setFollowers={setFollowers} 
                 userToFollow={profile} 
                 user={props.user} />}
 
-                <h1>bio: {profile.bio}</h1>
+                <h2 className="bio">{profile.bio}</h2>
 
               {allThoughts.length? (
               allThoughts.filter((t) => t.user.username === profile.username)
