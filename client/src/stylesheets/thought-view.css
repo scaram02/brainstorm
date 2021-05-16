@@ -51,7 +51,7 @@
     justify-content: center;
     /* border: 2px solid blue */
     font-size: 2em;
-    color: rgb(219, 241, 119)
+    color: rgb(219, 241, 119);
 }
 
 .trashio {
@@ -79,3 +79,23 @@
     color: rgb(120, 144, 201);
 }
 
+
+
+/* tablet */
+@media screen and (max-width: 768px){
+
+    .add-comment {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .author-container {
+        margin-top: 20px;
+        margin-bottom: 40px
+    }
+
+    .add-comment {
+        margin-top: 40px
+    }
+    
+}

@@ -76,7 +76,7 @@
 
 .main-content {
    
-    border: 3px solid red;
+    /* border: 3px solid red; */
    /* width: 500px; */
     width: 100%;
     padding-top: 10px;
@@ -162,12 +162,30 @@
 /* tablet */
 @media screen and (max-width: 768px){
 
+    .thought-card-container {
+        margin: 20px 10%
+    }
+
     .thought-card-all{
-        flex-direction: column
+        flex-direction: column;
+        width: 85%
+    }
+
+    .addThought {
+        margin-left: 10%;
+        margin-right: 10%
     }
 
     .profile-link {
-        border: 3px solid green;
+        /* border: 3px solid green; */
         text-align: center
+    }
+
+    .profile-pic  {
+        margin: 50px auto 30px auto ;
+        max-height: 150px;
+        height: 150px;
+        max-width: 150px;
+        width: 150px
     }
 }
