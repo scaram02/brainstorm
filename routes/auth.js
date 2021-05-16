@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require("../models/User");
 const bcryptjs = require("bcryptjs");
 
-const photos = ['../profile-icons/brain.png', '../profile-icons/book.png', '../profile-icons/lightbulb.png', '../profile-icons/lightning.png', '../profile-icons/thought.png', '../profile-icons/key.png']
+const photos = ['../profile-icons/brain.png', '../profile-icons/book.png', '../profile-icons/lightbulb.png', '../profile-icons/lightning.png',  '../profile-icons/key.png']
 
 
 

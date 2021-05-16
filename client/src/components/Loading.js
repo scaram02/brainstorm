@@ -9,7 +9,7 @@ const Loading = () => {
               <Spinner animation="border" variant="warning" > 
               <span className="sr-only">Loading...</span>
               </Spinner>
-            <h1>Loading</h1>
+            <h1 style={{color: 'rgb(219, 241, 119)'}}>Loading</h1>
         </div>
     )
 }
