@@ -26,9 +26,7 @@ const Feed = props => {
         <div className='feed-container'>
             <FeedNav loadFeed={loadFeed} clicked={clicked} username={props.user.username}/>
             <AddThought setAllThoughts={props.setAllThoughts} />
-                 <div style={{backgroundColor: 'pink'}}>
-                {/* <p onClick={loadFeed}>{hm}</p> */}
-                      </div>
+        
 
             {clicked? 
             <AllThoughts allThoughts={props.allThoughts} 

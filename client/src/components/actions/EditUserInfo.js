@@ -7,7 +7,7 @@ const EditUserInfo = ({profile, profilePic, setProfilePic, bio, setBio, getThePr
 
 
     return (
-        <div style={{border: "3px solid blue"}}>
+        <div>
             <UploadPhoto user={profile} getTheProfile={getTheProfile} />
             <EditBio getTheProfile={getTheProfile} profile={profile} bio={bio} setBio={setBio}/>
         </div>

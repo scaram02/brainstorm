@@ -9,6 +9,8 @@ import ThoughtCard from './ThoughtCard'
 const ThoughtList2 = ({user, thoughtList}) => {
 
 
+
+
 return (
     <div>
         {thoughtList.length? thoughtList.map((thought) => (
