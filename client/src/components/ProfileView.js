@@ -57,6 +57,7 @@ const ProfileView = props => {
     const isSameUser = profile.username === props.user.username
     const filteredThoughtsByAuthor = allThoughts.filter((t) => t.user.username === profile.username)
     const s = filteredThoughtsByAuthor.length !== 1? 's' : ''
+    const followerS = followers.length !== 1? 'followers' : 'follower'
 // make the classes for the thoughts lsit the same as those on the Feed so they can be stolen from feed.css, then rename feed.css
 
     return (
@@ -78,7 +79,7 @@ const ProfileView = props => {
 
                 <div className="profile-info">
                 <h3>{filteredThoughtsByAuthor.length} thought{s} |</h3>
-                <h3>{followers.length} followers</h3>
+                <h3 style={{marginLeft: "5px"}}>{followers.length} {followerS}</h3>
                 </div>
 
                 {/* show follow/unfollow button */}

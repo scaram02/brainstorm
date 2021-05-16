@@ -66,7 +66,7 @@ const handleSubmit = e => {
         
            <input className="choose-file" type="file" onChange={handleFileChange} value={fileInput} accept="image/*"/> 
            {/* <label for="file">Choose a file</label> */}
-           <button type='submit'>Upload</button>
+           <button className="upload" type='submit'>Upload</button>
            </form>
            {/* show preview string of selected foto */}
            {previewSource && <img src={previewSource} alt="image preview" style={{height: "150px"}}/>}

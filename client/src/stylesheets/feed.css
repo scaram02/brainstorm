@@ -67,8 +67,8 @@
     /* fix this */
     min-width: 100px; 
     max-height: 100px;
-    width: 100px;
-    height: 100px;
+    /* width: 100px;
+    height: 100px; */
     margin: 20px;
     /* display: block; */
     object-position: center;
@@ -163,7 +163,7 @@
 @media screen and (max-width: 768px){
 
     .thought-card-container {
-        margin: 20px 10%
+        margin: 30px 10%
     }
 
     .thought-card-all{
@@ -173,7 +173,12 @@
 
     .addThought {
         margin-left: 10%;
-        margin-right: 10%
+        margin-right: 10%;
+        margin-top: 80px
+    }
+
+    .header {
+        margin: 30px auto
     }
 
     .profile-link {
@@ -182,10 +187,45 @@
     }
 
     .profile-pic  {
-        margin: 50px auto 30px auto ;
+        margin: 40px auto 15px auto ;
         max-height: 150px;
         height: 150px;
         max-width: 150px;
         width: 150px
+    }
+}
+
+
+/* mobile */
+@media screen and (max-width: 480px){
+    .thought-card-container {
+        margin: 20px 5%
+    }
+
+    .addThought{
+        margin-left: 5%;
+        margin-right: 5%
+    }
+
+    .profile-pic {
+        height: 100px;
+        width: 100px;
+        /* max-height: 100px; */
+        /* max-width: 100px; */
+        min-width: 100px;
+        min-height: 100px;
+        margin: 25px auto 0px auto
+    }
+
+    .profile-link {
+        font-size: 16px;
+    }
+
+    .thought-link {
+        font-size: 22px;
+    }
+
+    .button-container {
+        padding-top: 5px;
     }
 }
