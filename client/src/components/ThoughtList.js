@@ -11,28 +11,28 @@ const ThoughtList = ({user, thoughtList}) => {
 
     const userId = user._id
 
-    const [feedThoughts, setFeedThoughts] = useState([])
-    const [loading, setLoading] = useState(true)
+    // const [feedThoughts, setFeedThoughts] = useState([])
+    // const [loading, setLoading] = useState(true)
 
 
-    const getFollowedFeed = userId => {
-        axios.get(`/api/thought/followed/:${userId}`)
-        .then(res => {
-            const sortedThoughts = res.data.sort((a,b) => a.updatedAt - b.updatedAt).reverse()
-            setFeedThoughts(sortedThoughts)
-        })
-        .then(setLoading(false))
-    }
+    // const getFollowedFeed = userId => {
+    //     axios.get(`/api/thought/followed/:${userId}`)
+    //     .then(res => {
+    //         const sortedThoughts = res.data.sort((a,b) => a.updatedAt - b.updatedAt).reverse()
+    //         setFeedThoughts(sortedThoughts)
+    //     })
+    //     .then(setLoading(false))
+    // }
 
 
-      useEffect(() => {
-        getFollowedFeed(userId)
-    },[])
+    //   useEffect(() => {
+    //     getFollowedFeed(userId)
+    // },[])
 
 return (
     <div>
-        {loading? <Loading /> :
-        feedThoughts.length? feedThoughts.map((thought) => (
+        {/* {loading? <Loading /> : */}
+        {thoughtList.length? thoughtList.map((thought) => (
             <div key={thought._id}>
                 <ThoughtCard thought={thought} user={user} /> 
             </div>

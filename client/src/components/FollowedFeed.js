@@ -8,7 +8,25 @@ import '../stylesheets/feed.css'
 
 
 const FollowedFeed = ({user}) => {
+    const userId = user._id
 
+
+    const [feedThoughts, setFeedThoughts] = useState([])
+    const [loading, setLoading] = useState(true)
+
+
+    const getFollowedFeed = userId => {
+        axios.get(`/api/thought/followed/:${userId}`)
+        .then(res => {
+            const sortedThoughts = res.data.sort((a,b) => a.createdAt - b.createdAt).reverse()
+            setFeedThoughts(sortedThoughts)
+        })
+        .then(setLoading(false))
+    }
+
+    useEffect(() => {
+        getFollowedFeed(userId)
+    },[])
 
     return (
        
@@ -16,7 +34,7 @@ const FollowedFeed = ({user}) => {
           
              <div>
             <h1 className="header">Followed thoughts</h1>
-            <ThoughtList user={user} />
+            <ThoughtList user={user} thoughtList={feedThoughts}/>
         </div>
         </div> 
     )

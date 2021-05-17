@@ -4,7 +4,7 @@ import axios from 'axios'
 const EditBio = ({getTheProfile, profile}) => {
 
 // const [fake, setFake] = useState(profile.bio)
-const [bio, setBio] = useState(profile.bio)
+const [bio, setBio] = useState(profile.bio || '')
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -31,7 +31,7 @@ const [bio, setBio] = useState(profile.bio)
     return (
         <div className="edit-bio">
             <form onSubmit={handleSubmit}>
-                <input type="text" name="bio" value={bio.bio || ''} placeholder="your bio here" onChange={handleInputChange}/>
+                <input type="text" name="bio" value={bio.bio} placeholder="your bio here" onChange={handleInputChange}/>
                 {/* <input type="text" name="fake" value={fake.fake} placeholder="fake" onChange={handleInputChange}/> */}
                 <button>Edit bio</button>
             </form>

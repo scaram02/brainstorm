@@ -1,17 +1,22 @@
 .author-container {
     display: flex;
     justify-content: center;
+    /* border: 3px solid orange; */
+    padding-top: 0px;
+    margin-top: 5%;
+    align-items: center
 }
 
 .author-container h1 {
-    margin-top: 100px;
+    /* margin-top: 100px; */
     margin-left: 20px;
     color: rgb(120, 144, 201);
-    font-size: 1.7em
+    font-size: 1.7em;
+    /* margin-top: 50% */
 }
 
 .thought-profile-pic {
-    margin-top: 70px;
+    /* margin-top: 70px; */
     height: 120px;
     width: 120px;
     overflow: hidden;

@@ -21,7 +21,7 @@ require("./configs/passport");
 // IF YOU STILL DIDN'T, GO TO 'configs/passport.js' AND UN-COMMENT OUT THE WHOLE FILE
 
 mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://localhost/posts", {
+  .connect(process.env.ATLAS_URI || "mongodb://localhost/posts", {
     useNewUrlParser: true,
     useFindAndModify: false // ?????
   })
@@ -84,7 +84,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // default value for title local
-app.locals.title = "posts";
+app.locals.title = "brainstorm";
 
 // ROUTES MIDDLEWARE STARTS HERE:
 

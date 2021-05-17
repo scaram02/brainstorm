@@ -22,7 +22,7 @@ const ThoughtCard = ({thought, user}) => {
 
 
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-    const datePosted = `${months[parseInt(thought.updatedAt.slice(5,7))-1]} ${parseInt(thought.updatedAt.slice(8, 10))}, ${thought.updatedAt.slice(0, 4)}`
+    const datePosted = `${months[parseInt(thought.createdAt.slice(5,7))-1]} ${parseInt(thought.createdAt.slice(8, 10))}, ${thought.createdAt.slice(0, 4)}`
 
     // const deleteThought = () => {
 

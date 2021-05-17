@@ -8,6 +8,10 @@
     justify-content: center;
 }
 
+.profile-toggle-container h1 {
+   color: rgb(219, 241, 119);
+}
+
 .edit-button {
     height: 30px;
     margin: 10px
@@ -25,7 +29,8 @@
 
 .bio {
     font-size: 2em;
-    margin-top: 10px
+    margin-top: 10px;
+    color: rgb(219, 241, 119);
 }
 
 .edit-bio {
@@ -55,6 +60,7 @@ margin-top: 30px;
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
+    color: rgb(120, 144, 201);
 }
 
 /* tablet */

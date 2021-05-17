@@ -15,7 +15,8 @@ const AllThoughts = ({user, allThoughts, setAllThoughts,}) => {
 const getAllThoughts = () => {
     axios.get(`/api/thought`)
             .then(res => {
-                const sortedThoughts = res.data.sort((a,b) => a.updatedAt - b.updatedAt).reverse()
+                console.log('I BIMS, STILL THE DATA', res.data)
+                const sortedThoughts = res.data.sort((a,b) => a.createdAt - b.createdAt).reverse()
                 setAllThoughts(sortedThoughts)
 }).then(() => setLoading(false))}
 
@@ -24,6 +25,7 @@ useEffect(() => {
 },[]) 
 
 const message = "Be the first to share your thoughts"
+console.log('am I alllll the thoughs?', allThoughts)
 
     return (
         <div>
