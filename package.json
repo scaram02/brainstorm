@@ -3,14 +3,13 @@
   "version": "0.0.0",
   "private": true,
 
+ 
   "scripts": {
-    "dev": "react-scripts start",
-    "start": "serve -s build",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build"
-    },
+    "start": "node ./bin/www",
+    "dev": "DEBUG=project-management-server:* nodemon ./bin/www",
+    "dev-windows": "nodemon ./bin/www",
+    "stop": "taskkill -f -im node.exe"
+  },
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
