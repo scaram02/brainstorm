@@ -19,7 +19,7 @@ const deleteThought = () => {
     axios
     .delete(`api/thought/${thoughtId}`)
     .then(() => {
-        console.log("---deleted: ", thoughtId)
+        console.log("deleted: ", thoughtId)
     })
     .catch(err => console.log(err))
 }

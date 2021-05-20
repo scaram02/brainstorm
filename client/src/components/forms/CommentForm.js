@@ -21,7 +21,7 @@ const CommentForm = props => {
             placeholder='Comment'
             onChange={handleInputChange}/>
            
-            <button>Add comment</button>
+            <button>Add comment!</button>
             </form>
         </div>
     )

@@ -96,14 +96,14 @@ const ProfileView = props => {
 
                 <h2 className="bio">{profile.bio}</h2>
 
-              {allThoughts.length &&
+              {allThoughts.length? (
               allThoughts.filter((t) => t.user.username === profile.username)
               .map((t) => (
                   <div key={t._id} >
                 <ThoughtCard user={props.user} thought={t}/>
                 {/* <Link to={`/thought/${t._id}`}>{t.thought}</Link> */}
                       </div>
-              ))} 
+              ))) : <h1>nothing to display</h1>} 
 
 
 
