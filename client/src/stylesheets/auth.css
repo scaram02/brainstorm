@@ -1,0 +1,46 @@
+.auth-container {
+    background-color: white;
+    background-image: url('../images/desk.jpg');
+    background-size: cover;
+    height: 100vh;
+    background-position: center; 
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+
+}
+
+.auth-form {
+display: flex;
+flex-direction: column;
+width: 40vw;
+margin: auto;
+
+
+/* justify-items: center; */
+
+/* border: 2px solid black */
+}
+
+.auth-form input {
+    width: 100%;
+    height: 50px;
+    border: none;
+    margin-bottom: 20px;
+}
+
+
+
+.auth-form input::placeholder {
+    /* padding-left: 10px; */
+    padding-left: 10px;
+
+}
+
+.auth-container h1 {
+    font-size: 2em;
+    color: rgb(80, 96, 134);
+}

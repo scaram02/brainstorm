@@ -61,7 +61,7 @@ const ProfileView = props => {
 // make the classes for the thoughts lsit the same as those on the Feed so they can be stolen from feed.css, then rename feed.css
 
     return (
-        <div>
+        <div className="p-container">
             {loading? <Loading/> : 
             <div>
                 <Nav username={props.user.username} getTheProfile={getTheProfile}  clearUser={props.clearUser} isSameUser={isSameUser}/>

@@ -28,7 +28,7 @@ useEffect(() => {
 })
 
     return (
-        <div>
+        <div className="thought-view-container">
             {loading? <Loading /> : 
             <div>
                

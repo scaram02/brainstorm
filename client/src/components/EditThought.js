@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import ThoughtForm from './forms/ThoughtForm'
 import axios from 'axios'
 import Nav from './ProfileNav'
+import '../stylesheets/thought-view.css'
 
 const EditThought = props => {
 
@@ -38,7 +39,7 @@ const handleSubmit = e => {
 const submitButton = "Edit thought!"
 
 return (
-    <div>
+    <div className="thought-view-container">
 <Nav username={props.username}/>
 <ThoughtForm setAllThoughts={props.setAllThoughts} thought={thought} setThought={setThought} handleSubmit={handleSubmit} submitButton={submitButton}/>
     </div>

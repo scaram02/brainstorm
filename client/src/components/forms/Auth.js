@@ -29,9 +29,12 @@ const Auth = (props) => {
 
     return (
         <div>
-        <form onSubmit={handleSubmit}>
-        <input type="text" name="username" placeholder="username" value={user.username} onChange={handleInputChange}/>
+        <form className="auth-form" onSubmit={handleSubmit}>
+<div className="input-container">
+        <input type="text" name="username" placeholder="username" value={user.username} onChange={handleInputChange}/></div>
+        <div className="input-container">
         <input type="password" name="password" placeholder="password" value={user.password} onChange={handleInputChange}/>
+        </div>
         <button>{props.buttonText}</button>
         <div>
               {error && (

@@ -1,10 +1,13 @@
 
 
 .feed-container {
-    /* background-image: url('../images/beepbeepboop.jpg'); */
-    /* height: 100vh; */
-    /* background-position: center; */
-    /* background-size: cover; */
+    background-image: url('../images/wood2.jpg'); 
+    height: 100vh;
+    background-position: center;
+    background-size: cover; 
+    /* position: fixed; */
+    width: 100vw;
+    overflow: auto
     
 }
 
@@ -16,8 +19,14 @@
 
 
 .thought-card-container {
+    background-image: url('../images/paper4.png'); 
+
+    background-position: center;
+    background-size: cover; 
+    border: 2px solid gray;
+    /* opacity: .8; */
     margin: 20px 20%;
-    background-color: rgb(172, 169, 169);
+    /* background-color: rgb(172, 169, 169); */
     /* border-radius: 5px; */
     display: flex;
     flex-direction: column;
@@ -137,7 +146,7 @@
 }
 
 .footer {
-    background-color: rgba(139, 138, 138, 0.9);
+    background-color: rgba(139, 138, 138, 0.2);
     padding: 10px;
     color: rgb(95, 93, 93);
     width: 100%;
