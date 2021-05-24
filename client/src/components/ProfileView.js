@@ -9,7 +9,7 @@ import ThoughtForm from './forms/ThoughtForm'
 import Nav from './ProfileNav'
 // import '../stylesheets/feed.css'
 import '../stylesheets/profile.css'
-import edit from '../images/editlite.png'
+import edit from '../images/edit.png'
 import Loading from './Loading'
 
 
@@ -40,7 +40,9 @@ const ProfileView = props => {
         })
         .then(
             axios.get(`/api/thought`)
-            .then(res => setAllThoughts(res.data))
+            .then(res => {
+                const sortedThoughts = res.data.sort((a,b) => a.updatedAt - b.updatedAt).reverse()
+                setAllThoughts(sortedThoughts)})
         )
         .then(() => setLoading(false))
     }
@@ -69,7 +71,7 @@ const ProfileView = props => {
        
        
                <div className="profile-toggle-container">
-                <h1>{profile.username}</h1>
+                <h1>{profile.username[0].toUpperCase() + profile.username.slice(1)}</h1>
                 {isSameUser && <img src={edit} onClick={toggleEdit} alt="edit button" className="edit-button"/>}
                 </div>
 
@@ -82,8 +84,8 @@ const ProfileView = props => {
                 <h3 style={{marginLeft: "5px"}}>{followers.length} {followerS}</h3>
                 </div>
 
-                {/* show follow/unfollow button */}
-                {followers.includes(props.user._id)? 
+                {/* show follow/unfollow button but not for yourself */}
+                {!isSameUser? followers.includes(props.user._id)? 
                 <UnfollowButton  
                  followers={followers} 
                  setFollowers={setFollowers} 
@@ -92,7 +94,7 @@ const ProfileView = props => {
                  : <FollowButton 
                  setFollowers={setFollowers} 
                 userToFollow={profile} 
-                user={props.user} />}
+                user={props.user} /> : <div/>}
 
                 <h2 className="bio">{profile.bio}</h2>
 

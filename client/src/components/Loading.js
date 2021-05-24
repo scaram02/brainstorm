@@ -1,11 +1,12 @@
 import React from "react"
 import {Spinner} from 'react-bootstrap'
+import '../stylesheets/home.css'
 
 
 const Loading = () => {
 
     return (
-        <div>
+        <div className="loading">
               <Spinner animation="border" variant="warning" > 
               <span className="sr-only">Loading...</span>
               </Spinner>

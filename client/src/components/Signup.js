@@ -12,7 +12,7 @@ const buttonText = "Sign up"
 
     return (
         <div className="auth-container">
-        <h1>{buttonText}</h1>
+        {/* <h1>{buttonText}</h1> */}
 
          <Auth 
          authFunction={authFunction} 

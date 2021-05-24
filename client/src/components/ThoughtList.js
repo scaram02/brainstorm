@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import DeleteButton from './buttons/DeleteButton'
 import Loading from './Loading'
+import "../stylesheets/feed.css"
 
 import ThoughtCard from './ThoughtCard'
 
@@ -36,7 +37,7 @@ return (
             <div key={thought._id}>
                 <ThoughtCard thought={thought} user={user} /> 
             </div>
-        )) : <h1>Nothing here yet</h1>}
+        )) : <h1 className="nothing">Nothing here yet</h1>}
     </div>
 )
 }

@@ -16,8 +16,9 @@
 .auth-form {
 display: flex;
 flex-direction: column;
-width: 40vw;
+width: 35vw;
 margin: auto;
+/* padding-top: 30px; */
 
 
 /* justify-items: center; */
@@ -30,17 +31,41 @@ margin: auto;
     height: 50px;
     border: none;
     margin-bottom: 20px;
+    color: rgb(80, 96, 134);
+    padding-left: 15px
 }
 
-
-
-.auth-form input::placeholder {
-    /* padding-left: 10px; */
-    padding-left: 10px;
-
-}
 
 .auth-container h1 {
     font-size: 2em;
     color: rgb(80, 96, 134);
+    padding-bottom: 20px;
+    /* margin-top: 200px */
+}
+
+.auth-container a {
+    color: rgb(80, 96, 134);
+    margin-top: 10px
+}
+
+.auth-container a:hover {
+    text-decoration: none;
+    color: rgb(80, 96, 134);
+    font-weight: bold;
+}
+
+.alert {
+    margin-top: 20px;
+    /* backgro */
+}
+
+
+
+/* mobile */
+@media screen and (max-width: 480px){
+
+   .auth-form {
+    width: 65vw;
+ }
+
 }

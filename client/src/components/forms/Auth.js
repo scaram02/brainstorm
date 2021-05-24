@@ -30,6 +30,7 @@ const Auth = (props) => {
     return (
         <div>
         <form className="auth-form" onSubmit={handleSubmit}>
+          <h1>{props.buttonText}</h1>
 <div className="input-container">
         <input type="text" name="username" placeholder="username" value={user.username} onChange={handleInputChange}/></div>
         <div className="input-container">

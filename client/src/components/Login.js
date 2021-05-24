@@ -11,7 +11,7 @@ const buttonText = "Log in"
 
 return (
  <div className="auth-container">
- <h1>{buttonText}</h1>
+ {/* <h1>{buttonText}</h1> */}
 <Auth authFunction={authFunction} setCurrentUser={props.setCurrentUser} history={props.history} buttonText={buttonText} />
 <Link to="signup">or sign up instead</Link>
 </div>

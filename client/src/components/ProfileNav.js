@@ -22,7 +22,7 @@ return (
        <Link to="/" onClick={handleLogout}>
            <img src={logoutIcon} alt="logout icon" className="logout"/>
        </Link> :  
-       <Link to={`/user/${username}`} className="welcome">Welcome, {username}</Link>
+       <Link to={`/user/${username}`} className="welcome">Welcome, {username[0].toUpperCase() + username.slice(1)}</Link>
         }
 
     </div>

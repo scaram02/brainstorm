@@ -15,7 +15,7 @@ return (
       
         <img className="feed-icon" src={icon} alt={alt} onClick={loadFeed}/>
         {/* <p>{text}</p> */}
-        <Link to={`/user/${username}`} className="welcome">Welcome, {username}</Link>
+        <Link to={`/user/${username}`} className="welcome">Welcome, {username[0].toUpperCase() + username.slice(1)}</Link>
 
     </div>
 )
