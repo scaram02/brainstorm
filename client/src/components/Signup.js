@@ -20,7 +20,7 @@ const buttonText = "Sign up"
          history={props.history} 
          buttonText={buttonText}
          />
-         <Link to="/login">or log in instead</Link>
+         <Link to="/login">Or log in instead</Link>
         </div>
     )
 }

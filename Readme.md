@@ -9,8 +9,7 @@
 -CR*D comments on others' thoughts
 -Like others' thoughts
 -Follow other users to see only their thoughts, or explore all users' thoughts
-
-# To run the code:
+## To run the code:
 
 1. Fork or clone this repo
 2. Add a .env file in the root, then add your own `CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET`, and `CLOUDINARY_NAME`, as well as `ATLAS_URI`.

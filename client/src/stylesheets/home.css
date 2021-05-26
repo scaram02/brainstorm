@@ -10,24 +10,38 @@
     flex-direction: column;
     justify-content: center;
     align-items: center; 
-    border: 2px solid black
 }
 
 .home-text-container {
     /* background-color: rgb(245, 246, 247, .8); */
     /* padding: 2%; */
     color: rgb(46, 112, 46);
-    font-size: 1.2em
+    font-size: 1.2em;
 }
 
 .home-container h1 {
     color: rgb(80, 96, 134);
+    padding-top: 25px;
+    margin-bottom: 0px;
+    font-style: italic;
+    font-weight: bold
 }
 
 .loading {
-    margin-top: 20px
+    margin-top: 20px;
+    /* background-image: url('../images/wood2.jpg');
+    background-position: center;
+    background-size: cover; 
+    width: 100vw;
+    overflow: auto */
 }
 
 .home-container a {
     font-size: 1.2em;
+    color: rgb(46, 112, 46);
+}
+
+.home-container a:hover {
+    text-decoration: none;
+    color: rgb(80, 96, 134);
 }

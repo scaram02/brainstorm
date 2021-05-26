@@ -1,7 +1,9 @@
 .nav-container {
     height: 50px;
     width: 100vw;
-    background-color: rgb(211, 205, 205);
+    /* background-color: rgb(211, 205, 205); */
+
+    background-color: rgb(238, 235, 235);
     display: flex;
     justify-content: space-between;
     position: fixed;

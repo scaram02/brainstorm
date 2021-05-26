@@ -9,7 +9,7 @@
 }
 
 .p-profile-picture {
-    margin-top: 5%;
+    margin-top: 7%;
     height: 20em;
 }
 
@@ -19,7 +19,7 @@
 }
 
 .profile-toggle-container h1 {
-   color: rgb(219, 241, 119);
+    color: rgb(80, 96, 134);
 }
 
 .edit-button {
@@ -40,7 +40,7 @@
 .bio {
     font-size: 2em;
     margin-top: 10px;
-    color: rgb(219, 241, 119);
+    color: rgb(80, 96, 134);
 }
 
 .edit-bio {
@@ -70,7 +70,7 @@ margin-top: 30px;
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
-    color: rgb(120, 144, 201);
+    color: rgb(46, 112, 46);
 }
 
 /* tablet */
@@ -88,6 +88,11 @@ margin-top: 30px;
 
 /* mobile */
 @media screen and (max-width: 480px){
+
+    .p-profile-picture{
+        height: 250px;
+    }
+
     .choose-file {
         display: flex;
         /* justify-content: center; */

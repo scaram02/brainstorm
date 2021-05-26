@@ -14,7 +14,7 @@
 .header {
     font-size: 2em;
     margin-top: 15px;
-    color: rgb(219, 241, 119)
+    color: rgb(46, 112, 46);
 }
 
 
@@ -47,7 +47,7 @@
 
 .addThought {
 
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     /* width: 100vw; */
     display: flex;
     flex-direction: column;
@@ -58,6 +58,7 @@
 
 
 .addThought input {
+    border: none;
     height: 100px;
     width: 100%;
     padding: 20px;
@@ -135,7 +136,7 @@
     border: none;
     background-color: rgb(80, 96, 134);
     padding: 10px 15px;
-    color: rgb(219, 241, 119);
+    color: rgb(231, 229, 229);
     font-size: 1.1em
 }
 

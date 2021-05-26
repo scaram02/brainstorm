@@ -7,10 +7,10 @@ const Loading = () => {
 
     return (
         <div className="loading">
-              <Spinner animation="border" variant="warning" > 
+              <Spinner animation="border" variant="dark" > 
               <span className="sr-only">Loading...</span>
               </Spinner>
-            <h1 style={{color: 'rgb(219, 241, 119)'}}>Loading</h1>
+            <h1 style={{color: 'rgb(80, 96, 134)'}}>Loading</h1>
         </div>
     )
 }
