@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import '../../stylesheets/profile.css'
 
 const EditBio = ({getTheProfile, profile}) => {
 
@@ -31,7 +32,7 @@ const [bio, setBio] = useState(profile.bio || '')
     return (
         <div className="edit-bio">
             <form onSubmit={handleSubmit}>
-                <input type="text" name="bio" value={bio.bio} placeholder="your bio here" onChange={handleInputChange}/>
+                <input type="text" name="bio" value={bio.bio} placeholder="your bio here" onChange={handleInputChange} className="bio-input"/>
                 {/* <input type="text" name="fake" value={fake.fake} placeholder="fake" onChange={handleInputChange}/> */}
                 <button>Edit bio</button>
             </form>

@@ -26,7 +26,7 @@ const FollowedFeed = ({user}) => {
 
     useEffect(() => {
         getFollowedFeed(userId)
-    },[])
+    })
 
     return (
        

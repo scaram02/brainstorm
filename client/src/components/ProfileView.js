@@ -105,7 +105,7 @@ const ProfileView = props => {
                 <ThoughtCard user={props.user} thought={t}/>
                 {/* <Link to={`/thought/${t._id}`}>{t.thought}</Link> */}
                       </div>
-              ))) : <h1>nothing to display</h1>} 
+              ))) : <h1 style={{color: 'rgb(80, 96, 134)'}}>Nothing to display yet!</h1>} 
 
 
 

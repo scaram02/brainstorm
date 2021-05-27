@@ -63,8 +63,10 @@
 /* margin-right: 160px; */
 height: 70px;
 margin-top: 30px;
+border: none;
+color: rgb(80, 96, 134);
+padding-left: 10px;
 }
-
 
 .profile-info {
     display: flex;
@@ -95,10 +97,6 @@ margin-top: 30px;
 
     .choose-file {
         display: flex;
-        /* justify-content: center; */
-        /* justify-items: center; */
-       
-        /* border: 4px solid turquoise; */
         margin: 5% auto 5% auto;
         width: 60%
     }
@@ -112,5 +110,7 @@ margin-top: 30px;
         width: 100%;
         margin-left: 5%;
         margin-right: 5%;
+        border: none;
     }
+
     }

@@ -41,7 +41,7 @@ const ThoughtCard = ({thought, user}) => {
             <div className='thought-card-all'>
             <img src={thought.user.imageUrl} className='profile-pic' alt="Profile picture"/>
             <div className="main-content">
-            <Link to={`/user/${thought.user.username}`} className="profile-link">From the desk of: {thought.user.username}</Link>
+            <Link to={`/user/${thought.user.username}`} className="profile-link">From the desk of: {thought.user.username[0].toUpperCase() + thought.user.username.slice(1)}</Link>
             <Link to={`/thought/${thought._id}`} className="thought-link">
            <p>{thought.thought}</p>
             </Link>

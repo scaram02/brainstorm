@@ -22,7 +22,7 @@ const getAllThoughts = () => {
 
 useEffect(() => {
  getAllThoughts()
-},[]) 
+},) 
 
 const message = "Be the first to share your thoughts"
 console.log('am I alllll the thoughs?', allThoughts)
