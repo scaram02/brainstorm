@@ -2,7 +2,11 @@
 
 ## Deployed version coming soon
 
-![Brainstorm Demo GIF](Brainstorm.gif)
+![Brainstorm Demo GIF](BrainstormDemo.gif)
+
+![Brainstorm Demo GIF following and adding bio](BrainstormDemo2.gif)
+
+![Brainstorm Demo GIF commenting](BrainstormDemo3.gif)
 
 ## What can a user do?
 
