@@ -28,8 +28,6 @@ const handleSubmit = e => {
     axios
     .put(`/api/thought/edit/${thought._id}`, {
         thought: thought.thought,
-        // comments: thought.comments, // commented out in April
-        // user: props.user
     })
    .then(props.setAllThoughts()) 
    .then(props.history.push('/feed'))

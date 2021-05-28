@@ -1,13 +1,10 @@
 import React, {useState, useEffect} from 'react'
-import {Link} from 'react-router-dom'
 import axios from 'axios'
 import FollowButton from './buttons/FollowButton'
 import UnfollowButton from './buttons/UnfollowButton'
 import EditUserInfo from './actions/EditUserInfo'
 import ThoughtCard from './ThoughtCard'
-import ThoughtForm from './forms/ThoughtForm'
 import Nav from './ProfileNav'
-// import '../stylesheets/feed.css'
 import '../stylesheets/profile.css'
 import edit from '../images/edit.png'
 import Loading from './Loading'
@@ -15,7 +12,6 @@ import Loading from './Loading'
 
 
 const ProfileView = props => {
-    // clearUser={setCurrentUser}
 
 
 
@@ -24,9 +20,8 @@ const ProfileView = props => {
     const [loading, setLoading] = useState(true)
     const [followers, setFollowers] = useState([])
     const [showEdit, setShowEdit] = useState(false)
-    // const [profilePic, setProfilePic] = useState('')
     const [bio, setBio] = useState('')
-    // const [likes, setLikes] = useState()
+
 
 
     const getTheProfile = () => {
@@ -60,7 +55,6 @@ const ProfileView = props => {
     const filteredThoughtsByAuthor = allThoughts.filter((t) => t.user.username === profile.username)
     const s = filteredThoughtsByAuthor.length !== 1? 's' : ''
     const followerS = followers.length !== 1? 'followers' : 'follower'
-// make the classes for the thoughts lsit the same as those on the Feed so they can be stolen from feed.css, then rename feed.css
 
     return (
         <div className="p-container">
@@ -103,7 +97,7 @@ const ProfileView = props => {
               .map((t) => (
                   <div key={t._id} >
                 <ThoughtCard user={props.user} thought={t}/>
-                {/* <Link to={`/thought/${t._id}`}>{t.thought}</Link> */}
+
                       </div>
               ))) : <h1 style={{color: 'rgb(80, 96, 134)'}}>Nothing to display yet!</h1>} 
 

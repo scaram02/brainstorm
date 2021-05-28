@@ -19,8 +19,6 @@ const Feed = props => {
     }
 
 
-//    const feedToggle = clicked? "following" : "Explore all"
-
 
     return (
         <div className='feed-container'>
@@ -35,7 +33,6 @@ const Feed = props => {
                   /> 
                   : 
             <FollowedFeed  user={props.user}/>  
-            // <Loading />
             }
             
            
